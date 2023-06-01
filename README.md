@@ -1,43 +1,61 @@
-# Linux常用命令
+---
+description: 宝塔域名迁移到目标服务器
+---
 
-服务第一，技术第二 docker ps -a 进入容器 docker attach id docker exec -it 243c32535da7 /bin/bash docker rm id
+# 宝塔迁移自建服务器
 
-mysql 运行容器 docker run -it xxx /bin/bash docker run -itd --name mysql-test -p 3306:3306 -e MYSQL\_ROOT\_PASSWORD=123456 mysql
+宝塔域名迁移到目标服务器 11.22.33.44 NGINX CDN申请测试二级域名->添加ns解析 migration.xxx.com migration.xxx.com cname xxx.vip.
 
-docker start <容器 ID> docker stop <容器 ID>
+安装代码发布工具
 
-1）lsof -i:端口号，即可查看某一端口的占用情况， 2)netstat -lntup | grep 端口号 用于查看指定端口号的进程情况，
+Nginx配置文件目录 /usr/local/nginx1.23/conf/vhosts
 
-ps aux --sort -pmem|head
+Nginx资源文件目录 /data/front/miss-daohang
 
-find / -name 'tomcat7' -type d find / -name 'server.xml' -print
+目标服务器开scp端口 linux scp -P xxxx /var/www/test.php root@11.22.33.44:/data/front/
 
-dpkg --print-architecture arch unzip tar xvf file
+window 打开git输入命令：
 
-SecretKey xfas6FPQ4sad8s37
+&#x20;cd C:/work/xxx.zip scp -P 22 xxx.zip root@11.22.33.44:/data/front/
 
-参数启动 ./Yearning run --push "IP地址" -port "8000" nohup command &
+输入密码：xxxxx
 
-初始化成功! 用户名: admin 密码:Yearning\_admin 请通过./Yearning run 运行, 默认地址:http://8.212.47.250:8000
+解压 unzip xxxzip
 
-systemctl status firewalld firewall-cmd --state systemctl start firewalld firewall-cmd --zone=public --add-port=8000/tcp --permanent firewall-cmd --reload netstat -ntlp\
-netstat -ntulp |grep 8000\
-systemctl stop firewalld
+Nginx添加配置文件 /usr/local/nginx1.23/conf/vhosts
 
-sudo systemctl restart service
+`root@ip-1:/usr/local/nginx1.23/conf/vhosts# touch miss-navigation-page.conf`&#x20;
 
-curl curl -d
+`直接访问静态文件`&#x20;
 
-find / -type f -name "_.log" | xargs grep "ERROR" find . -name "_.log" | xargs grep "error"
+`server { listen 80; server_name migration.kjishaunembng.com; location / { root /data/front/miss-navigation-page; index index.html index.htm; }`
 
-一、查看 nginx 安装目录 ps -ef | grep nginx
+`}`
 
-二、查看配置文件 nginx.conf 路径 nginx -t 这条命令也可以用于检查配置文件是否正确。
+通过CDN添加端口访问，好处是以后方便添加域名（不用修改NGINX配置文件） 本质上是域名对应端口 miss\_navigation\_port 26185 server { listen 26185;
 
-## 从 / 根目录下查找文件名为 nginx.conf 的文件
+## server\_name migration.kjishaunembng.com;
 
-find / -name nginx.conf
+```
+server_name  localhost	
+ location / {
+    root   /data/front/miss-navigation-page;
+    index  index.html index.htm;
+}
+```
 
-sed 's/要被取代的字串/新的字串/g' testfile sed -n '5,10p' filename
+}
 
-tail -f/n xxx.file
+CDN开启了HTTPS，源站是否必须配置HTTPS？
+
+总之，客户端访问CDN节点和CDN节点访问源站，是两段不同的链路。 CDN开启HTTPS对客户端访问CDN节点有效，源站配置HTTPS对CDN节点访问源站有效。 因此，CDN开启HTTPS，是由阿里云控制台中对源站信息的端口配置决定的，不强制要求源站配置HTTPS。 不过，建议CDN和源站都开启HTTPS，确保全链路的安全。
+
+portal.miss88.com portal.kjishaunembng.com
+
+root@ip-17:/usr/local/nginx1.23/conf/vhosts# touch miss-navigation-page-redirect.conf
+
+代理访问其他域名&#x20;
+
+`server { listen 80; server_name portal.xxx.com; return 301 https://migration.xxx.com$request_uri; }`
+
+nginx -s reload：reload 命令会重新加载配置文件，而nginx服务不会中断，服务启动，文件即加载成功。
