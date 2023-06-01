@@ -28,11 +28,11 @@ Nginx添加配置文件 /usr/local/nginx1.23/conf/vhosts
 
 `直接访问静态文件`&#x20;
 
-`server { listen 80; server_name migration.kjishaunembng.com; location / { root /data/front/miss-navigation-page; index index.html index.htm; }`
+`server { listen 80; server_name migration.xxx.com; location / { root /data/front/miss-navigation-page; index index.html index.htm; }`
 
 `}`
 
-通过CDN添加端口访问，好处是以后方便添加域名（不用修改NGINX配置文件） 本质上是域名对应端口 miss\_navigation\_port 26185 server { listen 26185;
+通过CDN添加端口访问，好处是以后方便添加域名（不用修改NGINX配置文件） 本质上是域名对应端口 miss\_navigation\_port 26115 server { listen 26115;
 
 ## server\_name migration.kjishaunembng.com;
 
@@ -50,7 +50,7 @@ CDN开启了HTTPS，源站是否必须配置HTTPS？
 
 总之，客户端访问CDN节点和CDN节点访问源站，是两段不同的链路。 CDN开启HTTPS对客户端访问CDN节点有效，源站配置HTTPS对CDN节点访问源站有效。 因此，CDN开启HTTPS，是由阿里云控制台中对源站信息的端口配置决定的，不强制要求源站配置HTTPS。 不过，建议CDN和源站都开启HTTPS，确保全链路的安全。
 
-portal.miss88.com portal.kjishaunembng.com
+portal.yyy.com portal.xxx.com
 
 root@ip-17:/usr/local/nginx1.23/conf/vhosts# touch miss-navigation-page-redirect.conf
 
