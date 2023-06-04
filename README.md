@@ -1,8 +1,8 @@
 ---
-description: 宝塔域名迁移到目标服务器
+description: 宝塔域名迁移到目标服务器（去宝塔化）。随着项目增加，长期来看，项目和团队都不能长期依赖宝塔。
 ---
 
-# 宝塔迁移自建服务器
+# 宝塔域名迁移到自建服务器（去宝塔）
 
 ## 一、需求
 
@@ -89,22 +89,31 @@ server {
 
 nginx -s reload：reload 命令会重新加载配置文件，而nginx服务不会中断，服务启动，文件即加载成功。
 
-### 知识点：
+## 知识点：
 
-CDN开启了HTTPS，源站是否必须配置HTTPS？
+#### CDN开启了HTTPS，源站是否必须配置HTTPS？
 
-客户端访问CDN节点和CDN节点访问源站，是两段不同的链路。 CDN开启HTTPS对客户端访问CDN节点有效，源站配置HTTPS对CDN节点访问源站有效。 因此，CDN开启HTTPS，是由阿里云控制台中对源站信息的端口配置决定的，不强制要求源站配置HTTPS。 不过，建议CDN和源站都开启HTTPS，确保全链路的安全。
+客户端访问CDN节点和CDN节点访问源站，是两段不同的链路。 CDN开启HTTPS对客户端访问CDN节点有效，源站配置HTTPS对CDN节点访问源站有效。 因不强制要求源站配置HTTPS。 不过，建议CDN和源站都开启HTTPS，确保全链路的安全。
 
-### scp命令：
+#### scp命令：
 
 1、从服务器上下载文件 scp username@servername:/path/filename /var/www/local\_dir（本地目录）
 
+```
+// 把192.168.0.101上的/var/www/test.txt的文件下载到/var/www/local_dir（本地目录）
+scp root@192.168.0.101:/var/www/test.txt 
+```
+
 2、上传本地文件到服务器 scp /path/filename username@servername:/path（服务器目录）
 
-例如scp /var/www/test.php root@192.168.0.101:/var/www/ 把本机/var/www/目录下的test.php文件上传到192.168.0.101这台服务器上的/var/www/目录中
+```
+// 把本机/var/www/目录下的test.php文件上传到192.168.0.101这台服务器上的/var/www/目录中
+scp /var/www/test.php root@192.168.0.101:/var/www/ 
+```
+
+3、指定端口号的方法
 
 ```
-// SCP指定端口号的方法:
 // -P: 大写的P, 指定端口号
 # scp -P port file_name user@ip:/dir_name
 ```

@@ -1,3 +1,3 @@
 # Table of contents
 
-* [宝塔迁移自建服务器](README.md)
+* [宝塔域名迁移到自建服务器（去宝塔）](README.md)
