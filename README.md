@@ -1,120 +1,182 @@
----
-description: 宝塔域名迁移到目标服务器（去宝塔化）。随着项目增加，长期来看，项目和团队都不能长期依赖宝塔。
----
+# 网页设计笔记
 
-# 宝塔域名迁移到云原生（去宝塔）
+![](http://img.rmb520.com/test/mywechat.jpg) ![](http://img.rmb520.com/test/mypublic.jpg)
 
-## 一、需求tttt
+上网方式（客户端）： 电脑端：网页 移动端：网页+APP+小程序111
 
-* 宝塔域名迁移到目标服务器（配置Nginx、CDN，迁移资源文件）。
-* 迁移两类域名，一类域名访问落地页(landing.com)，另一类域名导航页(navigation.com)重定向到落地页。
-* 测试，申请二级域名（migration.landing.com migration.navigation.com）。
+目的：解决用户体验问题
 
-## 二、准备
+必备条件： 1、会上网、会打字、基础英语 2、兴趣 3、肯做练习、耐心
 
-* Nginx配置文件目录 /usr/local/nginx1.23/conf/vhosts/
-* Nginx资源文件目录 /data/front/
-* 用SCP命令传文件（后续安装代码发布工具）
+具体学习哪些东西： 1、软件 5%时间 1、浏览器内核分类（谷歌浏览器、火狐浏览器、IE浏览器、苹果浏览器） 2、浏览器开发者工具：F12 （或者Fn + F12） 3、写代码的编辑器：记事本、DreamWeaver(DW)、Hbuilder、Sublime、VS code 了解前端三剑客：DW、FireWorks(PhotoShop)、Flash(Animate) 2、语言（和浏览器打交道的语言） 95%以上时间 HTML CSS JavaScript
 
-## 三、开始
+教学资源
 
-1. Nginx添加配置文件 /usr/local/nginx1.23/conf/vhosts
+http://www.w3school.com.cn
 
-<pre><code>//进入对应目录：
-cd /usr/local/nginx1.23/conf/vhosts 
+http://www.csszengarden.com 禅意花园
 
-//创建配置文件：
-touch pro-navigation-page.conf 
-<strong>
-</strong><strong>// 修改Nginx配置(落地页静态文件)
-</strong>server { 
-    listen 80; 
-    server_name migration.landing.com; 
-    location / { 
-        root /data/front/pro-landing-page; 
-        index index.html index.htm; 
-    }
-}
-</code></pre>
+http://www.webpagesthatsuck.com
 
-2. 进阶：通过CDN添加端口访问，好处是以后方便添加域名（不用修改NGINX配置文件）， 本质上是CDN源站对应端口，源站IP:8888
+https://www.runoob.com/ 菜鸟教程
 
-```
-// CDN域名直接对应源站端口
-server {
-    listen       8888;
-    server_name  localhost	
-     location / {
-        root   /data/front/miss-landing-page;
-        index  index.html index.htm;
-    }
-   
-}
-```
+## 一、HTML5基础
 
-3. 传送资源文件
+### 1 什么是 HTML
 
-目标服务器开scp端口，默认22&#x20;
+什么是互联网？ WWW（World Wide Web, 万维网）
 
-Linux :
+网页的HTML本质
 
-`scp -P xxxx /var/www/test.php root@11.22.33.44:/data/front/`
+​ HTML(Hypertext Markup Language)
 
-Window可通过git窗口输入Linux命令：
+web标准： W3C（万维网联盟），不是某一个标准，它是一系列标准的集合。 web标准分为三个标准： 1、结构化标准 网页结构（Structure） 对应 HTML 2、表现标准 网页样式（表现Presentation） 对应 CSS 3、行为标准 网页行为（Behavior） 对应 JavaScript
 
-```
-// 指定33端口
-scp -P 33 C:/work/xxx.zip root@11.22.33.44:/data/front/
-```
+HTML： 1、用来描述网页的一种语言 2、不是一种编程语言，但是它是一种标记语言 3、标记语言是一套标记标签
 
-最后输入目标服务器密码：xxxxx
+HTML文档 1、 = 网页 2、包含HTML标签和纯文本
 
-解压 unzip xxx.zip
+网页： 1、扩展名(文件后缀)：.html 或者 .htm 2、必须通过浏览器来阅读 3、组成：文字、图片、视频、音频、超链接、特效、动画等
 
-4. 代理访问其他域名（重定向）
+浏览器： 1，浏览器内核种类（谷歌浏览器、火狐浏览器、IE浏览器、苹果浏览器） 2，开发者工具：F12 或者 Fn+F12（error错误、warn警告） 3、作用：读取HTML文档，并且以网页的形式展现出来 4、界面组成：菜单栏、网页标题、地址栏、网页窗口
 
-```
-// 创建配置文件
-root@ip:/usr/local/nginx1.23/conf/vhosts# touch pro-navigation-page-redirect.conf
+4、代码编辑器 1，记事本（纯文本） 2、DreamWeaver（DW），所见即所得 3、Hbuilder 4、VS Code（推荐）
 
-//更改nginx配置
-server { 
-    listen 80; 
-    server_name migration.navigation.com; 
-    return 301 https://migration.landing.com$request_uri; 
-}
+​ 5、Notepad++、Sublime Text、UltraEdit 和 Xcode（适用于 macOS）等
+
+#### 创建和测试网页
+
+1．创建网页
+
+​ 1、启动“记事本”程序
+
+​ 2、输入 HTML 代码
+
+​ 3、“保存”或“另存为”
+
+​ 4、在“文件名”框中输入网页的名称，注意文件名必须以.htm 或.html 为扩展名。如果必要，可定位到特定的目录
+
+2．测试网页
+
+​ Chrome 打开。
+
+### 2 创建网页
+
+#### 2.1 标记符基础
+
+**1．基本的 HTML 语法**
+
+HTML标签(HTML tag): 1 由尖括号包围的关键词，比如\<html> 2 通常是成对出现，比如\<p>这是段落\</p>，\<title>这是标题\</title> 3 标签对中的第一个标签是开始标签（开放标签），第二个标签是结束标签（闭合标签）
+
+空标签： 单独存在的标签。比如\<hr />、\<br /> 1 没有内容 2 没有结束标签 3 在开始标签中关闭
+
+HTML元素：从开始标签（start tag）到结束标签（end tag）的所有代码 1、以开始标签起始，以结束标签终止 2、元素的内容：开始标签与结束标签之间的内容 3、某些HTML元素具有空内容(empty content) ,比如 \<hr /> 元素 = 标签+元素内容
+
+空元素： 没有内容的HTML元素成为空元素。 就是没有关闭标签的空元素。比如\<hr /> 在开始标签中关闭。
+
+注意： 1、不要忘记结束标签(即使空标签也要写“/”) 虽然忘记结束标签，大多数浏览器也会正确显示 2、不区分大小写，建议使用小写标签 HTML标签对大小写不敏感： \<P> 等同于 \<p> 3、 所有的代码都要用英文状态
+
+```html
+<h1>这是标题文字</h1>
+<p>这是普通段落文字</p>
+换行标记符 <br>
 ```
 
-5. 重启Nginx
+**2．标记符的属性**
 
-nginx -s reload：reload 命令会重新加载配置文件，而nginx服务不会中断，服务启动，文件即加载成功。
+属性是用来描述对象特征的特性。例如，人的身高、体重。
 
-## 知识点：
+HTML属性放在开始标记符，属性之间用空格分开，属性值用引号。
 
-#### CDN开启了HTTPS，源站是否必须配置HTTPS？
-
-客户端访问CDN节点和CDN节点访问源站，是两段不同的链路。 CDN开启HTTPS对客户端访问CDN节点有效，源站配置HTTPS对CDN节点访问源站有效。 因此，CDN开启HTTPS，是由源站信息的端口配置决定的，不强制要求源站配置HTTPS。 不过，建议CDN和源站都开启HTTPS，确保全链路的安全。
-
-#### scp命令：
-
-1、从服务器上下载文件 scp username@servername:/path/filename /var/www/local\_dir（本地目录）
-
-```
-// 把192.168.0.101上的/var/www/test.txt的文件下载到/var/www/local_dir（本地目录）
-scp root@192.168.0.101:/var/www/test.txt 
+```html
+<a href="target.htm" title="点击有惊喜">超链接</a>
 ```
 
-2、上传本地文件到服务器 scp /path/filename username@servername:/path（服务器目录）
+HTML属性： 1、属性为HTML元素提供附加信息。 2、属性总是以名称/值对的形式出现。比如：name="value"
 
-```
-// 把本机/var/www/目录下的test.php文件上传到192.168.0.101这台服务器上的/var/www/目录中
-scp /var/www/test.php root@192.168.0.101:/var/www/ 
+​ 3、属性总是在HTML元素的开始标签中规定。 ​ 比如可能有以下属性： align对齐方式 face字体 size大小 color颜色 width宽 height高。。。 ​ 4、适用于大多数HTML元素的属性： ​ style: 设置元素的样式（CSS） ​ 比如设置颜色、宽度、高度等：style="color:red;width:200px;height:100px;" ​ title：规定元素的额外信息（可在工具提示中显示）
+
+#### 2.2 网页的基本结构
+
+学习HTML标签： \<html>:告知浏览器自身是一个 HTML 文档。 最先出现和最后出现的标签、成对出现 首标签\<html>和尾标签\</html>分别位于网页文件的最前面和最后面 网页的所有文件和标签都包含在其中
+
+```html
+	<html>
+			网页的全部内容
+	</html> 
 ```
 
-3、指定端口号的方法
+\<head>:表示网页的头部标签。包含网页的标题、编码方式等信息。 以下标签都包含在里面：\<title>、\<meta>、\<script>、\<style>、\<link>、\<base>等 \<title>:定义文档的标题 title标签的内容出现在浏览器窗口 所有的网页都必须要有title标签。 是\<head> 标签中唯一要求包含的标签。 当把文档加入收藏夹或书签时，标题将成为默认名称。
 
-```
-// -P: 大写的P, 指定端口号
-# scp -P port file_name user@ip:/dir_name
+```html
+<head>
+		<title>这是网页标题，所有网页必须的</title>
+</head>
 ```
 
+​ \<meta>: (meta 元)定义网页的元数据 ​ \<meta>元素提供网页的元信息(meta-information) ​ 位于head标签内部，不包含任何内容。没有结束标签。 ​ \<meta>标签通过属性名称/值对定义文档元信息。 ​ 为了正确显示网页，浏览器必须知道要使用哪个字符集。 ​ 我们通常使用utf-8、gb2312（简体中文）字符集表达中文字符。 ​ 设置网页字符集：\<meta charset="utf-8"> （character 字符集 + set 设置 = charset）
+
+```html
+	<head>
+		<meta charset="utf-8">
+	</head> 
+```
+
+\<body>：定义网页文档的主体内容 1、body元素包含文档的所有内容（比如文本、超链接、图像、表格和列表等等。） 2、拥有一个开始标签\<body>，以及一个结束标签\</body> 3、被浏览器显示在屏幕上 // 属性：bgcolor
+
+```html
+<html>
+<head>
+	<title>我的第一个HTML文档</title>
+</head>
+<body>
+		Hello World!
+</body>
+</html>
+```
+
+HTML注释: 1、提高代码可读性，更容易理解。 2、 浏览器会忽略注释，也不会显示出来。 3、 \<!-- 这是注释 --> 或者编辑器快捷键Ctrl+/
+
+```html
+<html>
+	<head>
+		<title>注释不在浏览器中显示</title>
+	</head>
+	<body> 正文，正文，正文 </body>
+	<!-- 本行内容并不在浏览器中显示！ -->
+</html>
+```
+
+显示特殊字符
+
+​ 参考字符以“&”号开始，以“；”结束，既可以使用数字代码，也可以使用代码名称。
+
+​ 空格：\&nbsp;
+
+​ &：\&amp;
+
+​ 小于号：\&lt; ​ 大于号：\&gt;
+
+​ 版权符号：\&copy;
+
+​ \*\*注意：\*\*空格、回车这些格式控制在显示时都不起作用。
+
+### 3 综合实例：人物介绍网页
+
+```html
+<html>
+	<head>
+		<title>百里屠苏</title>
+	</head>
+	<body>
+		<h1>百里屠苏<img src="百里屠苏.jpg" align="right"></h1>
+		<hr>
+		<h2>技能</h2>
+		<hr>
+		<h3>玄真剑</h3>
+		<p>习自师门的道家剑术，看似简单，但其中奥妙无穷！<br />
+			耗值：22点气、2行动点数<br />
+			效果：剑技攻击，敌方全体<br />
+	</body>
+</html>
+```
