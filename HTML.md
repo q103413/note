@@ -443,20 +443,10 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。一个 U
 
 
 
-```html
-<div id="section1">这是第一部分的内容...</div>  
-<div id="section2">这是第二部分的内容...</div>
-```
-
 锚点链接
 
 HTML锚点（Anchor）  
 	通过<a>标签的href属性中的#加标识符（通常是ID）
-
-```html
-<div id="section1">这是第一部分的内容...</div>  
-<div id="section2">这是第二部分的内容...</div>
-```
 
 创建HTML锚点  
 	主要分为两步：  
@@ -467,24 +457,14 @@ HTML锚点（Anchor）
 
    ​	说明：name属性是HTML4.0以前使用的，id属性是HTML4.0后才开始使用。为了向前兼容，因此，name和id这两个属性都要写上，并且值是一样的。  
 
-   
+   例如：
 
+   ```html
+   <div id="section1">这是第一部分的内容...</div>  
+   <div id="section2">这是第二部分的内容...</div>
+   ```
 
-<div id="section1">这是第一部分的内容...</div>  
-<div id="section2">这是第二部分的内容...</div>
-
-例如：
-
-
-
-```html
-<div id="section1">这是第一部分的内容...</div>  
-<div id="section2">这是第二部分的内容...</div>
-```
-
-
-
-1. 创建指向锚点的链接  
+2. 创建指向锚点的链接  
    通过<a>标签的href属性来实现，其中href的值设置为#加上锚点的ID。    
 
    例如：
@@ -509,12 +489,6 @@ HTML锚点（Anchor）
        <p align="center">
          锦瑟无端五十弦，一弦一柱思华年。<br />庄生晓梦迷蝴蝶，望帝春心托杜鹃。<br />沧海月明珠有泪，蓝田日暖玉生烟。<br />此情可待成追忆，只是当时已惘然。
        </p>
-       <p align="center"><a href="#mulu">返回目录</a></p>
-       <h2 align="center"><a name="yyjb" id="yyjb">夜雨寄北</a></h2>
-       <p align="center">
-         君问归期未有期，巴山夜雨涨秋池。<br />何当共剪西窗烛，却话巴山夜雨时。
-       </p>
-       <p align="center"><a href="#mulu">返回目录</a></p>
      </body>
    </html>
    ```
