@@ -288,27 +288,30 @@ HTML注释:
 
 ### （1）段落格式
 
-段落(paragraph): \<p>标签
-	属性：align 对齐方式 ：居中 center  左边 left 右边 right
-		title： 设置工具提示
-		style ：设置行内样式，比如文字变灰色：style="color:grey"
+段落(paragraph): \<p>标签  
+	属性：
+
+- align 对齐方式 ：居中 center  左边 left 右边 right  
+- title： 设置工具提示  
+- style ：设置行内样式，比如文字变灰色：style="color:grey"
 
 换行：\<br />  （空标签）
 
-标题(Heading)：\<h1> - \<h6>等标签,从大到小，\<h1>最大，\<h1>定义最大的标题，\<h6>定义最小的标题
+标题(Heading)：\<h1> - \<h6>等标签,从大到小，\<h1>最大，\<h1>定义最大的标题，\<h6>定义最小的标题  
 	属性：align 对齐方式 ，取值：right（右对齐）、left（左对齐）、center（居中对齐）和 justify（两端对齐）
 
 居中标签：\<center>
 
 水平标签（水平线、分割线）: \<hr /> （空标签）
 
-\<hr 属性名称=“属性值” />
-	属性：
-		width 宽度（单位是px或者百分比） 
-		size(大小、尺寸、厚度) 
-		color 颜色
-		align 对齐方式 (left center right)
-		noshade 去掉阴影 noshade="noshade"
+\<hr 属性名称=“属性值” />  
+	属性： 
+
+- width 宽度（单位是px或者百分比） 
+- size(大小、尺寸、厚度) 
+- color 颜色
+- align 对齐方式 (left center right)
+- noshade 去掉阴影 noshade="noshade"
 
 案例2-1，19页
 
