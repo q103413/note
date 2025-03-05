@@ -291,9 +291,9 @@ HTML注释:
 段落(paragraph): \<p>标签  
     属性：
 
-    - align 对齐方式 ：居中 center  左边 left 右边 right  
-    - title： 设置工具提示  
-    - style ：设置行内样式，比如文字变灰色：style="color:grey"
+- align 对齐方式 ：居中 center  左边 left 右边 right  
+- title： 设置工具提示  
+- style ：设置行内样式，比如文字变灰色：style="color:grey"
 
 换行：\<br />  （空标签）
 
@@ -307,11 +307,11 @@ HTML注释:
 \<hr 属性名称=“属性值” />  
     属性： 
 
-    - width 宽度（单位是px或者百分比） 
-    - size(大小、尺寸、厚度) 
-    - color 颜色
-    - align 对齐方式 (left center right)
-    - noshade 去掉阴影 noshade="noshade"
+- width 宽度（单位是px或者百分比） 
+- size(大小、尺寸、厚度) 
+- color 颜色
+- align 对齐方式 (left center right)
+- noshade 去掉阴影 noshade="noshade"
 
 案例2-1，19页
 
@@ -336,23 +336,21 @@ HTML注释:
 
 ### （2）字体格式与列表
 
-文字标签：\<font>（已废弃）
-	属性： 字体face  颜色color 字体大小size
+**字体格式**
 
-强调标签（加粗）: \<b>  或者  \<strong>
+文字标签：\<font>（不推荐）
+	属性： 字体face	颜色color	字体大小size
 
+- 强调标签（加粗）: \<b>  或者  \<strong>
 - `<u>`：下划线标记
-
 - `<s>`或`<del>`：中划线标记（删除线）
-
 - `<i>`或`<em>`：斜体标记
+- 上标`<sup>` 下标`<sub>`
 
-- ### 上标`<sup>` 下标`<sub>`
-
-列表标签： 
+**列表标签** 
 
 （ordered 有序的  unordered 无序的   list 列表）
-无序列表\<ul>(unordered list简写)： \<ul>  \</ul>
+**字体格式**\<ul>(unordered list简写)： \<ul>  \</ul>
 	属性： type 设置列表项开始的符号，
         取值：默认disc(实心圆)、circle（空心圆）、square(实心正方形)
 	列表项 \<li> \</li>
@@ -364,7 +362,7 @@ HTML注释:
 </ul>
 ```
 
-有序列表\<ol>(ordered list 简写): \<ol> \</ol>
+**有序列表**\<ol>(ordered list 简写): \<ol> \</ol>
 	属性：type 设置列表项开始的符号，
         取值：默认1,a,A,i,I
 		start 序号起始值(设置开始项)
