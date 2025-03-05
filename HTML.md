@@ -441,7 +441,8 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。一个 U
 	<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
 ```
 
-
+<div id="section1">这是第一部分的内容...</div>  
+<div id="section2">这是第二部分的内容...</div>
 
 锚点链接
 
@@ -457,16 +458,24 @@ HTML锚点（Anchor）
 
    ​	说明：name属性是HTML4.0以前使用的，id属性是HTML4.0后才开始使用。为了向前兼容，因此，name和id这两个属性都要写上，并且值是一样的。  
 
-   例如：
-
-   ```html
-   <div id="section1">这是第一部分的内容...</div>  
-   <div id="section2">这是第二部分的内容...</div>
-   ```
-
    
 
-2. 创建指向锚点的链接  
+
+<div id="section1">这是第一部分的内容...</div>  
+<div id="section2">这是第二部分的内容...</div>
+
+例如：
+
+
+
+```html
+<div id="section1">这是第一部分的内容...</div>  
+<div id="section2">这是第二部分的内容...</div>
+```
+
+
+
+1. 创建指向锚点的链接  
    通过<a>标签的href属性来实现，其中href的值设置为#加上锚点的ID。    
 
    例如：
