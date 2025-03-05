@@ -441,13 +441,22 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。一个 U
 	<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
 ```
 
+
+
+```html
 <div id="section1">这是第一部分的内容...</div>  
 <div id="section2">这是第二部分的内容...</div>
+```
 
 锚点链接
 
 HTML锚点（Anchor）  
 	通过<a>标签的href属性中的#加标识符（通常是ID）
+
+```html
+<div id="section1">这是第一部分的内容...</div>  
+<div id="section2">这是第二部分的内容...</div>
+```
 
 创建HTML锚点  
 	主要分为两步：  
