@@ -1,27 +1,39 @@
 <img src="http://img.rmb520.com/test/mywechat.jpg" width="150px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="150px">
 
-上网方式（客户端）：
-	电脑端：网页
-	移动端：网页+APP+小程序
+上网方式（客户端）：  
+
+- ​	电脑端：网页
+- ​	移动端：网页+APP+小程序
 
 目的：解决用户体验问题
 
 必备条件：
 
-1. ​	会上网、会打字、基础英语
-2. ​	兴趣
-3. ​	肯做练习、耐心
+- ​	会上网、会打字、基础英语
+- ​	兴趣
+- ​	肯做练习、耐心
 
 具体学习哪些东西：
-	1、软件 5%时间
-		1、浏览器内核分类（谷歌浏览器、火狐浏览器、IE浏览器、苹果浏览器）
-		2、浏览器开发者工具：F12 （或者Fn + F12）
-		3、写代码的编辑器：记事本、DreamWeaver(DW)、Hbuilder、Sublime、VS code
-		了解前端三剑客：DW、FireWorks(PhotoShop)、Flash(Animate)
-	2、语言（和浏览器打交道的语言） 95%以上时间
-		HTML
-		CSS
-		JavaScript
+
+1. ​	软件 5%时间
+
+   
+
+   - ​	浏览器内核分类（谷歌浏览器、火狐浏览器、IE浏览器、苹果浏览器）
+
+   - ​	浏览器开发者工具：F12 （或者Fn + F12）
+
+   - ​	写代码的编辑器：记事本、DreamWeaver(DW)、Hbuilder、Sublime、VS code
+
+     ​	了解前端三剑客：DW、FireWorks(PhotoShop)、Flash(Animate)
+
+   
+
+2. ​	语言（和浏览器打交道的语言） 95%以上时间
+
+- ​		HTML
+- ​		CSS
+- ​		JavaScript
 
 教学资源
 
