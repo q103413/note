@@ -45,11 +45,11 @@ https://www.runoob.com/ 菜鸟教程
 ​	HTML(Hypertext Markup Language)
 
 web标准：
-	W3C（万维网联盟），不是某一个标准，它是一系列标准的集合。
-	web标准分为三个标准：
-	1、结构化标准		网页结构（Structure）  		   对应		HTML
-	2、表现标准		 网页样式（表现Presentation）  	对应		CSS
-	3、行为标准	 	网页行为（Behavior） 			对应		JavaScript
+	W3C（万维网联盟），不是某一个标准，它是一系列标准的集合。   
+	web标准分为三个标准：   
+	1、结构化标准		网页结构（Structure）  		   对应		HTML    
+	2、表现标准		 网页样式（表现Presentation）  	对应		CSS  
+	3、行为标准	 	网页行为（Behavior） 			对应		JavaScript    
 
 HTML：
 	1、用来描述网页的一种语言
