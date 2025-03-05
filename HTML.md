@@ -31,9 +31,10 @@
 
 2. ​	语言（和浏览器打交道的语言） 95%以上时间
 
-- ​		HTML
-- ​		CSS
-- ​		JavaScript
+   - ​			HTML
+
+   - ​			CSS
+   - ​			JavaScript
 
 教学资源
 
