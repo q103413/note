@@ -501,24 +501,6 @@ HTML锚点（Anchor）
    </html>
    ```
 
-超链接: \<a> 
-
-```html
-<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
-```
-
-属性：   
-    href: 跳转目标的URL地址（绝对地址、相对地址）  
-    target :在何处打开URL  
-		默认值：_self  在自己页面打开  
-		可选值：_blank 在新页面打开
-
-```html
-	<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
-```
-
-
-
 **文件下载**
 
 ```html
