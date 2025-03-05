@@ -289,11 +289,11 @@ HTML注释:
 ### （1）段落格式
 
 段落(paragraph): \<p>标签  
-	属性：
+    属性：
 
-- align 对齐方式 ：居中 center  左边 left 右边 right  
-- title： 设置工具提示  
-- style ：设置行内样式，比如文字变灰色：style="color:grey"
+    - align 对齐方式 ：居中 center  左边 left 右边 right  
+    - title： 设置工具提示  
+    - style ：设置行内样式，比如文字变灰色：style="color:grey"
 
 换行：\<br />  （空标签）
 
@@ -305,13 +305,13 @@ HTML注释:
 水平标签（水平线、分割线）: \<hr /> （空标签）
 
 \<hr 属性名称=“属性值” />  
-	属性： 
+    属性： 
 
-- width 宽度（单位是px或者百分比） 
-- size(大小、尺寸、厚度) 
-- color 颜色
-- align 对齐方式 (left center right)
-- noshade 去掉阴影 noshade="noshade"
+    - width 宽度（单位是px或者百分比） 
+    - size(大小、尺寸、厚度) 
+    - color 颜色
+    - align 对齐方式 (left center right)
+    - noshade 去掉阴影 noshade="noshade"
 
 案例2-1，19页
 
