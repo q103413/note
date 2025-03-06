@@ -1,3 +1,5 @@
+<img src="http://img.rmb520.com/test/mywechat.jpg" width="200px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="240px">
+
 了解
 
 # 初识jQuery

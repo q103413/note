@@ -1,4 +1,4 @@
-<img src="http://img.rmb520.com/test/mywechat.jpg" width="150px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="150px">
+<img src="http://img.rmb520.com/test/mywechat.jpg" width="200px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="240px">
 
 上网方式（客户端）：  
 

@@ -1,4 +1,4 @@
-<img src="http://img.rmb520.com/test/mywechat.jpg" width="150px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="150px">
+<img src="http://img.rmb520.com/test/mywechat.jpg" width="200px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="240px">
 
 # 一 Scala入门与基础
 
