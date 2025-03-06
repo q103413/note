@@ -286,7 +286,7 @@ vs code格式化快捷键： shift+alt+f
 
 # 二、文本格式与超链接
 
-### （1）段落格式
+## （1）段落格式
 
 段落(paragraph): \<p>标签  
     属性：
@@ -313,7 +313,7 @@ vs code格式化快捷键： shift+alt+f
 - align 对齐方式 (left center right)
 - noshade 去掉阴影 noshade="noshade"
 
-案例2-1，19页
+**课堂案例**：段落格式-李商隐(19页)
 
 ```html
 <html>
@@ -334,18 +334,18 @@ vs code格式化快捷键： shift+alt+f
 </html>
 ```
 
-### （2）字体格式与列表
+## （2）字体格式与列表
 
 **字体格式**
-
-文字标签：\<font>（不推荐）
-	属性： 字体face	颜色color	字体大小size
 
 - 强调标签（加粗）: \<b>  或者  \<strong>
 - `<u>`：下划线标记
 - `<s>`或`<del>`：中划线标记（删除线）
 - `<i>`或`<em>`：斜体标记
 - 上标`<sup>` 下标`<sub>`
+
+文字标签：\<font>（不推荐）
+	属性： 字体face	颜色color	字体大小size
 
 **列表标签** 
 
@@ -389,7 +389,7 @@ vs code格式化快捷键： shift+alt+f
 	</dl>
 ```
 
-嵌套列表
+**嵌套列表**
 
 ```html
 <ol>
@@ -403,9 +403,13 @@ vs code格式化快捷键： shift+alt+f
 </ol>
 ```
 
+**课堂案例**：嵌套列表-王者荣耀 (22页)
 
+```
 
-### （3）超链接
+```
+
+## （3）超链接
 
 URL（Universal Resources Locator）用于定位Web上的文档信息。
 
@@ -421,7 +425,7 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。
 
 绝对URL、绝对路径（与当前文件无关）: 比如： https://www.xxx.com/xxx.jpg	http://www.xxx.com/xxx.mp3
 
-超链接: \<a> 
+**超链接**: \<a> 
 
 ```html
 <a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
@@ -437,6 +441,12 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。
 	<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
 ```
 
+**课堂案例**：超链接-唐诗简介：（24页）
+
+```
+
+```
+
 **锚点链接**
 
 HTML锚点（Anchor）  
@@ -449,15 +459,13 @@ HTML锚点（Anchor）
 1. 定义锚点目标  
    通过给某个元素（如\<div>、\<section>、\<span>等）添加一个唯一的id属性来实现的。  
 
-   ​	说明：name属性是HTML4.0以前使用的，id属性是HTML4.0后才开始使用。为了向前兼容，因此，name和id这两个属性都要写上，并且值是一样的。  
-
    例如：
 
    ```html
-   <div name="" id="section1">这是第一部分的内容...</div>  
-   <div name="" id="section2">这是第二部分的内容...</div>
+   <div id="section1">这是第一部分的内容...</div>  
+   <div id="section2">这是第二部分的内容...</div>
    ```
-
+   
 2. 创建指向锚点的链接  
    通过\<a>标签的href属性来实现，其中href的值设置为#加上锚点的ID。    
 
@@ -468,24 +476,8 @@ HTML锚点（Anchor）
    <a href="#section2">跳转到第二部分</a>
    ```
 
-   ```html
-   <html>
-     <head>
-       <title>李商隐</title>
-     </head>
-     <body>
-       <p align="center">
-         <a name="mulu" id="mulu"></a><a href="#jinse">锦瑟</a> |
-         <a href="#yyjb">夜雨寄北</a> | <a href="#wuti1">无题（一）</a> |
-         <a href="#wuti2">无题（二）</a>
-       </p>
-       <h2 align="center"><a name="jinse" id="jinse">锦瑟</a></h2>
-       <p align="center">
-         锦瑟无端五十弦，一弦一柱思华年。<br />庄生晓梦迷蝴蝶，望帝春心托杜鹃。<br />沧海月明珠有泪，蓝田日暖玉生烟。<br />此情可待成追忆，只是当时已惘然。
-       </p>
-     </body>
-   </html>
-   ```
+
+**课堂案例-**锚点-李商隐：（26页）
 
 **文件下载**
 
@@ -499,7 +491,7 @@ HTML锚点（Anchor）
 <a href="mailto:xxx@163.com">点击进入我的邮箱</a>
 ```
 
-（4）综合实例
+**课堂案例**：综合网站：唐诗宋词网站（30页）
 
 ```html
 <html>
