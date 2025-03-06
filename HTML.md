@@ -235,7 +235,7 @@ HTML属性：
 HTML注释:
 	1、提高代码可读性，更容易理解。
 	2、 浏览器会忽略注释，也不会显示出来。
-	3、 \<!-- 这是注释 --> 或者编辑器快捷键Ctrl+/
+	3、 \<!-- 这是注释 --> 或者**编辑器快捷键Ctrl+/**
 
 ```html
 <html>
@@ -282,7 +282,7 @@ HTML注释:
 </html>
 ```
 
-
+vs code格式化快捷键： shift+alt+f
 
 # 二、文本格式与超链接
 
@@ -407,23 +407,19 @@ HTML注释:
 
 ### （3）超链接
 
-URL（Universal Resources Locator）用于定位Web上的文档信息。一个 URL 包括 3 部分：
+URL（Universal Resources Locator）用于定位Web上的文档信息。
 
-	包含3个基本组成部分：（http://www.xxx.com/a/b/c.html）
-	1、URL：计算机地址 www.xxx.com 
-	2、HTTP: 协议 (三次握手) http:// 
-	3、HTML （Hyper Text Markup Language）超文本标记语言 /a/b/c.html
-	    	1、由浏览器直接解释执行
-	    	2、不是编程语言、但是它是一门标记语言
-	    	3、标记语言是一套标记标签
+一个 URL 包含3个组成部分：（http://www.xxx.com/a/b/c.html）
+1、URL：计算机地址 www.xxx.com 
+2、HTTP: 协议 (三次握手) http:// 
+3、HTML （Hyper Text Markup Language）超文本标记语言 /a/b/c.html
+    	1、由浏览器直接解释执行
+    	2、不是编程语言、但是它是一门标记语言
+    	3、标记语言是一套标记标签
 
-相对URL
+相对URL、相对路径(相对当前文件)：/下一级 ./ 同一级 ../上一级 ../../上两级，比如：./boy.jpg
 
-​	相对路径(相对当前文件)：/下一级 ./ 同一级 ../上一级 ../../上两级，比如：./boy.jpg
-
-绝对URL
-
-​	绝对路径（与当前文件无关）: 比如： https://www.xxx.com/xxx.jpg	http://www.xxx.com/xxx.mp3
+绝对URL、绝对路径（与当前文件无关）: 比如： https://www.xxx.com/xxx.jpg	http://www.xxx.com/xxx.mp3
 
 超链接: \<a> 
 
@@ -444,7 +440,7 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。一个 U
 **锚点链接**
 
 HTML锚点（Anchor）  
-	通过<a>标签的href属性中的#加标识符（通常是ID）
+	通过\<a>标签的href属性中的#加标识符（通常是ID）
 
 创建HTML锚点  
 	主要分为两步：  
@@ -458,8 +454,8 @@ HTML锚点（Anchor）
    例如：
 
    ```html
-   <div id="section1">这是第一部分的内容...</div>  
-   <div id="section2">这是第二部分的内容...</div>
+   <div name="" id="section1">这是第一部分的内容...</div>  
+   <div name="" id="section2">这是第二部分的内容...</div>
    ```
 
 2. 创建指向锚点的链接  
