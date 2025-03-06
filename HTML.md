@@ -441,9 +441,7 @@ URL（Universal Resources Locator）用于定位Web上的文档信息。一个 U
 	<a target="_blank" href="作业1.html"> 点击跳转到刚才的作业 </a>
 ```
 
-
-
-锚点链接
+**锚点链接**
 
 HTML锚点（Anchor）  
 	通过<a>标签的href属性中的#加标识符（通常是ID）
@@ -512,8 +510,6 @@ HTML锚点（Anchor）
     <head><title>唐诗宋词-首页</title></head>
     <body>
         <p>&nbsp;</p>
-        <p>&nbsp;</p>
-        <p>&nbsp;</p>
         <h1 align="center"><a href="tangshi/tangshi.html">唐诗</a> | 宋词</h1>
         <hr size="1" width="80%">
         <p align="center"><img src="./images/theme.jpg" width="500"></p>
@@ -523,8 +519,6 @@ HTML锚点（Anchor）
 </html>
 ```
 
-
-
 # 三、CSS3基础
 
 样式表， CSS3   
@@ -533,9 +527,7 @@ HTML锚点（Anchor）
 1. 丰富的修饰样式   
 2. 内容与修饰分离  
 3. 样式复用   
-4. 页面精确控制
-
-​		 
+4. 页面精确控制		 
 
 ## 语法：
 
