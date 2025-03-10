@@ -1066,6 +1066,10 @@ res: String = 234567
 //'5' - '0' 的结果是 5，因为 '5' 的 ASCII 值是 53，'0' 的 ASCII 值是 48，相减后得到数字 5。
 scala>  s.map(x=> x-'0'+1 ).mkString
 res24: String = 234567
+
+scala> val x = for(x<-a) yield x.toString.toInt+1;x.mkString
+x: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 3, 4, 5, 6, 7)
+res3: String = 234567
 ```
 
 ####  Scala的字符串插值
