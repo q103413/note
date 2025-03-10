@@ -848,9 +848,9 @@ Scala字符串的替换：利用正则表达式匹配一段字符串，然后替
 - String.replaceFirst(regex，“替换的值”)
 - regex.replaceFirstIn（String，替换内容）
 
-#### 课程示例
+#### 课程示例（课后）
 
-#### 按要求操作字符串“his basic salary is 10000，and bonus is 20000 ”
+按要求操作字符串“his basic salary is 10000，and bonus is 20000 ”
 
 1. 将 basic salary的数字用*代替
 2. 将salary 和bonus用*替换
@@ -989,7 +989,7 @@ res0: String = 21040419768123****
 
 
 
-#### 课后作业
+#### 课后作业（课后）
 
 1. 提取字符串“123456”偶数部分，返回一个新字符串。
 2. 判断身份证号s是否是北京省份证。
@@ -1150,7 +1150,7 @@ i unfind hadoop
 
 - 赋值运算符
 
-•Scala 的算术运算本质
+#### Scala 的算术运算本质
 
 - +相当于调用 对应类型的 +方法
 - -相当于调用 对应类型的 -方法
@@ -1241,7 +1241,145 @@ scala
 defined class operator
 ```
 
+####  Scala的赋值运算
 
+课程练习(83)
+
+1. var a=2 ; var b=3;var c=4
+
+   a+=b;b-=c ;c*=a 求 a b c的值
+
+2. var a=2 ; var b=3;var c=4
+
+   a=b=c 求 a b c的值
+
+3. var a=2 ; var b=3 交换a和b的值
+
+```scala
+scala> var a=2
+a: Int = 2
+
+scala> var b=3
+b: Int = 3
+
+scala> var c=4
+c: Int = 4
+
+scala> a+=b
+
+scala> a
+res1: Int = 5
+
+scala> b-=c
+
+scala> b
+res3: Int = -1
+
+scala> c*=a
+
+scala> c
+res5: Int = 20
+```
+
+```scala
+scala> var a=2
+a: Int = 2
+
+scala> var b=3
+b: Int = 3
+
+scala> var c=4
+c: Int = 4
+
+scala> a=b=c
+<console>:14: error: type mismatch;
+ found   : Unit
+ required: Int
+       a=b=c
+          ^
+```
+
+```scala
+scala> var a=2
+a: Int = 2
+
+scala> var b=3
+b: Int = 3
+
+scala> var tmp=0
+tmp: Int = 0
+
+scala> tmp=a
+tmp: Int = 2
+
+scala> a=b
+a: Int = 3
+
+scala> b=tmp
+b: Int = 2
+
+scala> a
+res6: Int = 3
+
+scala> b
+res7: Int = 2
+
+scala>
+```
+
+#### Scala 的位运算符
+
+| **运算符** | **描述**       |
+| ---------- | -------------- |
+| &          | 按位与运算符   |
+| \|         | 按位或运算符   |
+| ^          | 按位异或运算符 |
+| ~          | 按位取反运算符 |
+| <<         | 左移动运算符   |
+| >>         | 右移动运算符   |
+| >>>        | 无符号右移     |
+
+•Scala 的位运算法则
+
+| **p** | **q** | **p  & q** | **p  \| q** | **p  ^ q** |
+| ----- | ----- | ---------- | ----------- | ---------- |
+| 0     | 0     | 0          | 0           | 0          |
+| 0     | 1     | 0          | 1           | 1          |
+| 1     | 1     | 1          | 1           | 0          |
+| 1     | 0     | 0          | 1           | 1          |
+
+运算符的优先级(86)
+
+| **类别** | **运算符** | **关联性** |
+| -------- | ---------- | ---------- |
+| 1        | () []      | 左到右     |
+| 2        | ! ~        | 右到左     |
+| 3        | * / %      | 左到右     |
+| 4        | + -        | 左到右     |
+| 5        | >> >>> <<  | 左到右     |
+| 6        | > >= < <=  | 左到右     |
+| 7        | == !=      | 左到右     |
+
+| 8    | &                                  | 左到右 |
+| ---- | ---------------------------------- | ------ |
+| 9    | ^                                  | 左到右 |
+| 10   | \|                                 | 左到右 |
+| 11   | &&                                 | 左到右 |
+| 12   | \|\|                               | 左到右 |
+| 13   | = += -= *= /= %= >>= <<= &= ^= \|= | 右到左 |
+| 14   | ,                                  | 左到右 |
+
+课程练习(87)
+
+•1. 5 ==5.0 
+
+•2. 97=='a’
+
+•3.5>3 &&'6'＞１０
+
+•4. 4>=5 || 'C'>'a'
+
+•5.4>=5 ^ 'c'>'a'
 
 ### Scala的数据类型和运算的应用
 
