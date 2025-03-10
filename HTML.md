@@ -17,8 +17,6 @@
 
 1. ​	软件 5%时间
 
-   
-
    - ​	浏览器内核分类（谷歌浏览器、火狐浏览器、IE浏览器、苹果浏览器）
 
    - ​	浏览器开发者工具：F12 （或者Fn + F12）
@@ -26,8 +24,6 @@
    - ​	写代码的编辑器：记事本、DreamWeaver(DW)、Hbuilder、Sublime、VS code
 
      ​	了解前端三剑客：DW、FireWorks(PhotoShop)、Flash(Animate)
-
-   
 
 2. ​	语言（和浏览器打交道的语言） 95%以上时间
 
@@ -88,7 +84,7 @@ HTML文档
 	1，记事本（纯文本）
 	2、DreamWeaver（DW），所见即所得
 	3、Hbuilder
-	4、VS Code（推荐）		
+	4、VS Code（推荐）	（https://code.visualstudio.com/Download	
 
 ​	5、Notepad++、Sublime Text、UltraEdit 和 Xcode（适用于 macOS）等
 
