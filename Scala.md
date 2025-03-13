@@ -163,9 +163,9 @@ $ java HelloWorld
 
 ###  Scala编译和运行
 
-#### 课程案例-编译与运行
+**课程案例-编译与运行**
 
-**案例名称：HelloWorld案例的编译与运行**（21页）
+案例名称：HelloWorld案例的编译与运行（21页）
 
 ​	需求描述：在控制台输出HelloWorld
 
@@ -218,9 +218,9 @@ C:\work\scala>scalap HelloWorld$delayedInit$body
 | use:paste to enter a class and object as  companions. |
 | :quit  to  exit the interpreter                       |
 
-#### 课程案例-REPL命令交互编程
+课程案例-REPL命令交互编程
 
-​	**案例名称：使用REPL命令交互编程**（30页）
+​	案例名称：使用REPL命令交互编程（30页）
 
 ​	需求描述：熟悉常见的REPL命令和编程技巧
 
@@ -343,7 +343,7 @@ Scala代码中注释
 
 分号是表达式的分隔符，Scala自动推断分号。
 
-#### **课程示例**（42）
+**课程示例**（42）
 
 一行编写多个表达式
 
@@ -429,7 +429,7 @@ val name [:ConstantType] = value // constant
 - 引用类型常量，不能改变常量指向的对象，可以改变对象的字段。
 - **建议能用常量就不要用变量。**
 
-#### **课程案例**（45页）
+**课程案例**（45页）
 
 分别使用val和var定义一个变量name
 
@@ -473,7 +473,7 @@ scala> name = 2
 
 ![image-20250225013907683](http://img.rmb520.com/test/image-20250225013907683.png)
 
-#### **课程示例**（47页）
+**课程示例**（47页）
 
 定义一个数组array，数组里有scala、java和go三个字符串，用两种方式实现下面要求：
 
@@ -522,7 +522,7 @@ res5: Array[String] = Array(python, go, rust)
 
 ​	•lazy val 变量名
 
-####  **课程案例**（49页）
+**课程案例**（49页）
 
 演示Scala的lazy变量的惰性求值。
 
@@ -541,7 +541,7 @@ scala> lazy var name="df"
        lazy var name="df"
 ```
 
-### 编程题：（51页）
+编程题：（51页）
 
 Scala编写一个注册类，含有用户名和密码两个属性，要求：
    （1）用户名不可修改；
@@ -761,8 +761,7 @@ Scala的字符串可用双引号和三个引号表示
   1. 可以创建多个字符串；
   2. 可以包含单引号和双引号等转义字符。
 
-
-#### 课程案例（60页）
+**课程案例（60页）**
 
 按照要求在REPL上输出以下内容：
 
@@ -876,17 +875,26 @@ res: String = his basic salary is ***，and bonus is ***
 
 scala> res
 res2: String = his basic salary is ***，and bonus is ***
+//第二种方法
+scala> val regex = """\d{5}""".r
+regex: scala.util.matching.Regex = \d{5}
+
+scala> regex.replaceFirstIn(s,"----")
+res4: String = his basic salary is ----，and bonus is 20000
+
+scala> regex.replaceAllIn(s,"____")
+res5: String = his basic salary is ____，and bonus is ____
 ```
 
 ####  Scala的字符串的遍历
 
 for循环
 
-​	 for{x <- String } {do something}
+​	 for(x <- String ) {do something}
 
 foreach 
 
-​	 String.foreach（c=> do something ）
+​	 String.foreach（c => do something ）
 
 map
 
@@ -906,7 +914,7 @@ map
 
 ​	String.map（c => do something ）
 
-#### 课程案例（67页）
+课程案例（67页）
 
 使用三种方式遍历字符串scala。
 
@@ -937,7 +945,7 @@ a
 res39: scala.collection.immutable.IndexedSeq[Unit] = Vector((), (), (), (), ())
 ```
 
-#### 课程案例（68页）
+课程案例（68页）
 
 使用三种方式将字符串scala的每一个字符转成大写。
 
@@ -969,7 +977,7 @@ res3: String = scala
 
 
 
-#### 案例名称：字符替换（70页）
+案例名称：字符替换（70页）
 
 需求描述：身份证210404197681232113后四位用*代替。
 
@@ -985,6 +993,20 @@ result: String = 21040419768123****
 
 scala> result
 res0: String = 21040419768123****
+```
+
+```scala
+scala> :paste
+// Entering paste mode (ctrl-D to finish)
+
+val sb = new StringBuilder()
+val indexs = for(i<-iden.length-4 to iden.length) yield i
+for(i<-0 to iden.length-1){ if(indexs.contains(i)) sb.append("*") else sb.append(iden.charAt(i))}
+
+// Exiting paste mode, now interpreting.
+
+sb: StringBuilder = 2156868666****
+indexs: scala.collection.immutable.IndexedSeq[Int] = Vector(10, 11, 12, 13, 14)
 ```
 
 
@@ -1088,8 +1110,7 @@ Scala字符串的插值
 
 - ​	raw插值:表示raw" "例子: raw“his name is $name” 
 
-
-#### 课程案例（72页）
+**课程案例（72页）**
 
 假设已经定义好了姓名、年龄和体重的三个变量（name=jason,age=10,weight =180），并且这些变量是不能改变的，现要求分别输出以下四项字符串：
 
@@ -1108,7 +1129,7 @@ Scala字符串的插值
 
 
 
-#### 案例名称：主机名匹配（74）
+**案例名称：主机名匹配（74）**
 
 需求描述：比较用户输入的主机名hadoop01是否在已知字符串str=“host01,host03,hadoop01,hadoop010”存在，如果存在打印，find 主机名，否则打印unfind 主机名(不区分大小写)
 
@@ -1162,7 +1183,7 @@ i unfind hadoop
 - / 相当于调用 对应类型的 /方法
 - % 相当于调用 对应类型的 %方法
 
-#### 课程案例(77)
+**课程案例(77)**
 
 举例写出前缀、中缀和后缀操作符对应的方法调用。
 
@@ -1335,6 +1356,10 @@ scala>
 
 #### Scala 的位运算符
 
+var a = 00000000
+
+var b = 00000001
+
 | **运算符** | **描述**       |
 | ---------- | -------------- |
 | &          | 按位与运算符   |
@@ -1377,15 +1402,15 @@ scala>
 
 课程练习(87)
 
-•1. 5 ==5.0 
+•5 ==5.0 
 
-•2. 97=='a’
+•97=='a’
 
-•3.5>3 &&'6'＞１０
+•5>3 &&'6'＞１０
 
-•4. 4>=5 || 'C'>'a'
+•4>=5 || 'C'>'a'
 
-•5.4>=5 ^ 'c'>'a'
+•4>=5 ^ 'c'>'a'
 
 ### Scala的数据类型和运算的应用
 
@@ -1394,7 +1419,7 @@ Scala的相等性
 - Scala的“==”用来判断比较双方的值是否相等，与Java不同。
 - Scala判断相等性的null不会抛异常
 
-#### 课程练习(88页)
+**课程练习(88页)**
 
 ```scala
 scala> :paste
@@ -1431,7 +1456,7 @@ s6: String = hello
 
 #### Scala的++和--
 
-Scala没有++和--这样的操作符，可用如下操作符代替。
+Scala**没有**++和--这样的操作符，可用如下操作符代替。
 
 - ++：Scala用赋值符号+=代替++
 - --：Scala用赋值符号-=代替--
@@ -1463,7 +1488,7 @@ res21: Boolean = true
 ```
 
 ```scala
-def compare(x:Double,y:Double,p:Double)={
+def compare(x:Double, y:Double, p:Double)={
      if((x-y).abs<p) true else false
 }
 ```
@@ -1489,7 +1514,7 @@ res1: Boolean = false
 
 
 
-#### Scala处理大数。(93)
+**Scala处理大数。(93)**
 
 - BigDecimal 
 - **BigInt****：**Int如果超过范围，会报错，而BigInt解决这类问题。
@@ -1527,7 +1552,7 @@ Scala可以生成随机数和随机字符
 
 - 随机种子：产生伪随机序列
 
-#### 课程练习(95页)
+**课程练习(95页)**
 
 1. 生成0-100的伪随机序列，序列含三个元素。
 2. 创建一个随机长度的集合(由数字组成，元素最多5个)

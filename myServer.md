@@ -25,48 +25,45 @@
 
 shopxo
 
-[点击访问后台管理 >>](http://xo.rmb520.com/adminxvuqtf.php)
-
-后台管理地址: http://xo.rmb520.com/adminxvuqtf.php
+后台管理地址: http://a.rmb520.com/admingduxgf.php
 
 后台账号: admin
 
 后台密码: 123456
 
-默认后台地址入口文件在站点根目录和public目录下，默认以 admin 开头 .php 结尾的文件名称。
-
-[点击访问首页 >>](http://xo.rmb520.com/)
-
-请尽快修改管理员密码，以防被非法入侵。
-并删除 ./app 目录下的 install 目录。
 
 
 
-like
 
-FTP信息：
-用户：kgWhhorhJ
-密码：SiSQ&Q^n
+个人myshopxo
+
+后台管理地址: http://ai.rmb520.com/adminebenm5.php?s=index/index.html
+
+http://ai.rmb520.com/
+
+后台账号: admin
+
+后台密码: 123456
+
+shopxo git token
+
+d6427ae534072579dbf1da754215982b
 
 
+
+
+
+beike
+
+http://bei.ni520.com/
 
 ##### 设置后台账号密码
 
-root@guangda.work
-
-7po9zpqz489m3ays
-
-
-
-
-
-http://like.rmb520.com/
-
-http://like.rmb520.com/admin
-
 后台账号: root@guangda.work
 
-后台密码: 7po9zpqz489m3ays
+后台密码: dwjommgnipadwp3f
+
+
 
 dbcart 
 
@@ -75,13 +72,15 @@ dbcart
 | 系统管理员帐号 | admin                |
 | 系统管理员密码 | 123456               |
 
-http://db.rmb520.com/
 
-http://db.rmb520.com/admin
 
 
 
 dbshop
+
+http://db.rmb520.com/
+
+http://db.rmb520.com/admin
 
 |       网站名称 | DBShop商城系统 |
 | -------------: | -------------- |
@@ -94,6 +93,8 @@ http://dbs.rmb520.com/admin
 
 
 
+creb
+
 http://cr.rmb520.com/
 
 http://cr.rmb520.com/admin/
@@ -104,9 +105,7 @@ http://cr.rmb520.com/admin/
 
 
 
-### iWebShop
-
-http://iwe.rmb520.com/
+git 
 
 # docker
 
