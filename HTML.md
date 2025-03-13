@@ -566,7 +566,7 @@ HTML锚点（Anchor）
 
 #### 	页内样式表
 
-内嵌(内部)样式表：（对当前页面有效、内嵌样式）
+**内嵌(内部)样式表**：（对当前页面有效、内嵌样式）
 ​		 放在\<head> \</head>中，通过\<style>标签定义
 ​		 通用写法：
 
@@ -598,7 +598,7 @@ HTML锚点（Anchor）
 
 #### 站点样式表
 
-外部样式表:通过link标签引入，或者用import导入
+**外部样式表**:通过link标签引入，或者用import导入
     1 放在 \<head>标签里面，通过\<link>标签关联
 	2 在 \<style>标签里面用 @import（推荐使用）
 
@@ -613,6 +613,14 @@ HTML锚点（Anchor）
 		@import "css文件路径" ;
 	</style>
 ```
+
+**HTML全局属性**
+
+- id 
+- class
+- style
+- title
+- lang
 
 ## CSS基本选择器： 
 
