@@ -39,7 +39,6 @@ Scala 是将函数式编程与面向对象相结合的语言。
 
 
 
-
 ## 2 Scala环境配置和安装
 
 Scala是基于Java之上，大量使用Java的类库和变量，使用 Scala 之前必须先安装 Java（>1.5版本）。
@@ -713,7 +712,7 @@ Scala中常见的字面量有以下几种。
   | ------------ | ----------------- | ------------------------------------ |
   | \\ t         | \u0009            | 水平制表（HT），跳到下一个Tab位置    |
   | \\ n         | \u000a            | 换行（LF），将当前位置移到下一行开头 |
-  | \\\ r        | \u000d            | 回车（CR），将当前位置移到本行开头   |
+  | \ r          | \u000d            | 回车（CR），将当前位置移到本行开头   |
   | \\\"         | \u0022            | 代表一个双引号（"）字符              |
   | \\'          | \u0027            | 代表一个单引号（'）字符              |
   | \\           | \u005c            | 代表一个反斜线字符 '\'               |
@@ -1163,7 +1162,7 @@ i unfind hadoop
 
 
 
-### Scala的基本运算
+## Scala的基本运算
 
 内置运算符
 
@@ -1617,113 +1616,364 @@ res44: scala.collection.immutable.IndexedSeq[Char] = Vector(4, K, =, S, 8, g, W,
 
 # 三 Scala内建控制、类和对象
 
-### Scala的idea环境搭建
+## Scala的idea环境搭建
 
 Idea+Scala的环境
 
-​	JDK1.8+
+- ​	JDK1.8+
 
-​	Scala2.12.x
+- ​	Scala2.12.x
 
-​	Scala插件
+- ​	Scala插件
+
 
 安装步骤
 
-​	安装JDK1.8+
+- ​	安装JDK1.8+
 
-​	安装Scala2.12.x
+- ​	安装Scala2.12.x
 
-​	Scala插件
+- ​	Scala插件
 
-​		在线安装
+  - 在线安装
 
-​		离线安装: http://plugins.jetbrains.com/plugin/1347-scala/versions
 
-​	Idea配置
+  - 离线安装: http://plugins.jetbrains.com/plugin/1347-scala/versions
 
-### Scala的内建控制
+
+- ​	Idea配置
+
+
+## Scala的内建控制
 
 Scala的常见内建控制结构
 
-​	顺序结构：程序的执行顺序
+- ​	顺序结构：程序的执行顺序
 
-​	分支结构：if
+- ​	分支结构：if
 
-​	循环结构:for和while
+- ​	循环结构:for和while
 
-### Scala的类和构造器
+
+
+### Scala的顺序结构
+
+```scala
+ def main(args: Array[String]): Unit = {
+
+  val name="scala"
+
+  val age=10
+
+  println("hello scala")
+
+  println(name+"has been "+age)
+
+｝
+```
+
+
+
+### Scala的分支结构
+
+- **if**语句
+- 模式匹配:match
+
+据不同年龄，对人群进行分类，并返回实际年龄段字符串。
+
+- 12岁以下，输出童年
+- 12-20岁，输出青年
+- 30-40，输出中年
+- 40-50，输出壮年
+- 50以上，输出老年
+
+```
+
+```
+
+
+
+### Scala的循环结构
+
+- for
+- while
+- do while
+
+### for循环的表示
+
+for( var x <- Range;表达式1；表达式2 ){
+
+  statement(s);
+
+}
+
+for循环实例
+
+```scala
+val fruits = List("apple", "banana", "origane", "strawberry")
+for (fruit <- fruits) {
+	println(fruit + " is " + ftype)
+}
+```
+
+### 卫语句for循环的表示
+
+```scala
+for( var x <- List
+	if condition1; if condition2...
+){
+	statement(s);
+｝
+```
+
+卫语句for循环实例
+
+```scala
+val fruits = List("apple", "banana", "origane", "strawberry")
+for (fruit <- fruits;
+	if fruit.startsWith("b");
+) {
+	println(fruit + " is " + color)
+}
+```
+
+### 带返回值的for循环表示
+
+```scala
+for{ var x <- List
+	if condition1; if condition2... 
+}yield x
+```
+
+带返回值for循环实例
+
+```scala
+val fruits = List("apple", "banana", "origane", "strawberry")
+val upfruit= for (fruit <- fruits; if fruit.startsWith("b");) yield 
+fruit.toUpperCase
+println("upfruit =" +upfruit)
+```
+
+
+
+## Scala的类和构造器
 
  Scala类的定义
 
-类分类
+#### 类分类
 
-​	普通类
+- ​	普通类
 
-​	匿名类
+- ​	匿名类
 
-​	内部类
+- ​	内部类
 
-​	抽象类 
+- ​	抽象类 
 
-类成员
 
-构造器/辅助构造器
+#### 类成员
 
-属性
+- 构造器/辅助构造器
 
-方法
+- 属性
 
-类
+- 方法
 
-对象 
+- 类
+
+- 对象 
+
+#### 定义一个的无参普通类
+
+定义一个类Socket类，要求有sourceip、port和detinationIP三个属性，要求
+
+- Sourceip不能修改
+- Port和deIP可修改且可访问
+- sourceip=127.0.0.1和port=22,detinationIP赋予默认属性
+- 打印sourceip、port和detinationIP三个属性
+- 修改port=50070，detinationIP=192.168.12.10
+
+```
+
+```
+
+
+
+定义一个类Pig类，要求有name、age、sex和color四个属性，要求
+
+- name和age即可访问也可修改
+- color访问
+- sex不可访问和修改
+
+```
+
+```
+
+#### 定义一个有参的类
+
+使用带参数构造器，定义Rational类，参数分别是要操作的三个个有理数。
+
+- 参数是Int
+- 定义一个方法对参数求和
+- 使用已经定义Rational类，实现对指定的一个参数加10和20。
+
+ 
+
+```
+
+```
+
+#### Scala的主构造器
+
+class 类名 （[parameter1，parameter2......]）{
+
+ }
+
+#### Scala的辅助构造器定义
+
+this（[parameter1，parameter2......]）{
+
+ }
+
+
+
+定义一个注册类，提供多种不同的创建对象方法
+
+- 必填属性：name、手机号、密码和邮箱
+- 可选属性:公司和职位
+- name是不可修改
+- 其他属性可读可修改
+
+
+
+#### 案例名称：创建汽车类
+
+- 需求描述：定义一个Car类，提供四组构造器
+- 只读属性制造商、型号名称和年份
+- 可读写属性车牌号
+- 每一组构造器制造商和型号名称必填
+- 型号年份和车牌号可选，如果未设置年份为-1，车牌为空字符串
+
+```
+
+```
+
+
 
 ### Scala的伴生类和对象
 
- Scala的单例对象
+####  Scala的单例对象
 
 Scala的单例对象声明    
 
-​	object identifier{ 
+```scala
+object identifier{ 
 
-​	
-
-​	}
+}
+```
 
 Scala的单例对象
 
-​	不是一个类型
+- ​	不是一个类型
 
-​	不能new
+- ​	不能new
 
-​	不能传递参数
+- ​	不能传递参数
+
+分别使用Java和Scala创建Single单例对象。
+
+```
+
+```
+
+Scala的单例对象场景
+
+- 资源共享的情况
+- 控制资源的情况
+
+#### Scala的伴生对象与伴生类
+
+- •同名
+- •同一个源码文件
+
+Scala的伴生对象与伴生类解决什么问题
+
+- •生成静态成员
+- •伴生对象和类之间的相互访问
+- •构建单例对象
+
+
+
+- 创建一个Student类和它的伴生对象
+- 分别用Java和Scala创建静态属性，并访问
+- 为Student类和它的伴生对象分别创建私有属性，并相互访问
+
+```
+
+```
+
+#### Scala的对象创建
+
+- new
+- 伴生对象
+- apply
+
+使用三种方式创建Person对象
+
+```
+
+```
+
+
+
+#### Scala的对象相等性判断
+
+- equal方法
+- ==与！=
+- eq与ne
+
+案例名称：判断Student对象相等
+
+- 需求描述：定义一个Student类，有名字、性别、年龄和身份证号属性，覆写equals方法
+- 身份证号相等，则认为两个对象相等。
+- 所有属性相等，则认为两个对象相等。
+
+```
+
+```
+
+
 
 # 四 Scala自适应类型和函数
 
-Scala的自适应类型
+## Scala的自适应类型
 
- Scala的特殊类型
+###  Scala的特殊类型
 
 Nothing
 
-​	所有类型的子类
+- ​	所有类型的子类
 
-​	抽象类
+- ​	抽象类
 
-​	没有任何值
+- ​	没有任何值
+
 
 Nothing的作用
 
-​	帮助Scala的类型推断
+- ​	帮助Scala的类型推断
 
-###  Scala的元组类型
+
+### Scala的元组类型
 
 Scala字面量：Scala的特殊类型，它是不同类型值的集合。
 
 元组的表示
 
-​	(元素1, 元素2, ...元素N)  
+- ​	(元素1, 元素2, ...元素N)  
 
-​	new TupleN(元素1, 元素2, ...元素N)  
+- ​	new TupleN(元素1, 元素2, ...元素N)  
+
 
 元组的访问
 
@@ -1733,65 +1983,154 @@ Scala字面量：Scala的特殊类型，它是不同类型值的集合。
 
 ​	Tuple.productIterator() 
 
-### Scala的函数基础
+## Scala的函数基础
 
-### Scala的函数进阶
+```scala
+def max(x:Int,y:Int):Int={
+        if(x>y)
+             x
+        else
+             y
+}
+```
 
-Scala的函数字面量语法
+###  Scala的函数的链式风格
+
+
+
+## Scala的函数进阶
+
+### Scala的函数字面量语法
 
 ​	（参数列表）=>{方法体}
 
 Scala的函数字面量作用
 
-​	变量
+- ​	变量
 
-​	参数
+- ​	参数
+
 
 Scala的函数字面的简化
 
-​	_
+- ​	_
 
-​	只有一个表达式，可省略括号
+- ​	只有一个表达式，可省略括号
+
 
 Scala的函数字面量的懒加载
 
 ​	lazy
 
-### Scala的高阶函数
+定义一个字面量sum函数，返回两个数的和，并赋予一个变量。
 
-Scala的高阶函数定义
+- 简化上述函数
+- 懒加载sum函数
+
+```
+
+```
+
+###  Scala函数的闭包
+
+Closure in ruby 闭包的条件
+
+- 代码块当作值传递
+- 可以被任何拥有该值的对象按需执行
+- 可以引用上下文已经创建的变量
+
+•演示闭包。
+
+```
+
+```
+
+###  Scala函数的柯里化
+
+#### 柯里化的定义
+
+def 函数名（参数列表1）（参数列表2）...（参数列表n）:type={
+
+​                   方法体
+
+}
+
+#### 柯里化函数
+
+- 不能传递部分参数
+- 可以利用隐式参数传递部分值
+- 不能返回新的函数
+
+定义一个两个整数乘法的柯里化函数。
+
+```
+
+```
+
+###  Scala部分应用函数
+
+部分应用函数的定义
+
+只传递部分参数
+
+def 函数名（参数列表X，Y..）:type={
+
+​                   f(Y)
+
+}
+
+部分应用函数作用
+
+​	返回新的函数
+
+- 定义一个函数为HTML，添加前后缀(如<div>和</div>)
+- 定义一个接受三个参数的函数，实现三个数相乘，传递部分参数，打印结果
+
+```
+
+```
+
+
+
+## Scala的高阶函数
+
+#### Scala的高阶函数定义
 
 高阶函数是指使用其他函数作为参数、或者返回一个函数作为结果的函数。在Scala中函数是“一等公民”，所以允许定义高阶函数。这里的术语可能有点让人困惑，我们约定，使用函数值作为参数，或者返回值为函数值的“函数”和“方法。  
 
-Scala的常见高阶函数   
+#### Scala的常见高阶函数   
 
-​	map
+- ​	map
 
-​	flatten
+- ​	flatten
 
-​	flat
+- ​	flat
 
-​	map
+- ​	map
 
-​	foreach
+- ​	foreach
 
-​	reduce
+- ​	reduce
 
-​	filter
+- ​	filter
 
-​	fold
+- ​	fold
+
 
 # 五 Scala继承和多态
 
-### Scala的继承
+## Scala的继承
 
-继承定义在原有类基础上定义一个新类，原有类父类，新类子类。
+继承定义
+
+在原有类基础上定义一个新类，原有类父类，新类子类。
 
 继承的好处
 
-​	复用代码
+- ​	复用代码
 
-​	实现多态
+- ​	实现多态
+
 
 继承的语法
 
@@ -1805,11 +2144,12 @@ class Dog(name:String,age:Int) extends Animal(name,age)
 
 辅助构造器调用
 
-父类的辅助构造器可以被子类的主构造器调用
+- 父类的辅助构造器可以被子类的主构造器调用
 
-父类的辅助构造器不能子类的辅助构造器调用
+- 父类的辅助构造器不能子类的辅助构造器调用
 
-#### Scala的多态
+
+### Scala的多态
 
 多态
 
@@ -1823,7 +2163,7 @@ class Dog(name:String,age:Int) extends Animal(name,age)
 
 ​	重写
 
-#### Scala的继承
+### Scala的继承
 
 方法的继承
 
@@ -1837,11 +2177,11 @@ class Dog(name:String,age:Int) extends Animal(name,age)
 
 ​	override
 
-### Scala的继承关系
+## Scala的继承关系
 
 Scala继承的层级关系
 
-![image-20250120012020395](/Users/zhangwei/Library/Application Support/typora-user-images/image-20250120012020395.png)
+![image-20250315020810960](http://img.rmb520.com/test/image-20250315020810960.png)
 
 ### Scala的抽象类
 
@@ -1867,7 +2207,21 @@ Scala何时使用抽象类
 
 ​	非抽象val非抽象var抽象val和var
 
-### Scala的trait
+### Scala的内部类
+
+•定义在类或对象内部的类
+
+•Scala的内部对象
+
+•定义在类或对象内部的对象
+
+•Scala的匿名类
+
+•没有名字的类
+
+
+
+## Scala的trait
 
 Scala的特质
 
@@ -1881,7 +2235,9 @@ Trait identified {
 
 Scala的特质作用
 
-​	封装成员和方法抽象类接口
+- 封装成员和方法
+- 抽象类
+- 接口
 
 Scala的特质语法
 
@@ -1889,13 +2245,14 @@ Scala的特质语法
 
 trait的几种用法  
 
-​	只有抽象方法的trait
+- ​	只有抽象方法的trait
 
-​	只有抽象成员和方法的trait
+- ​	只有抽象成员和方法的trait
 
-​	具体成员的变量和方法
+- ​	具体成员的变量和方法
 
-​	对象继承特质
+- ​	对象继承特质
+
 
 # 六  Scala权限和集合
 
@@ -1911,7 +2268,7 @@ trait的几种用法
   - private访问权限
   - private[this]访问权限
 
-### 2 Scala的包和导入
+## 2 Scala的包和导入
 
 #### Scala的包
 
@@ -1924,7 +2281,7 @@ trait的几种用法
   - Private[包名]
   - protected[包名]
 
-#### Scala的包的导入
+## Scala的包的导入
 
 - Scala的导入语法
   - import
@@ -1933,7 +2290,7 @@ trait的几种用法
 - 导入成员隐藏类
   - Import {A=>_,_}
 
-### 3 Scala的集合
+## 3 Scala的集合
 
 Scala的集合继承关系
 
@@ -1951,9 +2308,10 @@ scala.collection.immutable
 
 ![image-20250120014043340](http://img.rmb520.com/test/image-20250120014043340.png)
 
-- Scala的集合的一致性
+Scala的集合的一致性
+
 - Traversable(1, 2, 3)
--  Iterable("x", "y", "z") 
+- Iterable("x", "y", "z") 
 - map("x" -> 24, "y" -> 25, "z" -> 26) 
 - Set(Color.red, Color.green, Color.blue) 
 - SortedSet("hello", "world") 
@@ -1963,7 +2321,7 @@ scala.collection.immutable
 
 
 
-### 4 Scala的迭代器
+## 4 Scala的迭代器
 
 - 迭代器
   - Scala Iterator（迭代器）不是一个集合，它是一种用于访问集合的方法
@@ -1985,7 +2343,7 @@ scala.collection.immutable
 
 # 七 Scala的Seq 
 
-Scala的seq
+## Scala的seq
 
 Scala的集合
 
@@ -2016,7 +2374,7 @@ Scala的Seq继承关系
 
 
 
-Scala的List
+## Scala的List
 
 - Scala的List的构建
   - Nil::
@@ -2030,7 +2388,7 @@ Scala的List
   - /：或：\
   - zipped
 
-Scala的Vector
+## Scala的Vector
 
 Scala的Vector
 
@@ -2093,6 +2451,38 @@ Scala的不可变map常用操作
 ## 3 Scala的集合性能
 
 ## 4 Scala的模式匹配
+
+### Scala的模式匹配语法
+
+```scala
+X match {
+
+case1
+
+case2
+
+}
+```
+
+### Scala的模式数据类型
+
+- •String
+- •类
+- •变量
+- •常量
+- •其他复杂类型
+
+### Scala的模式匹配
+
+- •常量
+- •变量
+- •构造器
+- •序列
+- •元组
+- •类型
+- •变量绑定
+
+
 
 # 九 Scala隐式转换和Java交互
 
@@ -2179,13 +2569,20 @@ Scala的不可变map常用操作
 
 ## Scala的泛型界定
 
-- Scala的界定
+Scala的界定
+
 - 上下界界定
 - 视图界定
 - 上下文界定
 - 多重界定
 
 ## Scala的型变
+
+### Scala的型变
+
+- 不变
+- 协变
+- 逆变
 
 - Scala的型变
   - 不变协变逆变
@@ -2199,5 +2596,3 @@ Scala的不可变map常用操作
   - A[-T]
 
 ## Scala的高级类型
-
-自学
