@@ -37,8 +37,6 @@ Scala 是将函数式编程与面向对象相结合的语言。
 
 - Scala与Java无缝调用
 
-
-
 ## 2 Scala环境配置和安装
 
 Scala是基于Java之上，大量使用Java的类库和变量，使用 Scala 之前必须先安装 Java（>1.5版本）。
@@ -68,8 +66,6 @@ Scala的安装步骤(window平台)
 | %SCALA_HOME% | c:\Progra~1\Scala  (修改自己的安装目录) |
 | %PATH%       | %PATH%;%SCALA_HOME%\bin                 |
 
-
-
 ## 3 Scala的编译和运行
 
  Scala与Java的编译
@@ -89,7 +85,7 @@ Type in expressions for evaluation. Or try :help.
 scala> _
 ```
 
-```
+```scala
 scala> 1 + 1
 val res0: Int = 2
 
@@ -189,7 +185,7 @@ object HelloWord {
 
 
 
-```
+```scala
 //编译
 C:\work\scala>scalac HelloWorld.scala
 
@@ -285,7 +281,7 @@ res5: Int = 4
 
 #### REPL常见命令应用
 
-```
+```scala
 C:\Users\fighting\Desktop\test>scala
 scala> new Register()
 
@@ -556,7 +552,7 @@ class Register {
 
 REPL命令参考33页常见命令的应用
 
-```
+```scala
 C:\Users\Administrator>scala
 Welcome to Scala 2.12.20 (Java HotSpot(TM) 64-Bit Server VM, Java 1.8.0_201).
 Type in expressions for evaluation. Or try :help.
@@ -2481,8 +2477,6 @@ case2
 - •元组
 - •类型
 - •变量绑定
-
-
 
 # 九 Scala隐式转换和Java交互
 
