@@ -1656,15 +1656,10 @@ Scala的常见内建控制结构
 
 ```scala
  def main(args: Array[String]): Unit = {
-
   val name="scala"
-
   val age=10
-
   println("hello scala")
-
   println(name+"has been "+age)
-
 ｝
 ```
 
