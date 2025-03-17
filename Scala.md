@@ -466,7 +466,9 @@ scala> name = 2
 
 ### Scala变量内存结构
 
-![image-20250225013907683](http://img.rmb520.com/test/image-20250225013907683.png)
+<img src="http://img.rmb520.com/test/image-20250225013907683.png" width="600px">
+
+
 
 **课程示例**（47页）
 
@@ -626,7 +628,7 @@ Scala数据类型的分类
 
 Scala的基本类型与**Java**的基本类型对应的取值区间完全相同，使得Scala编译器可以在产生的字节码中将Scala的值类型转成Java的基本类型。
 
-![image-20250129181622273](http://img.rmb520.com/test/image-20250129181622273.png)
+<img src="http://img.rmb520.com/test/image-20250129181622273.png" width="500px">
 
 
 

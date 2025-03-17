@@ -54,7 +54,9 @@ $(document).ready() 是 jQuery 提供的一个函数，用于**在 DOM 加载完
 
 $(document).ready()方法可以在页面中的任何位置使用，通常放在脚本的开头或者结束部分。
 
-![image-20241215212234912](http://img.rmb520.com/test/image-20241215212234912.png)
+<img src="http://img.rmb520.com/test/image-20241215212234912.png" width="500px">
+
+
 
 掌握
 
@@ -198,7 +200,9 @@ $(":button[value='你的爱好']").click(function(){
 })
 ```
 
-![image-20241120003341913](http://img.rmb520.com/test/image-20241120003341913.png)
+<img src="http://img.rmb520.com/test/image-20241120003341913.png" width="700">
+
+
 
 ## 	其他筛选方法
 
