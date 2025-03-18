@@ -956,7 +956,7 @@ Type in expressions for evaluation. Or try :help.
 scala> val name = "scala"
 name: String = scala
 
-scala> name.map( x=>x.toUpper)
+scala> name.map( x => x.toUpper)
 res0: String = SCALA
 
 scala> val s = for(x<-name) yield x.toUpper
@@ -1032,6 +1032,8 @@ scala> val r = for(x<-result) println(x)
 4
 6
 r: Unit = ()
+//第二种方法
+scala> for( x <- s; if(x%2 == 0) ) yield x
 
 scala> var sb = new StringBuilder
 sb: StringBuilder =
@@ -1080,8 +1082,10 @@ s: String = 123456
 //asDigit 是 Char 类型的一个方法，用于将字符转换为其对应的数字值
 scala> val newS = s.map(c => (c.asDigit + 1).toString).mkString
 newS: String = 234567
+
 //将字符转换为字符串，然后使用 toInt 方法。
 scala> val res = s.map(x=>x.toString.toInt+1).mkString
+
 res: String = 234567
 //在 ASCII 码表中，数字字符 '0' 到 '9' 是连续的，因此可以通过减去 '0' 的 ASCII 值来将字符转换为对应的数字。
 //'5' - '0' 的结果是 5，因为 '5' 的 ASCII 值是 53，'0' 的 ASCII 值是 48，相减后得到数字 5。
@@ -1098,7 +1102,7 @@ res3: String = 234567
 Java拼接字符串
 
 - ​	String name=“scala”
-- ​	 “his name is”+name
+- ​	 “his name is” + name
 
 
 Scala字符串的插值
@@ -1107,7 +1111,7 @@ Scala字符串的插值
 
 - ​	f插值: 表示 f" "例子: f“his name is $name” 
 
-- ​	raw插值:表示raw" "例子: raw“his name is $name” 
+- ​	raw插值:表示 raw" "例子: raw“his name is $name” 
 
 **课程案例（72页）**
 
@@ -1631,11 +1635,11 @@ Idea+Scala的环境
 
 - ​	安装Scala2.12.x
 
+- ​        安装idea (https://www.jetbrains.com.cn/idea/)
+
 - ​	Scala插件
 
   - 在线安装
-
-
   - 离线安装: http://plugins.jetbrains.com/plugin/1347-scala/versions
 
 
@@ -1672,6 +1676,8 @@ Scala的常见内建控制结构
 - **if**语句
 - 模式匹配:match
 
+**Scala的if语句有返回值，而Java语句if没有返回值**
+
 据不同年龄，对人群进行分类，并返回实际年龄段字符串。
 
 - 12岁以下，输出童年
@@ -1680,8 +1686,31 @@ Scala的常见内建控制结构
 - 40-50，输出壮年
 - 50以上，输出老年
 
-```
+```scala
+package scala03
 
+object ClassifyPerson {
+  def main(args: Array[String]): Unit = {
+    val c = matchAge(20)
+    println(c)
+  }
+
+  def matchAge(age:Int) = {
+    var classify = if (age<12){
+      "童年"
+    }else if (age>=12 && age<30) {
+      "青年"
+    }else if (age>=30 && age<40) {
+      "中年"
+    }else if (age>=40 && age<50) {
+      "壮年"
+    }else {
+      "老年"
+    }
+    classify
+  }
+
+}
 ```
 
 
@@ -1691,6 +1720,18 @@ Scala的常见内建控制结构
 - for
 - while
 - do while
+
+**Scala的do...while和while与Java不同，它具有返回值。**
+
+```scala
+val result = do {
+    println(s"i=$i")
+    i += 1
+} while (i < 1)
+println(result==（）)
+```
+
+
 
 ### for循环的表示
 
@@ -1786,8 +1827,26 @@ println("upfruit =" +upfruit)
 - 打印sourceip、port和detinationIP三个属性
 - 修改port=50070，detinationIP=192.168.12.10
 
-```
+```scala
+package scala04
 
+class Socket {
+  val sourceIp = "127.0.0.1" //val 不可变属性
+  var port = 22 //var 可变属性
+  var delIp = "8.8.8.8" //var 可变属性
+}
+
+//程序入口
+object RunSocket {
+  def main(args:Array[String]): Unit = {
+    val sk = new Socket() //创建对象
+    println(s"sourceIp = ${sk.sourceIp},port = ${sk.port},delIp = ${sk.delIp}")
+//    sk.sourceIp = "8.8" //报错
+    sk.port = 80 //修改属性
+    sk.delIp = "192.168.0.0"
+    println(s"sourceIp = ${sk.sourceIp},port = ${sk.port},delIp = ${sk.delIp}")
+  }
+}
 ```
 
 
@@ -1798,7 +1857,26 @@ println("upfruit =" +upfruit)
 - color访问
 - sex不可访问和修改
 
-```
+```scala
+class Pig {
+  var name = "peiqi"
+  var age = 90
+  val color = "red" //val 不可修改
+  private val sex = true //私有化，外部不可访问也不可修改
+
+  println(s"sex=${sex}") //内部访问sex属性
+}
+
+//程序入口
+object RunPig {
+  def main(args:Array[String]):Unit = {
+    val pig = new Pig() //创建对象
+    println(s"name=${pig.name},age=${pig.age},color=${pig.color}") //输出结果
+
+    pig.age = 100 //修改age
+    println(s"name=${pig.name},age=${pig.age},color=${pig.color}")
+  }
+}
 
 ```
 
@@ -1810,10 +1888,27 @@ println("upfruit =" +upfruit)
 - 定义一个方法对参数求和
 - 使用已经定义Rational类，实现对指定的一个参数加10和20。
 
- 
+```scala
+//Scala的有参类（114页）
+class Rational(val x:Int = 10, var y:Int, z:Int = 20) {
+//  定义一个方法对参数求和
+  def sum():Int = {
+    x+y+z
+  }
+}
 
-```
+object RunRational {
+  def main(args:Array[String]):Unit = {
+    var r = new Rational(1,2,3)
+    println(s"sum=${r.sum()}")
 
+    var r1 = new Rational(y=1)
+    println(s"sum=${r1.sum()}")
+
+    var r2 = new Rational(5,y=1,10)
+    println(s"sum=${r2.sum()}")
+  }
+}
 ```
 
 #### Scala的主构造器
@@ -1836,6 +1931,10 @@ this（[parameter1，parameter2......]）{
 - 可选属性:公司和职位
 - name是不可修改
 - 其他属性可读可修改
+
+```
+
+```
 
 
 
