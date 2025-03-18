@@ -1932,7 +1932,34 @@ this（[parameter1，parameter2......]）{
 - name是不可修改
 - 其他属性可读可修改
 
-```
+```scala
+package scala
+
+class Register(val name:String,var tel:String,var psword:String,var email:String) {
+var company=""
+  var position=""
+  println("enter into Register contruction")
+
+  def this(name:String,tel:String, psword:String, email:String,company:String){
+    this(name,tel,psword,email)
+    this.company=company
+  }
+  def this(name:String,tel:String, psword:String, email:String,company:String,position:String){
+    this(name:String,tel:String, psword:String, email:String,company:String)
+    this.position=position
+}
+  override def toString = s"Register($company, $position, $name, $tel, $psword, $email)"
+}
+object RunRegister{
+  def main(args: Array[String]): Unit = {
+   var r= new Register("xiaoxin","13301922222","123","abc@163.com")
+    println(r.toString)
+    var r1= new Register("xiaoxin","13301922222","124","abc@163.com","beijingal")
+    println(r1.toString)
+    var r2= new Register("xiaoxin","13301922222","124","abc@163.com","beijingal","manager")
+    println(r2.toString)
+  }
+}
 
 ```
 
@@ -1946,8 +1973,37 @@ this（[parameter1，parameter2......]）{
 - 每一组构造器制造商和型号名称必填
 - 型号年份和车牌号可选，如果未设置年份为-1，车牌为空字符串
 
-```
+```scala
+package scala03
 
+class Car(val producerName: String, val productType: String, val carYear: Int, var carNum: String) {
+  def this(producerName: String, productType: String) {
+    this(producerName, productType, -1, "空字符串")
+  }
+
+  def this(producerName: String, productType: String, carYear: Int) {
+    this(producerName, productType, carYear, "空字符串")
+  }
+
+  def this(producerName: String, productType: String, carNum: String) {
+    this(producerName, productType, -1, carNum)
+  }
+
+  override def toString = s"Car($producerName, $productType, $carYear, $carNum)"
+}
+
+object Car {
+  def main(args: Array[String]): Unit = {
+    val car1 = new Car("audi", "Q5", 2008, "888888")
+    val car2 = new Car("audi", "A4")
+    val car3 = new Car("audi", "A6", 2008)
+    val car4 = new Car("audi", "Q3", "666666")
+    println(s"car1=$car1")
+    println(s"car2=$car2")
+    println(s"car3=$car3")
+    println(s"car4=$car4")
+  }
+}
 ```
 
 
@@ -1974,8 +2030,49 @@ Scala的单例对象
 
 分别使用Java和Scala创建Single单例对象。
 
+```java
+package javacode;
+
+public class Single {
+    /**
+     * 1.private contruction
+     * 2.public method
+     * 3.one
+     */
+    private static  Single instance;
+    private Single(){
+
+    }
+    public static Single getInstance(){
+        if(instance==null){
+            instance=new Single();
+        }
+        return instance;
+    }
+
+    public static void main(String[] args) {
+
+        Single instance1 = Single.getInstance();
+        Single instance2 = Single.getInstance();
+        System.out.println(instance1 ==instance2);
+    }
+}
 ```
 
+```scala
+package javacode;
+
+public class StaticAccess {
+    private static String name ="java";
+    public static void printName(){
+        System.out.println("method =>"+name);
+    }
+
+    public static void main(String[] args) {
+        StaticAccess.printName();
+        System.out.println("field =>"+StaticAccess.name);
+    }
+}
 ```
 
 Scala的单例对象场景
@@ -2000,8 +2097,33 @@ Scala的伴生对象与伴生类解决什么问题
 - 分别用Java和Scala创建静态属性，并访问
 - 为Student类和它的伴生对象分别创建私有属性，并相互访问
 
-```
+```scala
+package scala
 
+object Student {
+private val secrect1="i am secrect1 *****"
+  def accessCompanionClass(s:Student)={
+    println(s" access Companion Class private field = ${s.secrect2}")
+  }
+}
+class Student{
+  private val secrect2="i am secrect2 *****"
+  def accessCompanionObject()={
+    println(s" access Companion Object private field = ${Student.secrect1}")
+  }
+}
+object Run1{
+  //extra class/objec access student class field
+ // new Student().secrect2
+ // Student.secrect1
+ //object access Companion Class private field
+ def main(args: Array[String]): Unit = {
+   //object access Companion Class private field
+  // Student.accessCompanionClass(new Student())
+   //Class  access Companion object private field
+  new Student().accessCompanionObject()
+ }
+}
 ```
 
 #### Scala的对象创建
@@ -2012,8 +2134,44 @@ Scala的伴生对象与伴生类解决什么问题
 
 使用三种方式创建Person对象
 
-```
+```scala
+package scala
 
+class Person {
+var name ="person"
+  println("enter into person construction ")
+}
+object Person {
+  println("enter into person object construction ")
+
+  def apply(): Person = new Person()
+
+  def apply(name: String): Person = {
+    var p = new Person()
+    p.name = name
+    p
+  }
+}
+object RunPerson{
+  def main(args: Array[String]): Unit = {
+    // 1.new
+    //new Person
+    //2.object
+    //Person
+    //3.apply
+    /**
+     * 1.companion class and object
+     * 2.overwrite apply on companion object
+     * 3.apply return Person object
+     */
+   val p1= Person("apply person")
+    println(s"create object by apply p1 = $p1")
+    println(s"create object by apply p1 = ${p1.name}")
+    val p2 =Person.apply("apply person")
+    println(s"create object by apply p2 = $p2")
+    println(s"create object by apply p2 = ${p2.name}")
+  }
+}
 ```
 
 
@@ -2030,8 +2188,40 @@ Scala的伴生对象与伴生类解决什么问题
 - 身份证号相等，则认为两个对象相等。
 - 所有属性相等，则认为两个对象相等。
 
-```
+```scala
+package scala
 
+object RunJudgeObject {
+  def main(args: Array[String]): Unit = {
+    val p1=new Person2()
+    val p2=new Person2()
+    val s=new Student2()
+    val t=new Teacher2()
+    //1.getClass
+    println(s"p1==p2 ? ${p1.getClass==p2.getClass}")
+    println(s"p1==p1 ? ${p1.getClass==p1.getClass}")
+    println(s"p1==s ? ${p1.getClass==s.getClass}")
+    println(s"p1==t ? ${p1.getClass==t.getClass}")
+    println(s"s==t ? ${s.getClass==t.getClass}")
+    println(s"p1 = ${p1.getClass},p2=${p2.getClass},s=${s.getClass},t=${t.getClass}")
+    //isInstanceOF[]
+    println(s"p1 isInstanceOF person2 ? ${p1.isInstanceOf[Person2]}")
+    println(s"p2 isInstanceOF person2 ? ${p2.isInstanceOf[Person2]}")
+    println(s"s isInstanceOF person2 ? ${s.isInstanceOf[Person2]}")
+    println(s"t isInstanceOF person2 ? ${s.isInstanceOf[Person2]}")
+    println(s"s isInstanceOF Student2 ? ${s.isInstanceOf[Student2]}")
+  }
+}
+class Person2{
+  var name="person1"
+
+}
+class Student2 extends Person2{
+
+}
+class Teacher2 extends Person2{
+
+}
 ```
 
 
