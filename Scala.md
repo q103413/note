@@ -583,6 +583,67 @@ scala> user.password
 res2: String = 456
 ```
 
+对比Scala和Java：
+
+Java实现：
+
+```java
+package scala01;
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+Person p=new Person("scala",10)
+p.getName() //scala
+p.setName("java")
+p.getName() //java
+```
+
+Scala实现：
+
+```scala
+scala> class Person(var name:String,var age:Int)
+defined class Person
+
+scala> val person=new Person("scala",10)
+person: Person = Person@1722011b
+
+scala> person.name
+res0: String = scala
+
+scala> person.age
+res1: Int = 10
+
+scala> person.name="java"
+person.name: String = java
+
+scala> person.name
+res2: String = java
+```
+
 # 二 Scala数据类型与基本运算
 
 ## Scala的数据类型
@@ -1166,6 +1227,9 @@ i unfind hadoop
 
 ## Scala的基本运算
 
+- 和Java基本相同。
+- scala中所有运算符本质都是对象的方法调用，拥有比C++更灵活的运算符重载。
+
 内置运算符
 
 - 算术运算符
@@ -1620,14 +1684,6 @@ res44: scala.collection.immutable.IndexedSeq[Char] = Vector(4, K, =, S, 8, g, W,
 
 ## Scala的idea环境搭建
 
-Idea+Scala的环境
-
-- ​	JDK1.8+
-
-- ​	Scala2.12.x
-
-- ​	Scala插件
-
 
 安装步骤
 
@@ -1645,18 +1701,22 @@ Idea+Scala的环境
 
 - ​	Idea配置
 
+  - 项目结构->JDK+SDK
+
+
+**Idea格式化代码的快捷键：**
+
+- ‌**Mac系统**‌：按下`Cmd + Option + L`。
+- ‌**Windows/Linux系统**‌：按下`Ctrl + Alt + L`。
+
 
 ## Scala的内建控制
-
-Scala的常见内建控制结构
 
 - ​	顺序结构：程序的执行顺序
 
 - ​	分支结构：if
 
 - ​	循环结构:for和while
-
-
 
 ### Scala的顺序结构
 
@@ -1668,8 +1728,6 @@ Scala的常见内建控制结构
   println(name+"has been "+age)
 ｝
 ```
-
-
 
 ### Scala的分支结构
 
@@ -1712,8 +1770,6 @@ object ClassifyPerson {
 
 }
 ```
-
-
 
 ### Scala的循环结构
 
@@ -2060,18 +2116,17 @@ public class Single {
 ```
 
 ```scala
-package javacode;
+package scala
 
-public class StaticAccess {
-    private static String name ="java";
-    public static void printName(){
-        System.out.println("method =>"+name);
-    }
+object Single {
+  var name="scala single"
+  def printName()={
+    println(s"name=$name")
+  }
 
-    public static void main(String[] args) {
-        StaticAccess.printName();
-        System.out.println("field =>"+StaticAccess.name);
-    }
+  def main(args: Array[String]): Unit = {
+    Single.printName()
+  }
 }
 ```
 
@@ -2112,6 +2167,7 @@ class Student{
     println(s" access Companion Object private field = ${Student.secrect1}")
   }
 }
+
 object Run1{
   //extra class/objec access student class field
  // new Student().secrect2
@@ -2345,8 +2401,21 @@ def 函数名（参数列表1）（参数列表2）...（参数列表n）:type={
 
 定义一个两个整数乘法的柯里化函数。
 
-```
+```scala
+package scala04
 
+class RunK {
+  def multi(x: Int)(y: Int): Int = {
+    x * y
+  }
+}
+
+object RunK {
+  def main(args: Array[String]): Unit = {
+    val r = new RunK().multi(10)(3)
+    println(r)
+  }
+}
 ```
 
 ###  Scala部分应用函数
@@ -2368,8 +2437,34 @@ def 函数名（参数列表X，Y..）:type={
 - 定义一个函数为HTML，添加前后缀(如<div>和</div>)
 - 定义一个接受三个参数的函数，实现三个数相乘，传递部分参数，打印结果
 
-```
+```scala
+package scala04
 
+class RunPartialFunction {
+  def warpHTMl(pref: String, context: String, suffix: String): String = {
+    pref + context + suffix
+  }
+
+  def mutlti(x: Int, y: Int, z: Int) = x * y * z
+}
+
+object RunPartialFunction {
+  def main(args: Array[String]): Unit = {
+    val p = new RunPartialFunction()
+    val htmlwithp = p.warpHTMl("<p>", _: String, "</p>")
+    println("p= " + htmlwithp("i am p"))
+    val htmlwithdiv = p.warpHTMl("<div>", _: String, "</div>")
+    println("div= " + htmlwithdiv("i am div"))
+    //2.
+    val f1 = p.mutlti(_: Int, 2, _: Int)
+    println(f1(4, 5))
+    val f2 = p.mutlti(_: Int, 2, 3)
+    println(f2(5))
+    val f3 = p.mutlti(_: Int, _: Int, _: Int)
+    println(f3(5, 1, 2))
+    //a(x)(y) a(2)(3)=====>a(x) _
+  }
+}
 ```
 
 
@@ -2459,6 +2554,70 @@ class Dog(name:String,age:Int) extends Animal(name,age)
 
 ​	override
 
+
+
+定义一个Animal类和他的一个子类Dog/Cat。
+
+- •父类声明speak和run两个方法
+- •子类实现重写speak方法，继承run方法。
+
+```scala
+package scala05
+
+object RunInheritPerson {
+  def main(args: Array[String]): Unit = {
+    // new employee("scala",5,"amc")
+    println("-------Dog-----------")
+    val d = new InheritDog()
+    d.run
+    d.speak
+    println("-------cat-----------")
+    val c = new InheritCat()
+    c.run
+    c.speak
+  }
+}
+
+class InheritPerson(val name: String, var age: Int) {
+  def this() = {
+    this("java", 30)
+  }
+
+  println(s"parent=>name=$name,age=$age")
+}
+
+//class employee(name:String,age:Int,var addr:String) extends InheritPerson(name,age){
+////  println(s"sub=>name=$name,age=$age,addr=-$addr")
+////}
+class employee(name: String, age: Int, var addr: String) extends InheritPerson() {
+  println(s"sub=>name=$name,age=$age,addr=-$addr")
+}
+
+class InheritAnimal {
+  def speak = {
+    println("animal speak ")
+  }
+
+  def run: Unit = {
+    println("run by leg ")
+  }
+}
+
+class InheritDog extends InheritAnimal {
+  override def speak = {
+    println("dog wangwang  speak ")
+  }
+}
+
+class InheritCat extends InheritAnimal {
+  override def speak = {
+    println("cat miaomiao  speak ")
+  }
+}
+```
+
+
+
 ## Scala的继承关系
 
 Scala继承的层级关系
@@ -2481,25 +2640,133 @@ Scala的抽象类成员
 
 ​	方法
 
+
+
+定义一个抽象类，并调用使用它们
+
+- 成员属性
+- 成员方法
+- 具体方法和成员
+
+```scala
+package scala05
+
+object RunAbstract {
+  def main(args: Array[String]): Unit = {
+    val m = new mysql()
+    println(m.ip, m.port)
+    m.connect
+    m.print()
+  }
+}
+
+abstract class DataBase {
+  val ip = "127.0.0.1"
+  var port: Int
+
+  def connect
+
+  def print() = {
+    println("connect failed")
+  }
+}
+
+class mysql extends DataBase {
+  override var port: Int = 22
+
+  override def connect: Unit = {
+    println("connect mysql")
+  }
+}
+```
+
 Scala何时使用抽象类
 
-​	基类构造器参数Java的调用
+- 基类构造器参数
+- Java的调用
 
 基类定义属性的重写
 
-​	非抽象val非抽象var抽象val和var
+- 非抽象val
+- 非抽象var
+- 抽象val和var
+
+定义一个抽象类Animal，定义子类Dog和Cat，分别实现以下情况Animal成员属性的调用
+
+- 非抽象val
+- 非抽象var
+- 抽象val和var
+
+```scala
+package scala05
+
+object RunAOver {
+  def main(args: Array[String]): Unit = {
+    val d = new DogOverride()
+    val c = new CatOverride()
+    d.run()
+    c.run()
+    d.sayHello
+    c.sayHello
+  }
+}
+
+abstract class AnimalOverride {
+  val name: String
+  val color = "none"
+  var age = 0
+
+  def sayHello
+
+  def run() = {
+    println("run")
+  }
+}
+
+class DogOverride extends AnimalOverride {
+  override val color = "black"
+  age = 2
+  val name = "dog"
+
+  override def sayHello: Unit = {
+    println(color + " " + age + " dog wangwang " + name)
+  }
+
+  override def run() = {
+    println("dog run")
+  }
+}
+
+class CatOverride extends AnimalOverride {
+  override val color = "white"
+  age = 3
+  val name = "cat"
+
+  override def sayHello: Unit = {
+    println(color + " " + age + " cat miaomiao " + name)
+  }
+
+  override def run() = {
+    println("cat run")
+  }
+}
+```
+
+
 
 ### Scala的内部类
 
-•定义在类或对象内部的类
+Scala的内部类
+
+​	•定义在类或对象内部的类
 
 •Scala的内部对象
 
-•定义在类或对象内部的对象
+​	定义在类或对象内部的对象
 
 •Scala的匿名类
 
-•没有名字的类
+​	没有名字的类
 
 
 
@@ -2535,6 +2802,124 @@ trait的几种用法
 
 - ​	对象继承特质
 
+•定义一个person特质演示trait的用法
+
+```
+
+
+```
+
+trait的mix
+
+- 抽象成员
+- 具体成员
+
+定义一个Pet特质演示trait的继承用法
+
+```scala
+package scala05
+
+object RunInherit {
+  def main(args: Array[String]): Unit = {
+    val d = new Dog()
+    d.getName
+    d.getColor
+    println(d.size)
+  }
+}
+
+trait Pet {
+  val name: String
+  val size = 5
+  var age: Int
+  var color = "black"
+
+  def getName
+
+  def getColor = {
+    println(s"i am $color")
+  }
+
+  println(s"Pet($name,$age,$color,$size)")
+}
+
+class Dog extends Pet {
+  override val size = 1
+  val name = "dog"
+  var age = 2
+  color = "yellow"
+
+  def getName = {
+    println(s"Dog=$name")
+  }
+
+  override def getColor = {
+    println(s"dog am $color")
+  }
+
+  println(s"Dog($name,$age,$color,$size)")
+}
+```
+
+•trait的加载顺序
+
+- •超类
+- •如果混入的trai有父类，会按照继承关系先调用父类
+- •如果多个父类，按照左到右
+- •本类构造器
+
+•定义一个多个父类和子类演示构造器执行顺序
+
+```
+
+```
+
+•trait的抽象成员父类使用问题
+
+- •空指针异常
+
+•解决
+
+- •提前定义
+- •懒加载
+
+定义一个Logger演示构造器执行顺序造成空指针问题
+
+```scala
+package scala05
+
+import java.io.PrintWriter
+
+object RunFile {
+  def main(args: Array[String]): Unit = {
+    //val p=  new Person051()
+    val p = new {
+      override val filename = "p052.log"
+    } with Person051
+    p.log("Person052 create log")
+  }
+}
+
+trait Logger {
+  def log(msg: String)
+}
+
+trait FileLogger extends Logger {
+  val filename: String
+  //lazy val fileout= new PrintWriter(filename)
+  val fileout = new PrintWriter(filename)
+
+  //fileout.println("###########")
+  def log(msg: String) = {
+    fileout.println(msg)
+    fileout.flush()
+  }
+}
+
+class Person051 extends FileLogger {
+  override val filename = "p051.log"
+}
+```
 
 # 六  Scala权限和集合
 
@@ -2549,6 +2934,48 @@ trait的几种用法
   - protected访问权限
   - private访问权限
   - private[this]访问权限
+
+定义类，分别实现成员属性和构造器的不同访问权限
+
+- •默认访问权限
+- •protected访问权限
+- •private访问权限
+- •private[this]访问权限
+
+```scala
+package scala06
+
+class Person0602(protected val name: String, private val age: Int, val city: String, private[this] val weighs: Int) {
+
+}
+
+class p0602 extends Person0602("yangmi", 30, "shanghai", 120) {
+  println(s"protected name=${this.name}")
+}
+
+object Person0602 {
+  def main(args: Array[String]): Unit = {
+    val p = new Person0602("suyoupeng", 20, "beijing", 150)
+    println(s"privte age=${p.age}")
+    // println(s"private weighs=${p.weighs}")
+    new p0602()
+  }
+}
+```
+
+定义类，实现方法作用域的控制
+
+- 默认访问权限
+- protected访问权限
+- private访问权限
+- private[package]
+- private[this]访问权限
+
+```scala
+
+```
+
+
 
 ## 2 Scala的包和导入
 
@@ -2623,6 +3050,71 @@ Scala的集合的一致性
 | 6        | 子迭代器 | it dropWhile p/it slice (m,n)等 |
 | 7        | maps     | map/flatmap等                   |
 
+迭代器的操作
+
+```scala
+object RunIterator {
+  def main(args: Array[String]): Unit = {
+    //1.Range
+    val it1 = Iterator(1 to 5)
+    println(it1.hasNext, it1.next())
+    // println(it1.hasNext,it1.next())
+    val it2 = Iterator(1, 2, 3)
+    println(it2.hasNext, it2.next())
+    println(it2.hasNext, it2.next())
+    println(it2.hasNext, it2.next())
+    //Iterator(1 ,2,3,4,5,6,7,8,9,10)
+    val it3 = Iterator(1 to 5: _*)
+    while (it3.hasNext) {
+      println(it3.next())
+    }
+    //2.
+    val it4 = Iterator(1 to 3: _*)
+    //    for(i<-it4){
+    ////      println(s"the first i=$i")
+    ////    }
+    ////    for(i<-it4){
+    ////      println(s"the secd i=$i")
+    ////    }
+    it4.foreach(x => println(x))
+    it4.foreach(x => println(x))
+    //3
+    val it5 = Iterator(6 to 8: _*)
+    val (it51, it52) = it5.duplicate
+    it51.foreach(x => println(x))
+    it52.foreach(x => println(x))
+    it5.foreach(x => println(x))
+    //4.
+    val it6 = Iterator(9 to 12: _*)
+    val it61 = it6.take(2)
+    it61.foreach(x => println("it61=" + x))
+    it6.foreach(x => println("it6=" + x))
+    //7
+    val it7 = Iterator(13 to 18: _*)
+    val it71 = it7.slice(1, 10)
+    it71.foreach(x => println("it71=" + x))
+    //8.zip and zipall
+    val it8key1 = Iterator("k1", "k2")
+    val it8v1 = Iterator("v1", "v2")
+    val it8v2 = Iterator("v1")
+    val it8k2 = Iterator("k1")
+    //   val k1_v1=it8key1.zip(it8v1)
+    //  k1_v1.foreach(x=>println(x))
+
+    //    val k1_v2=it8key1.zip(it8v2)
+    //     k1_v2.foreach(x=>println(x))
+
+    //       val k1_v2=it8key1.zipAll(it8v2,"default1","default2")
+    //        k1_v2.foreach(x=>println(x))
+    val k2_v1 = it8k2.zipAll(it8v1, "default1", "default2")
+    k2_v1.foreach(x => println(x))
+
+  }
+}
+```
+
+
+
 # 七 Scala的Seq 
 
 ## Scala的seq
@@ -2648,11 +3140,192 @@ Scala的集合常见操作
 - Scala的集合视图
   - view
 
-Scala的Seq
+•Scala的Traversable常用操作
+
+```scala
+package scala07
+
+import scala.collection.mutable.ArrayBuffer
+
+object RunTraserbale {
+  def main(args: Array[String]): Unit = {
+    //get
+    val t1 = Traversable(1, 2, 3, 5, 4)
+    println(s"head=${t1.head},last=${t1.last}")
+    println(s"tail=${t1.tail},init=${t1.init}")
+    val t2 = Traversable()
+    //    if(!t2.isEmpty){
+    //      println(s"head=${t2.head},last=${t2.last}")
+    //    }
+    println(s"head=${t1.headOption.getOrElse(0)},last=${t1.lastOption.getOrElse(0)}")
+    println(s"======end====")
+    val t3 = t1.find(x => x > 3)
+    println(s"t3=${t3.get}")
+
+    //2
+
+    val fruits = Traversable("banana", "apple")
+
+    fruits.foreach(println(_))
+    for (fruit <- fruits) println(fruit)
+    val it = fruits.toIterator
+    while (it.hasNext) println(it.next())
+    val upeerfruits = for (fruit <- fruits) yield {
+      val upper = fruit.toUpperCase
+      upper
+    }
+    println(s"upper=${upeerfruits}")
+    //
+    val up = fruits.map(x => x.toUpperCase)
+    println(s"up=$up")
+    //3.view
+    val t5 = Traversable(1, 2, 3)
+    val initmap = t5.map(_ * 2)
+    // val view=  t5.view.map(_*2).force
+    val view = t5.view.map(_ * 2).foreach(println(_))
+    println(s"initmap=$initmap")
+    //println(s"view=$view")
+    //    val initmap1=   t5.map{
+    //      x=>
+    //        Thread.sleep(5000)
+    //        x*3
+    //    }
+    //    println(s"initmap1=$initmap1")
+    val v1 = t5.view.map {
+      x =>
+        Thread.sleep(5000)
+        x * 3
+    }
+    println(s"v1=$v1")
+    //t.map.map   t.view.mapmap
+    val t6 = Traversable(1, 2, 3, 4, 5, 6, 7)
+    val arr = t6.toArray
+    val view6 = arr.view.slice(2, 5) //.foreach(println(_))
+
+    view6(0) = 99
+    view6(1) = 88
+    // println(arr.foreach(println(_)))
+    arr(4) = 1001
+    println(view6.foreach(println(_)))
+
+
+  }
+}
+
+```
+
+
 
 Scala的Seq继承关系
 
 ![image-20250120014546096](http://img.rmb520.com/test/image-20250120014546096.png)
+
+•Scala的Range
+
+- •填充数据结构
+
+•Scala的Stack
+
+- •LIFO
+
+•Scala的queue
+
+- •FIFO
+
+
+
+•Scala的Array
+
+- •New Array[T]（n）
+- •Array
+- •Rang填充
+- •其他集合转换
+
+•Scala的ArrayBuffer
+
+- •ArrayBuffer
+- •New ArrayBuffer
+
+•Scala的ArrayBuffer
+
+- •ofDim
+- •Array(Array1,Array2…Arrayn)
+
+```scala
+package scala07
+
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+
+object RunArray {
+  def main(args: Array[String]): Unit = {
+    //array
+    val arr1 = new Array[Int](3)
+    val arr2 = Array(1, 2d, 3l)
+    arr2.foreach(println(_))
+    val arr3 = Array[Number](1, 2d, 3l)
+    arr3.foreach(println(_))
+    arr1(0) = 7
+    arr1(1) = 8
+    arr1(2) = 9
+    arr1.foreach(x => print(x + ","))
+
+    val r1 = Array.range(1, 5)
+    val r2 = Array.range(1, 5, 2)
+    val r3 = Array.fill(2)("scala")
+    val r4 = List("a", "b").toArray
+    val r5 = Array.tabulate(3)(n => n * n)
+    r1.foreach(x => print("r1=" + x + ","))
+    println()
+    r2.foreach(x => print("r2=" + x + ","))
+    println()
+    r3.foreach(x => print("r3=" + x + ","))
+    println()
+    r4.foreach(x => print("r4=" + x + ","))
+    println()
+    r5.foreach(x => print("r5=" + x + ","))
+    println()
+    //arraybuffer
+    val ab1 = ArrayBuffer(1, 2, 3)
+    val ab2 = new ArrayBuffer[String](1)
+    ab2 += "a"
+    ab2 += "b"
+    ab2 += "c"
+    ab2 += ("d", "e")
+    ab2 ++= Seq("s1", "s2")
+    ab2.append("apend1")
+    println(s"before=$ab2")
+
+    ab2 -= "b"
+    ab2 -= ("d", "e", "b")
+    ab2 --= Seq("s1", "s2")
+    ab2.remove(0)
+    //(a,a1,a4,a2,a3)
+    ab2.append("apend4", "apend2", "apend3")
+    ab2.remove(1, 3)
+    ab2.clear
+    println(s"after=$ab2")
+    val arr7 = Array[String]("banana", "apple")
+    val arr8 = arr7.filter(x => x.startsWith("b"))
+    arr8.foreach(x => print("arr7=" + x + ","))
+    //
+    val marr1 = Array.ofDim[String](2, 2)
+    marr1(0)(0) = "a"
+    marr1(0)(1) = "b"
+    marr1(1)(0) = "c"
+    marr1(1)(1) = "d"
+    for {
+      i <- 0 until 2
+      j <- 0 until 2
+    }
+      println(s"($i,$j)=${marr1(i)(j)}")
+    var marr2 = Array(Array(1, 2), Array(3, 4))
+    println(marr2(1)(0))
+    marr2 ++= Array(Array(5, 6))
+    println(marr2(2)(1))
+
+  }
+}
+```
 
 
 
@@ -2669,6 +3342,57 @@ Scala的Seq继承关系
 - Scala的List的基本操作
   - /：或：\
   - zipped
+
+•Scala的List操作
+
+```scala
+package scala07
+
+import scala.collection.mutable.ListBuffer
+
+object RunList {
+  def main(args: Array[String]): Unit = {
+    //list（1,2,3）
+    var l1 = 1 :: 2 :: 3 :: Nil
+    println(s"l1,head=${l1.head},list(2)=${l1(2)}")
+    val l2 = List(4, 5, 6)
+    val l3 = l2 :: l1
+    println(l3)
+    //++,concat
+    val l4 = l2 ::: l1
+    println(l4)
+
+    //
+    val lb1 = ListBuffer(7, 8, 9)
+    lb1(0) = 99
+    println(lb1)
+
+    val s = 1 #:: 2 #:: 3 #:: Stream.empty
+    val s2 = s.map(x => x + 1)
+    println(s2, s2(2))
+    println(s.force)
+    //
+    val zip1 = (List(1, 2), List(3, 4, 5)).zipped.map(_ * _)
+    println(s"zip1=$zip1")
+    //list(scala is good)
+    val words = List("scala", "is", "good")
+    val s3 = (" " /: words)(_ + " " + _)
+    println(s3)
+    val s4 = (words.head /: words.tail)(_ + " " + _)
+    println(s4)
+    //l1 ::: l2
+    (List[String]() /: List(List[String]("1", "2"), List("3", "4")))(_ ::: _)
+    (List(List[String]("1", "2"), List("3", "4")) :\ List[String]())(_ ::: _)
+
+    val v = Vector(1, 2, 2, 3)
+    val v1 = v.updated(0, "*")
+    println(s"v1=$v1")
+    println(s"v=$v")
+  }
+}
+```
+
+
 
 ## Scala的Vector
 
@@ -2695,6 +3419,80 @@ Scala的Set继承关系
 | 减法         | 移除集合中的元素           |
 | 二元逻辑操作 | 两个集合的交集、并集和差集 |
 | 更新         | 更新集合的元素             |
+
+•Set集合操作
+
+```scala
+package scala07
+
+import scala.collection.immutable.SortedSet
+import scala.collection.mutable
+
+object RunSet {
+  def main(args: Array[String]): Unit = {
+    //== contain
+    val s1 = Set(1, 2, 3, 3, 2, 5)
+    val s2 = Set(3, 5)
+    val s3 = Set(4, 5)
+    println(s1)
+    //2
+    println(s1.contains(1), s1.contains(6))
+    println(s1(2), s1(8))
+    println(s"s1 sub s2 ${s1.subsetOf(s2)}")
+    println(s"s1 sub s3 ${s1.subsetOf(s3)}")
+    println(s"s2 sub s1 ${s2.subsetOf(s1)}")
+    println(s"s3 sub s1 ${s3.subsetOf(s1)}")
+    //++ +=  - -=   immutable +    mutable +=
+    var imms = Set(4, 5, 6)
+    val imm1 = imms + 3
+    val imm2 = imm1 + (22, 33)
+    val imm3 = imm2 ++ List(44, 55)
+    //imms=imms+99
+    //    imms +=99
+    //
+    println(imm3)
+    println(imms)
+    var ms = scala.collection.mutable.Set(7, 8, 9)
+    ms += 10
+    ms += (11, 12, 12)
+    ms ++= Set(13, 14)
+    println(ms)
+    ms.retain(_ > 9)
+    ms.remove(12)
+    ms.clear
+    println(ms)
+    //
+    val ss1 = mutable.SortedSet(10, 3, 11, 2)
+    val ss3 = SortedSet(7, 3, 11)
+    println(ss1)
+    println(ss3)
+    val ss2 = mutable.SortedSet("banana", "apple")
+    println(ss2)
+    val lhs = mutable.LinkedHashSet(1, 8, 4)
+    println(lhs)
+    val p1 = new Person0701("scala", 12)
+    val p2 = new Person0701("java", 2)
+    val p3 = new Person0701("c", 20)
+    val p = mutable.SortedSet(p1, p2, p3)
+    println(p)
+  }
+}
+
+class Person0701(var name: String, var age: Int) extends Ordered[Person0701] {
+
+  override def compare(that: Person0701): Int = {
+    if (this.age == that.age) {
+      0
+    } else if (this.age < that.age) 1
+    else -1
+  }
+
+  override def toString = s"Person0701($name, $age)"
+}
+
+```
+
+
 
 ## 2 Scala的map
 
@@ -2730,6 +3528,136 @@ Scala的不可变map常用操作
 | 查询     | Get（key）,m(key) |
 | 遍历     | For/foreach       |
 
+•映射的增、删、改和查操作
+
+```scala
+package scala07
+
+import scala.collection.immutable.ListMap
+import scala.collection.mutable
+
+object RunMap {
+  def main(args: Array[String]): Unit = {
+    //1.immutable
+    val m1 = Map("scala1" -> 1, "scala2" -> 2)
+    val m2 = m1 + ("scala3" -> 3)
+    val m3 = m2 + ("scala4" -> 4, "scala5" -> 5)
+    println(s"m3=$m3")
+    val m4 = m3 + ("scala3" -> 30)
+    println(s"m4=$m4")
+    println(s"m3=$m3")
+    val m5 = m4 - "scala4"
+    println(s"m5=$m5")
+    val m6 = m5 - "scala4" - "scala3"
+    println(s"m6=$m6")
+    val v1 = m1("scala1")
+    println(s"v1=$v1")
+    //    val v2=m1("scala3")
+    //    println(s"v2=$v2")
+    //option
+    val v3 = m1.get("scala1")
+    println(s"v3=$v3")
+    val v4 = m1.get("scala4")
+    println(s"v4=$v4")
+    val v5 = m1.getOrElse("scala5", "default")
+    println(s"v5=$v5")
+    //mutable +=,++=,-= --=
+    val mm1 = mutable.Map("java1" -> 1, "java2" -> 2)
+    val r1 = mm1.put("java3", 3)
+    val r2 = mm1.put("java1", 10)
+    println(s"r1=$r1")
+    println(s"r2=$r2")
+    println(s"mm1=$mm1")
+
+    val re1 = mm1.remove("java1")
+    val re2 = mm1.remove("java8")
+    println(s"re1=$re1")
+    println(s"re2=$re2")
+    println(s"reomve mm1=$mm1")
+
+    //mm1.clear
+    println(s"clear mm1=$mm1")
+    //
+    for ((k, v) <- mm1) println(s" for key=$k,value=$v")
+    mm1.foreach(x => println(s" foreach key=${x._1},value=${x._2}"))
+    mm1.keySet.foreach(println(_))
+    mm1.values.foreach(println(_))
+
+    if (mm1.contains("java2")) println("find " + mm1.get("java2")) else println("un find ")
+
+  }
+}
+
+```
+
+•Scala的map其它常用操作
+
+| **分类**      | **描述**       |
+| ------------- | -------------- |
+| 键值存在      | contains       |
+| 键值排序/过滤 | Retain，filter |
+| 键值查找      | max            |
+
+•键值对操作
+
+- •查找映射的最大键或值
+- •按键或值排序
+- •按键或值过滤
+
+```scala
+package scala07
+
+import scala.collection.mutable
+
+object RunMapSFM {
+  def main(args: Array[String]): Unit = {
+    //filter
+    val mp = mutable.Map(1 -> "a", 2 -> "b", 3 -> "c")
+    mp.retain((k, v) => k > 2)
+    println(s"mp=$mp")
+    val m = Map(4 -> "d", 5 -> "e", 6 -> "f")
+    val m1 = m.filterKeys(_ > 4)
+    println(s"m1=$m1")
+    val m2 = m.filterKeys(Set(4, 6))
+    println(s"m2=$m2")
+    val m3 = m.filter(x => x._1 > 5)
+    println(s"m3=$m3")
+
+    //max/min
+    val mm = Map("ab" -> 12, "e" -> 4, "byyy" -> 99, "muuuuu" -> 17)
+    val mm1 = mm.max
+    val min1 = mm.min
+    println(s"max1=$mm1,min1=$min1")
+    val minv = mm.valuesIterator.min
+    val maxv = mm.valuesIterator.max
+    println(s"minv=$minv,maxv=$maxv")
+
+    val mink = mm.keysIterator.min
+    val maxk = mm.keysIterator.max
+
+    println(s"mink=$mink,maxk=$maxk")
+    //*****
+    val result = mm.keysIterator.reduceLeft((x, y) => if (x.length > y.length) x else y)
+    println(s"result=${result}")
+    //sort
+
+    val sq1 = mm.toSeq.sortBy(_._1)
+    val sq2 = mm.toSeq.sortBy(_._2)
+    println(s"sq1=$sq1")
+    println(s"sq2=$sq2")
+    println(sq1.toMap)
+    println(sq2.toMap)
+    val sq3 = mm.toSeq.sortWith(_._2 > _._2)
+    println(s"sq3=$sq3")
+    println(sq3.toMap)
+
+  }
+}
+
+```
+
+
+
 ## 3 Scala的集合性能
 
 ## 4 Scala的模式匹配
@@ -2763,6 +3691,146 @@ case2
 - •元组
 - •类型
 - •变量绑定
+
+```scala
+package scala08
+
+object RunModel {
+  def main(args: Array[String]): Unit = {
+    //1.
+    for (i <- 1 to 5) {
+      i match {
+        case 1 => println(1)
+        case 3 => println(3)
+        case 5 => println(5)
+        case _ => println("even")
+      }
+    }
+
+    def patternShow(x: Any) = x match {
+      case Nil => println("empty List")
+      case null => println("null")
+      case true => println("true")
+      case "scala" => println("scala")
+      case _ => println("default")
+    }
+
+    patternShow(List())
+    patternShow(null)
+    patternShow(100)
+
+    //2
+    def patterVarible(x: Any) = x match {
+      case x => println("varible")
+      case 1 => println(1)
+      case "string" => println("string")
+    }
+
+    patterVarible(1)
+    for (i <- 1 to 10) {
+      i match {
+        case x if (x % 2 == 0) => println("even")
+        case _ => println("odd")
+      }
+    }
+    //3.tuple
+    val t1 = (2, 3)
+    val t2 = (4, 5, 6)
+    val t3 = (7, 8, 9, 0)
+    val t4 = (1, 2, 3, 4, 5)
+
+    //(1,,,,,5)
+    def patterTuple(x: Any) = x match {
+      case (first, second) => println(s"first=$first,second=$second")
+      case (x1, x2, x3, x4) => println(s"first=$x1,second=$x2,x3=$x3,x4=$x4")
+      // case (x1,x2,x3,x4,x5)=>println(s"first=$x1,second=$x2,x3=$x3,x4=$x4,x5=$x5")
+      case (x1, _, _, _, x5) => println(s"first=$x1,,x5=$x5")
+      case _ => println("others")
+    }
+
+    patterTuple(t1)
+    patterTuple(t2)
+    patterTuple(t3)
+    patterTuple(t4)
+    //Seq
+    val arr = Array(1, 3, 6, 7)
+    val list = List(2, 9)
+    val list1 = List(2, 3, 45, 56, 6, 0, 199)
+    val list2 = List(2)
+
+    def patterSeq(x: Any) = x match {
+      case Array(first, second) => println(s"first=$first,second=$second")
+      case Array(x1, x2, x3, x4) => println(s"first=$x1,second=$x2,x3=$x3,x4=$x4")
+      //      case List(x1,x2,x3,x4)=> println(s"first=$x1,second=$x2,x3=$x3,x4=$x4")
+      //      case List(x1,x2,x3)=> println(s"first=$x1,second=$x2,x3=$x3")
+      case List(fisrt, s, _*) => println(s"*********first=$fisrt,s=$s******")
+      case _ => println("others")
+    }
+
+    patterSeq(arr)
+    patterSeq(list)
+    patterSeq(list1)
+    patterSeq(list2)
+
+    //type
+    def patterType(x: Any) = x match {
+      case s: String => println("match string type")
+      case 88 => println("match 88")
+      case s: Int => println("match int type")
+      case s: Double => println("match Double type")
+      case a: A08 => println("match A08 type")
+      case _ => println("others type")
+    }
+
+    patterType(3)
+    patterType("scala")
+    patterType(2.0)
+    patterType(true)
+    patterType(88)
+    patterType(new B08())
+
+    //constrcutor
+    case class Dog08(var name: String, val age: Int)
+    class Dog07(var name: String, val age: Int) {
+
+      override def toString = s"Dog07($name, $age)"
+    }
+    object Dog07 {
+      def apply(name: String, age: Int): Dog07 = new Dog07(name, age)
+
+      def unapply(arg: Dog07): Option[(String, Int)] = if (arg != null) Some(arg.name, arg.age) else None
+    }
+
+    def patterConstrcutor(x: Any) = x match {
+      // case Dog08(name,age)=>println(s"name=$name,age=$age")
+      case Dog08(_, age) => println(s"dog08 age=$age")
+      //case Dog07(_,age)=>println(s"dog07 age=$age")
+      case d@Dog07(_, age) => println(s"dog07=$d")
+      case _ => println("others Object")
+    }
+
+    patterConstrcutor(Dog08("wangwang", 30))
+    patterConstrcutor(Dog07("wangwang07", 70))
+    //varible bind
+    val list_1 = List(List(1, 2, 3, 4), List(4, 6, 7, 8, 9, 10))
+
+    def patterBind(x: Any) = x match {
+      case e1@List(_, e2@List(5, _*)) => println(s"e1=$e1,e2=$e2")
+      case _ => println("others list")
+    }
+
+    patterBind(list_1)
+  }
+
+
+}
+
+class A08
+
+class B08 extends A08
+```
+
+
 
 # 九 Scala隐式转换和Java交互
 
@@ -2847,6 +3915,94 @@ case2
   - 方法名[S,T](参数列表)
   - 方法名(参数列表)定义一个方法，将一个数组的元素拷贝到一个List集合
 
+定义一个方法，将一个数组的元素拷贝到一个List集合
+
+```scala
+package Scala10
+
+import scala.collection.mutable.ListBuffer
+
+object RunFunction {
+  def main(args: Array[String]): Unit = {
+    add(2, "scala")
+    add("java", "hadoop")
+    add[String, Int]("flume", 3)
+    //
+    val c = copy(Array("123", "java"), ListBuffer[String]())
+    println(c)
+  }
+
+  def add[S, T](x: S, y: T): Unit = {
+    println(s"x=$x,type=${x.getClass.getSimpleName},y=$y,type=${y.getClass.getSimpleName}")
+  }
+
+  def copy[T](arr: Array[T], lb: ListBuffer[T]): ListBuffer[T] = {
+    arr.foreach(x => lb += x)
+    lb
+  }
+}
+
+```
+
+•Scala单参数通配符
+
+```scala
+def 方法名 (类型[_]){
+
+}
+
+def 方法名 (类型[T] forSome {type T}){
+
+}
+```
+
+•Scala多参数通配符
+
+```scala
+def 方法名 (类型[_,_...]){
+
+}
+
+def 方法名 (类型[T,U…] forSome {type T；type U；…}){
+
+}
+```
+
+
+
+在List集合使用通配符
+
+```scala
+package Scala10
+
+object RunSymbol {
+  def main(args: Array[String]): Unit = {
+    printAll(List[String]("spark", "flink"))
+    printAll(List[Int](2, 3))
+    printAllsimple(List[String]("hadoop", "hbase"))
+    printMap(Map[String, String]("spark" -> "Scala", "flink" -> "java"))
+    printMap(Map[String, Int]("spark" -> 2, "flink" -> 1))
+  }
+
+  def printAll(list: List[T] forSome {type T}): Unit = {
+    list.foreach(x => print(s"x=$x,type=${x.getClass.getSimpleName} ,"))
+    println()
+  }
+
+  def printAllsimple(list: List[_]): Unit = {
+    list.foreach(x => print(s"x=$x,type=${x.getClass.getSimpleName} ,"))
+    println()
+  }
+
+  def printMap(map: Map[_, _]) = {
+    map.foreach(x => println(s"key=${x._1},keyType=${x._1.getClass.getSimpleName},value=${x._2},valueType=${x._2.getClass.getSimpleName}"))
+  }
+}
+
+```
+
+
+
 ## Scala的泛型界定
 
 Scala的界定
@@ -2855,6 +4011,56 @@ Scala的界定
 - 视图界定
 - 上下文界定
 - 多重界定
+
+
+
+•定义一个能比较任意对象大小的方法
+
+```scala
+package Scala10
+
+object RunCompare {
+  val t1 = new Teacher("lilei", 90)
+
+  def main(args: Array[String]): Unit = {
+    val r1 = compare("1", "2")
+    println(s"r1=$r1")
+    val r2 = compareWithInt(4, 5)
+    println(s"r2=$r2")
+    val bigperson = compare(Person("java", 30), Person("scala", 5))
+    println(s"bigperson=$bigperson")
+  }
+
+  def compare[T <: Comparable[T]](x: T, y: T): T = {
+    if (x.compareTo(y) > 0) {
+      x
+    } else {
+      y
+    }
+  }
+
+  def compareWithInt[T <% Comparable[T]](x: T, y: T): T = {
+    if (x.compareTo(y) > 0) {
+      x
+    } else {
+      y
+    }
+  }
+
+  case class Teacher[T1, T2 <: AnyVal](var name: T1, age: T2)
+  //  val t2=new Teacher("lilei","90")
+}
+
+case class Person(var name: String, var age: Int) extends Comparable[Person] {
+  override def compareTo(o: Person): Int = {
+    if (this.age > o.age) 1
+    else if (this.age == o.age) 0
+    else -1
+  }
+}
+```
+
+
 
 ## Scala的型变
 
@@ -2874,5 +4080,84 @@ Scala的界定
   - 当类型S是类型T的子类型时，则A[T]可以认为是A[S]的子类型。也就是被参数化类型的泛化方向与参数类型的方向是相反的。
 - Scala的逆变语法
   - A[-T]
+
+课堂案例
+
+- •自定义Container演示不变性。
+- •自定义Printer演示逆变
+- •利用集合演示协变
+
+```scala
+package Scala10
+
+import Scala10.RunTypeVarible.Person10
+
+object RunTypeVarible extends App {
+  val s1: Person10 = new Student10("s101")
+  val s2: Container[Student10] = new Container[Student10](Student10("stu02"))
+  val students = List[Student10](Student10("stu05"), Student10("Stu06"))
+  val teachers = List[Teacher10](Teacher10("tea05"), Teacher10("tea06"))
+  val stuprinter = new StudentPrinter
+  val perprinter = new PersonPrinter
+
+  //val c2:Container[Person10]=s2
+  //2
+  def printAll(persons: List[Person10]): Unit = {
+    persons.foreach(person => println(person.name))
+  }
+
+  def printStudent(value: Printer[Student10]): Unit = {
+    value.printName(Student10("studentprinter"))
+  }
+
+  abstract class Person10 {
+    def name: String
+  }
+
+  println(students)
+  println(teachers)
+  printAll(students)
+  printAll(teachers)
+
+  //3
+  abstract class Printer[-T] {
+    def printName(value: T)
+  }
+
+  //1
+  class Container[T](value: T) {
+    private var _value = value
+
+    def getValue() = {
+      _value
+    }
+
+    def setValue(value: T): Unit = {
+      _value = value
+    }
+  }
+
+  case class Student10(name: String) extends Person10
+
+  case class Teacher10(name: String) extends Person10
+
+  class PersonPrinter extends Printer[Person10] {
+    override def printName(value: Person10): Unit = {
+      println(s"person name is ${value.name}")
+    }
+  }
+
+  class StudentPrinter extends Printer[Student10] {
+    override def printName(value: Student10): Unit = {
+      println(s"student name is ${value.name}")
+    }
+  }
+  printStudent(stuprinter)
+  printStudent(perprinter)
+}
+
+```
+
+
 
 ## Scala的高级类型

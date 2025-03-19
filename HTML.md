@@ -546,7 +546,7 @@ HTML锚点（Anchor）
 2. 每条样式规则用英文分号";"隔开  
 3. 注释： Ctrl + /
 
-## 样式表分类：
+## 样式表分类
 
 根据书写位置分类，分为行内样式表，内嵌样式表（内部样式表），外部样式表(推荐使用)  
     **建议使用外部样式表**  
@@ -617,6 +617,8 @@ HTML锚点（Anchor）
 	</style>
 ```
 
+**块元素、行元素**
+
 **HTML全局属性**
 
 - id 
@@ -625,7 +627,7 @@ HTML锚点（Anchor）
 - title
 - lang
 
-## CSS基本选择器： 
+## CSS基本选择器
 
 ​    分为标签选择器（元素选择器）、类选择器、ID选择器
 
@@ -772,14 +774,22 @@ CSS的特性：1 继承性 2 层叠性和优先级
 
 ### 颜色与背景属性
 
+- color	颜色，取值可以为颜色的英文单词，也可以是十六进制符号#000000 - #FFFFFF之间
+- background-color  背景颜色
+- background-image(url(URL))  背景图片
+- background-attachment(scroll/fixed)  背景附着
+- background-repeat(no-repeat/repeat/repeat_x…)  平铺方式
+- background-position(x,y)
+- background（以上5个属性的任意组合）
+
 ### 字体属性
 
-字体与文本属性
-​		字体属性：
-​				font-weight 字体粗细, bold 加粗
-​				font-size   字体大小 
-​				font-family 字体类型
-​				color 字体颜色，取值可以为颜色的英文单词，也可以是十六进制符号#000000 - #FFFFFF之间
+- font-family，取值为字体名称/字体类型
+- font-weight 字体粗细, bold 加粗
+- font-size 字体大小  (绝对大小/相对大小/长度值/百分比)   
+-  font-style (normal/italic/oblique)
+- font-weight (normal/bold/bolder/lighter/100/…)
+-  font ([ <'font-style'> || <'font-variant'> || <'font-weight'> ]? <'font-size'> [ / <'line-height'> ]? <'font-family'>)
 
 ```css
 	p {
@@ -803,20 +813,16 @@ CSS的特性：1 继承性 2 层叠性和优先级
 
 ### 文本属性
 
-常用的样式属性：
-
-​	文本属性：
-​	line-height 设置行高，通常用来上下居中
-​	text-align 设置左右对齐方式: left center right
-​	letter-spacing 字符间距 
-​	text-decoration 设置文本修饰： 
-​		underline（下划线） none(没有) overline line-through
-​	text-transform 控制文本的大小写
-​		none	默认。
-​		capitalize	以大写字母开头。
-​		uppercase	大写字母。
-​		lowercase	小写字母。
-​	text-indent 段落的首行缩进
+- line-height (2em/200%/2)	设置行高，通常用来上下居中
+-  text-align (left/right/center/justify)	设置左右对齐方式
+-  text-decoration (none/underline/overline/line-through)	 设置文本修饰
+-  text-indent (2em)	段落的首行缩进
+- letter-spacing 字符间距 
+- text-transform 控制文本的大小写
+  		none	默认。
+  		capitalize	以大写字母开头。
+  		uppercase	大写字母。
+  		lowercase	小写字母。
 
 ```css
 <style>
