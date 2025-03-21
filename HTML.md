@@ -793,16 +793,18 @@ div:not(#container) {
 
 
 
-CSS的特性：1 继承性 2 层叠性和优先级  
-	 继承性：内层继承外层样式,但另行更改除外。  
-			某些特殊情况不继承，比如边框border
+**CSS的特性：**1 继承性 2 层叠性和优先级  
+	 **继承性：**
 
- 层叠性：
+- 内层继承外层样式,但另行更改除外。  
+- ​			某些特殊情况不继承，比如边框border
+
+ **层叠性：**
 
 1.  如果多个选择器定义的样式不发生冲突，则应用全部选择器定义的样式。
 2.  如果多个选择器定义的样式发生冲突，则按照选择器的优先级来处理。
 
- 优先级：
+ **优先级：**
 
 - ​	优先级的总原则：越特殊的样式，优先级越高。
 
@@ -872,17 +874,15 @@ CSS的特性：1 继承性 2 层叠性和优先级
 
 
 ```css
-<style>
-	#max {
-		background-color:pink;
-		line-height:50px;
-		/* height:50px; */
-		text-align:left;
-		letter-spacing:5px;
-		text-decoration:underline;
-		/* font-style:italic; */
-	}
-</style>
+#max {
+    background-color:pink;
+    line-height:50px;
+    /* height:50px; */
+    text-align:left;
+    letter-spacing:5px;
+    text-decoration:underline;
+    /* font-style:italic; */
+}
 ```
 
 # 四、图像
