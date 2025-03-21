@@ -62,7 +62,7 @@ JS代码的3种书写位置
 	<input onclick="alert('你提交成功！！')" type="buttion" value="提交" />
 ```
 
-​	内嵌式（嵌入式）：将JS代码写在\<script>标签中,\<script>放在\<head>或者\<body>里面
+​	内嵌式（嵌入式）：将JS代码写在`\<script>`标签中,`<script>`放在\<head>或者\<body>里面
 
 ```javascript
 <script>
