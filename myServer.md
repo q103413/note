@@ -228,3 +228,9 @@ server {
 8.138.162.227
 
 172.28.231.197
+
+
+
+
+
+sudo apt install nodejs=12 npm
