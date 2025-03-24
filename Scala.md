@@ -1777,9 +1777,15 @@ object ClassifyPerson {
 - while
 - do while
 
-**Scala的do...while和while与Java不同，它具有返回值。**
+**Scala的循环具有返回值，返回值都是空，也就是`Unit`实例`()`。**
+
+`while`和`do while`：
+
+- 为了兼容java，不推荐使用，结果类型是`Unit`。
+- 不可避免需要声明变量在循环外部，等同于循环内部对外部变量造成了影响，所以不推荐使用。
 
 ```scala
+var i = 1;
 val result = do {
     println(s"i=$i")
     i += 1
@@ -1787,15 +1793,15 @@ val result = do {
 println(result==（）)
 ```
 
-
-
 ### for循环的表示
 
-for( var x <- Range;表达式1；表达式2 ){
+```scala
+for( var x <- Range;表达式1;；表达式2 ){
 
   statement(s);
 
 }
+```
 
 for循环实例
 
@@ -1807,6 +1813,8 @@ for (fruit <- fruits) {
 ```
 
 ### 卫语句for循环的表示
+
+循环守卫：即循环保护式，或者叫条件判断式，循环守卫为`true`则进入循环体内部，为`fasle`则跳过，类似于`continue`。
 
 ```scala
 for( var x <- List
@@ -1843,6 +1851,92 @@ val upfruit= for (fruit <- fruits; if fruit.startsWith("b");) yield
 fruit.toUpperCase
 println("upfruit =" +upfruit)
 ```
+
+## 函数式编程
+
+不同范式对比：
+
+- 面向过程：按照步骤解决问题。
+- 面向对象：分解对象、行为、属性，通过对象关系以及行为调用解决问题。耦合低，复用性高，可维护性强。
+- 函数式编程：面向对象和面向过程都是命令式编程，但是函数式编程不关心具体运行过程，而是关心数据之间的映射。纯粹的函数式编程语言中没有变量，所有量都是常量，计算过程就是不停的表达式求值的过程，每一段程序都有返回值。不关心底层实现，对人来说更好理解，相对地编译器处理就比较复杂。
+- 函数式编程优点：编程效率高，函数式编程的不可变性，对于函数特定输入输出是特定的，与环境上下文等无关。函数式编程无副作用，利于并行处理，所以Scala特别利于应用于大数据处理，比如Spark，Kafka框架。
+
+函数定义：
+
+```scala
+def func(arg1: TypeOfArg1, arg2: ...): RetType = {
+    ...
+}
+```
+
+- 函数式编程语言中，函数是一等公民（可以像对象一样赋值、作为参数返回值），可以在任何代码块中定义函数。
+- 一般将定义在类或对象中（最外层）的函数称为方法，而定义在方法中（内层）的称为函数。广义上都是函数。
+- 返回值用`return`返回，不写的话会使用最后一行代码作为返回值。
+- 无返回值`Unit`时可以用`return`可以用`return ()`可以不返回。
+- 其他时候只需要返回值是返回值类型的子类对象就行。
+
+术语说明：
+
+- java中不提函数的说法，而是说类或者实例方法，不涉及一般化的函数。
+- 函数式编程中的函数二字来源于数学上的函数，也就是映射，集合和集合之间的关系，强调数据之间的映射关系。
+- 而编程语言中的函数，也包括scala中的函数定义都是指的一个完成特定功能的子程序（subroutine），并不等同于数学意义上的函数。
+
+函数参数：
+
+- 可变参数，类似于Java，使用数组包装。
+
+  - `def f4(str:String*): Unit = {}`。
+  - 如果除了可变参数还有其他参数，需要将可变参数放在末尾。
+  - 可变参数当做数组来使用。
+
+- 参数默认值:
+
+  - `def f5(name: String = "alice"): Unit = {}`
+  - 和C++一样，默认参数可以不传，默认参数必须全部放在末尾。
+
+- 带名称传参：
+
+  - 调用时带名称。
+
+  ```scala
+  def f6(name: String, age: Int = 20, loc: String = "BeiJing"): Unit = {
+      println(s"name ${name}, age ${age}, location ${loc}")
+  }
+  
+  f6("Bob")
+  f6("Alice", loc = "Xi'An")
+  f6("Michael", 30)
+  ```
+
+  
+
+  - 不给名称的就是按顺序赋值。
+  - 调用时带名参数必须位于实参列表末尾。
+  - 和默认参数一起使用会很方便，比如有多个默认参数，但只想覆盖其中一个。
+
+函数至简原则：
+
+- 能省则省。
+
+- 最后一行代码会作为返回值，可以省略`return`。
+
+- 函数体只有一行代码的话，可以省略花括号。
+
+- 如果返回值类型能够自动推断那么可以省略。
+
+- 如果函数体中用`return`做返回，那么返回值类型必须指定。
+
+- 如果声明返回`Unit`，那么函数体中使用`return`返回的值也不起作用。
+
+- 如果期望是无返回值类型，那么可以省略`=`。这时候没有返回值，函数也可以叫做过程。【2.13.0已废弃，能编过不过会提示。】
+
+- 无参函数如果声明时没有加`()`，调用时可以省略`()`。【如果声明时有`()`调用也可以省略，不过2.13.3废弃了。】
+
+- 不关心函数名称时，函数名称和def也可以省略，去掉返回值类型，将=修改为=>定义为匿名函数。
+
+  ```scala
+  val fun = (name: String) => { println("name") }
+  ```
 
 
 
@@ -2284,7 +2378,7 @@ class Teacher2 extends Person2{
 
 # 四 Scala自适应类型和函数
 
-## Scala的自适应类型
+## 1）Scala的自适应类型
 
 ###  Scala的特殊类型
 
@@ -2300,6 +2394,73 @@ Nothing
 Nothing的作用
 
 - ​	帮助Scala的类型推断
+
+定义一个方法，对两个整数相除，如果除数是0，则抛出 “can not divide by zero”异常
+
+```scala
+package scala04
+
+object RumNothing {
+  def main(args: Array[String]): Unit = {
+    val result1=divide(4,2)
+    println(s"result1=$result1")
+    val result2=divide(4,0)
+    println(s"result2=$result2")
+  }
+  //can not divide by zero
+  def error(msg:String)={
+    throw new RuntimeException(msg)
+  }
+  def divide(x:Int,y:Int)={
+    if(y!=0){
+      x/y
+    }else{
+      error("can not divide by zero")
+    }
+  }
+}
+```
+
+
+
+- Option[T]
+  - Some(T)
+  - None
+- Option[T]的作用
+  - 避免引用类型调用出现空指针异常
+- Option[T]的常用方法
+  - get
+  - getOrElse(default)
+  - isEmpty()
+
+**定义一个map集合，并获取里面的值输出打印**
+
+```scala
+package scala04
+
+object RunOption {
+  def main(args: Array[String]): Unit = {
+    OptionTest()
+  }
+  def OptionTest(): Unit ={
+    val map:Map[String,String]=Map("1"->"java","2"->"scala")
+    val v1= map.get("1")
+    val v2=map.get("3")
+    println(s"v1=$v1,v2=$v2")
+    //get value by get
+    println(s"v1=${v1.get},v2=${v2}")
+    //1.isEMploy
+    if(v2.isEmpty){
+      println(s"v2=$v2")
+    }else{
+      println(s"v2=${v2.get}")
+    }
+ //2getorelse
+    println(s"v1=${v1.getOrElse("v1_default")},v2=${v2.getOrElse("v2_default")}")
+  }
+}
+```
+
 
 
 ### Scala的元组类型
@@ -2321,24 +2482,276 @@ Scala字面量：Scala的特殊类型，它是不同类型值的集合。
 
 ​	Tuple.productIterator() 
 
-## Scala的函数基础
+1. 访问元组
+2. 遍历元组
+3. 交换元组
+4. 元组所有元素求和
 
 ```scala
-def max(x:Int,y:Int):Int={
-        if(x>y)
-             x
-        else
-             y
+package scala04
+
+object RunTuple {
+  def main(args: Array[String]): Unit = {
+    //1.define tuple
+    val t1=("java",4)
+    var t2=new Tuple2[String,Int]("python",6)
+    //2.access Tuple
+    println(s"t1_1=${t1._1},t1_2=${t1._2}")
+    println(s"t2_1=${t2._1},t2_2=${t2._2}")
+    //error,Error:(12, 12) too many elements for tuple: 30, allowed: 22
+//    val t3=(1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6)
+//    println(t3)
+    //4 .loop through tuple
+    val t4=(1,2,3,4)
+   // t4.productIterator.foreach(i=>println(s"i =${i+1.toString}"))
+    t4.productIterator.foreach(i=>println(s"i =${i.asInstanceOf[Int]+1}"))
+    //Sum
+    var sum =0
+    t4.productIterator.foreach(i=>
+    sum=sum+i.asInstanceOf[Int]
+
+    )
+    println(s"sum=$sum")
+    //swap
+   // val t1=("java",4)
+    println(t1.swap)
+
+  }
 }
 ```
 
-###  Scala的函数的链式风格
+
+
+## 2）Scala的函数基础
+
+#### **Scala的函数的定义**
+
+![image-20250325004104606](C:\Users\fighting\AppData\Roaming\Typora\typora-user-images\image-20250325004104606.png)
+
+#### Scala的函数的规则
+
+- 只有一行可省略{}
+- 最后一条语句为函数返回值
+- 函数返回值可省略
+
+- Scala的函数的类型推导的限制
+  - return必须显示指定返回值
+  - 递归调用必须使用返回值
+- Scala的函数的调用
+  - 对象.函数名（参数列表）
 
 
 
-## Scala的函数进阶
+- 定义一个Rational类
+- 定义一个求两个整数的和方法。
+- 定义一个求两个数的最大公约数方法。
 
-### Scala的函数字面量语法
+```scala
+package scala04
+
+object RunFunction {
+  def main(args: Array[String]): Unit = {
+     val a=sum1(4,5)
+     println(s"a=$a")
+    val a2=sum2(4,5)
+    println(s"a2=$a2")
+    println(s"gcd=${gcd(0,4)}")
+  }
+  //1.
+  def sum1(x:Int,y:Int):Int={
+    return x+y
+  }
+  def sum2(x:Int,y:Int):Int= return x+y
+  //2.
+  def gcd(x:Int,y:Int):Int ={
+    if(x==0) y
+    else gcd(y%x,x)
+  }
+}
+```
+
+#### Scala的函数的默认值
+
+- 函数使用默认值可以不传递参数
+- 可以用参数名指定传递参数
+
+- Scala的函数的返回多个值
+  - 利用tuples
+
+
+
+- 定义一个Connection类，定义一个createConnect方法，有timeout和protocol两个参数，默认值分别是5000和Http。
+- 使用默认值打印timeout和protocol值
+- timeout=600，protocol使用默认值
+- timeout=默认值，protocol=“https”
+- timeout=700，protocol=“https”
+- 定义一个getconnectInfo方法，返回timeout和protocol两个值
+
+```scala
+package scala04
+
+object RunConnection {
+  def main(args: Array[String]): Unit = {
+    var c=new Connection()
+    //1.default
+    c.createConn()
+    //2.
+    c.createConn(700)
+    //3
+    c.createConn(600,"https")
+    //4
+    c.createConn(protocol="https")
+    //
+    c.isboolean(true,true)
+    //
+    c.isboolean(isman=true,isStudent=true)
+    c.createConn(protocol="https",timeout=100)
+
+    //
+    val (a,b)=c.createConn(protocol="ftp",timeout=200)
+    println(s"a=${a},b=$b")
+
+  }
+}
+class Connection{
+  def createConn(timeout:Long=5000,protocol:String="http") ={
+    println(s"timeout=${timeout},protocol=$protocol")
+    (timeout,protocol)
+  }
+  def isboolean(isman:Boolean,isStudent:Boolean): Unit ={
+    println(s"isman=${isman},isStudent=$isStudent")
+  }
+}
+
+```
+
+####  Scala的函数
+
+- 创建不带()的方法
+
+   def 方法名:[返回类型]={}
+
+- 创建接受变参的方法
+
+  - 参数类型*
+
+- •变参传值
+
+  - 参数类型对应值
+  - _*
+
+**定义一个Util类，包含一个printlnall方法，参数列表分别接受以下参数：**
+
+- 接受不定字符串
+- 接受集合
+- 接受一个整形和一个不定字符串
+- 接受不传递任何参数
+
+```scala
+package scala04
+
+class Utils {
+def printNames(names:String*): Unit ={
+  names.foreach(x=>println(x))
+}
+  def printClass(names:String*): Unit ={
+    println(names.getClass)
+  }
+  //
+  def printNamesandClass(i:String,j:String,names:String*): Unit ={
+    println(s"i=$i,j=$j")
+    names.foreach(x=>println(x))
+  }
+}
+
+object RunVarible{
+  def main(args: Array[String]): Unit = {
+    val u=new Utils()
+    //1.par
+    println("---------------1---------------")
+    u.printNames("java")
+    println("---------------2---------------")
+    u.printNames("java","scala")
+    println("---------------3---------------")
+    u.printNames("java","scala","python")
+    //list
+    println("---------------4---------------")
+    val fruits=List("apple","banana","cherry")
+    u.printNames(fruits:_*)
+    //3.
+    println("---------------5--------------")
+    u.printNamesandClass("go","c","java")
+    u.printNamesandClass("go","c")
+    println("---------------6--------------")
+    u.printNames()
+    println("---------------7--------------")
+    u.printClass()
+    println("---------------8--------------")
+    u.printClass("go","c","java")
+  }
+}
+```
+
+
+
+####  Scala的函数的链式风格
+
+- 链式风格 
+  -  person.setName(“scala”).setCity(“beijing”) 
+- •链式风格语法
+  - this.type
+  - this
+
+- 定义一个Person类，包含name、age、city属性，使用链式风格为他们赋值。
+- 定义一个Student类继承Person，包含name、age、city和sex属性，使用链式风格为他们赋值。
+
+```scala
+package scala04
+
+object RunChainMode {
+  def main(args: Array[String]): Unit = {
+   val person= new Person().setName("suyoupeng").setAge(45).setCity("shanghai").toString
+    println(s"person=$person")
+    val student= new Student().setName("linzhiying").setAge(48).setCity("hangzhou").setSex("man").toString
+    println(s"student=$student")
+  }
+}
+class Person{
+  var name=""
+  var age=0
+  var city="beijing"
+  def setName(name:String):this.type ={
+    this.name=name
+    this
+  }
+  def setAge(age:Int):this.type ={
+    this.age=age
+    this
+  }
+  def setCity(city:String):this.type ={
+    this.city=city
+    this
+  }
+
+  override def toString = s"Person($name, $age, $city)"
+}
+class Student extends Person{
+  var sex=""
+  def setSex(sex:String):this.type ={
+    this.sex=sex
+    this
+  }
+  override def toString = s"Student($name, $age, $city,$sex)"
+}
+```
+
+
+
+## 3）Scala的函数进阶
+
+#### Scala的函数字面量
+
+Scala的函数字面量语法
 
 ​	（参数列表）=>{方法体}
 
@@ -2365,9 +2778,76 @@ Scala的函数字面量的懒加载
 - 简化上述函数
 - 懒加载sum函数
 
+```scala
+package scala04
+
+object RunLiteralFuntion {
+  def main(args: Array[String]): Unit = {
+    //
+    val sum1=(x:Int,y:Int)=>{x+y}
+    println(s"sum1=${sum1(3,4)}")
+    //
+    val sum2=(x:Int,y:Int)=>x+y
+    println(s"sum2=${sum2(1,4)}")
+    //
+    val sum3=(_:Int)+(_:Int)
+    println(s"sum3=${sum3(7,4)}")
+    //
+    val sum4:(Int,Int)=>Int=_+_
+    println(s"sum4=${sum4(6,4)}")
+    //
+    lazy val sum5=(x:Int,y:Int)=>{x+y}
+    println(sum5(8,2))
+  }
+
+}
 ```
 
+#### Scala的函数作为参数
+
+- 简单函数作为参数
+- 除函数外的其他参数
+
+•定义一个exeFunction函数，接受一个无参数的sayHello函数。
+
+•定义一个exeAdd函数，接受一个带有整形参数的函数，对整数加10。
+
+•定义一个exeAndPrint方法，要是接受一个带两个参数的函数和两个整形，将整形参数赋予函数，计算打印结果。(使用两种方式)
+
+```scala
+package scala04
+
+object RunWithParFuntion {
+  def main(args: Array[String]): Unit = {
+    //1.withoutPar
+    val sayhello=()=>{println("hello scala function")}
+    exeFuctionWithOutPar(sayhello)
+    //2.withpar
+    val plusTen=(i:Int)=>{i+10}
+    val result= exeAdd(plusTen)
+    println(s"r=$result")
+    //3
+    val sum=(x:Int,y:Int)=>x+y
+    exeAndPrint(sum,2,3)
+    val multi=(x:Int,y:Int)=>x*y
+    exeAndPrint(multi,2,3)
+  }
+  def exeFuctionWithOutPar(callback:()=>Unit): Unit ={
+    callback()
+  }
+  def exeAdd(callback:Int=>Int): Int ={
+    callback(8)
+  }
+  def exeAndPrint(callback:(Int,Int)=>Int,x:Int,y:Int): Unit ={
+    val result=callback(x,y)
+    println(s"callback=$result")
+
+  }
+}
+
 ```
+
+
 
 ###  Scala函数的闭包
 
@@ -2379,8 +2859,30 @@ Closure in ruby 闭包的条件
 
 •演示闭包。
 
-```
+```scala
+package scala04
 
+object RunClosure {
+  def main(args: Array[String]): Unit = {
+    //
+    val isage1=(age:Int)=>age>18
+    println(isage1(10),  isage1(20))
+
+    var voteage=18
+    val isage2=(age:Int)=>age>voteage
+    println(isage2(10),  isage2(20))
+    new Clouse().printResult(isage2,20)
+    voteage=21
+    new Clouse().printResult(isage2,20)
+
+  }
+}
+class Clouse{
+  def printResult(f:Int=>Boolean,x:Int): Unit ={
+    println(f(x))
+  }
+
+}
 ```
 
 ###  Scala函数的柯里化
@@ -2434,7 +2936,7 @@ def 函数名（参数列表X，Y..）:type={
 
 ​	返回新的函数
 
-- 定义一个函数为HTML，添加前后缀(如<div>和</div>)
+- 定义一个函数为HTML，添加前后缀(如`<div>和</div>`)
 - 定义一个接受三个参数的函数，实现三个数相乘，传递部分参数，打印结果
 
 ```scala
@@ -2469,7 +2971,7 @@ object RunPartialFunction {
 
 
 
-## Scala的高阶函数
+## 4）Scala的高阶函数
 
 #### Scala的高阶函数定义
 
@@ -2493,6 +2995,78 @@ object RunPartialFunction {
 
 - ​	fold
 
+
+
+1.打印如下图形
+
+  `*`
+
+  `**`
+
+  `***`
+
+  `****`
+
+  `*****`
+
+   ..................
+
+2.过滤1-10偶数
+
+3.字符串数组，将其转成大写，过滤掉以s开头的字符串
+
+•1.利用reduceleft实现数组中最大的元素
+
+•2.计算整型数组所有数乘积
+
+•案例名称：实现字符串的求和
+
+•需求描述：字符串数组中的数字个数，如Array（“1,2”“3,4”）求和
+
+•使用技能:高阶函数
+
+•1.用to和reduceLeft实现阶乘函数,不得使用循环或递归
+
+•2. 前一个实现需要处理一个特殊情况，即n<1的情况。展示如何  用foldLeft来避免这个需要。
+
+```scala
+package scala04
+
+object RunHighFun {
+  def main(args: Array[String]): Unit = {
+    val array = Array(1, 2, 3, 4, 5)
+    //"a"*3 =aaa
+    val s = array.map(x => "*" * x)
+    //  s.foreach(x=>println(x))
+    //
+    // array.map(x=>"*"*x).foreach(x=>println(x))
+    array.map("*" * _).foreach(println(_))
+    //filter
+    val array1 = Array(1, 2, 3, 4, 5)
+    array1.filter(x => x % 2 != 0).foreach(e => println(e))
+    val s2 = Array("java", "scala", "go")
+    //  s2.map(x=>x.toUpperCase).foreach(e=>println(e))
+    s2.map(x => x.toUpperCase).filter(s => (!s.startsWith("S"))).foreach(e => println(e))
+    //1.multi,array.reduce(_*_)
+    val r2 = array.reduce((x, y) => x * y)
+    println(s"r2=$r2")
+    //2.find max value by reduceleft
+    val maxarray = Array(1, 20, 38, 400, 666, 0, 999)
+    val max = maxarray.reduceLeft { (x, y) =>
+      if (x > y)
+        x
+      else
+        y
+    }
+    println(s"max=$max")
+    //
+    val sumarray = Array("1,2","3,4")
+    val sum=sumarray.flatMap(x=>x.split((","))).map(_.toInt).reduce(_+_)
+    println(s"sum=$sum")
+  }
+}
+
+```
 
 # 五 Scala继承和多态
 
