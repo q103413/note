@@ -828,6 +828,22 @@ div:not(#container) {
 - background-position (x,y) 背景定位
 - background（以上5个属性的任意组合）
 
+设置背景图片的尺寸：background-size属性
+	background-size: 参数1 参数2;
+	第一个值设置宽度，第二个值设置高度（单位px或者百分比）
+
+```css
+	background-size: 100% 100%;
+```
+
+背景附件
+	用于设置 背景图片 是 可滚动的 还是 固定的 ;  
+	前提是必须 提前设置 背景图片   
+	语法如下 :  
+	background-attachment : scroll | fixed   
+		scroll : 背景图像 与 网页内容 绑定 , 网页滚动时 , 背景图像也进行滚动 ;  
+		fixed : 背景图像 固定 , 滚动网页时 , 背景图像位置保持不变 ;  
+
 ### 字体属性
 
 - font-family，取值为字体名称，字体类型
@@ -887,6 +903,14 @@ div:not(#container) {
 
 # 四、图像
 
+**Photoshop**
+
+- 修改图像的大小
+- 调整图像的颜色
+- 修图-修复画笔/图章
+- 抠图-主体/魔棒/椭圆
+- 透明度
+
 ## 图片标签
 
 图片标签(image)：`<img />` 空标签
@@ -896,36 +920,43 @@ div:not(#container) {
 ```
 
 ​	属性：  
-​		必须：  
-​            src (source 来源) 图片路径:  
-​				相对路径(相对当前文件)：./ 同一级 ../上一级 ../../上两级，比如：./boy.jpg
-​				绝对路径（与当前文件无关）: 比如： https://www.xxx.com/xxx.jpg  
-​			alt (alternate 备用的 ) 提示信息（图片不显示的时候才显示）  
-​		非必须：  
-​            width 宽  height 高 border 边框 (单位px)  
-​		   align     相对于周围文本的对齐方式
 
-- ​				left		把图像对齐到左边
-- ​				right		把图像对齐到右边
-- ​				middle(中间) 把图像对齐到中间
-- ​				top(顶端)	把图像对齐到顶部
-- ​				bottom(底部) 把图像对齐到底部
+必须：  
 
-设置背景图片的尺寸：background-size属性
-	background-size: 参数1 参数2;
-	第一个值设置宽度，第二个值设置高度（单位px或者百分比）
+- src (source 来源) 图片路径:  指定要插入的图像的文件名（包括路径）
 
-```css
-	background-size: 100% 100%;
-```
+  - 相对路径(相对当前文件)：./ 同一级 ../上一级 ../../上两级，比如：./boy.jpg
 
-背景附件
-	用于设置 背景图片 是 可滚动的 还是 固定的 ;  
-	前提是必须 提前设置 背景图片   
-	语法如下 :  
-	background-attachment : scroll | fixed   
-		scroll : 背景图像 与 网页内容 绑定 , 网页滚动时 , 背景图像也进行滚动 ;  
-		fixed : 背景图像 固定 , 滚动网页时 , 背景图像位置保持不变 ;  
+  - 绝对路径（与当前文件无关）: 比如： https://www.xxx.com/xxx.jpg  
+
+
+- alt (alternate 备用的 ) 提示信息（图片不显示时替代显示）  
+
+
+非必须： 
+
+-  width 宽  height 高 
+- border 边框(单位px)  
+
+- align   相对于周围文本的对齐方式
+
+  - left		把图像对齐到左边
+
+  - right		把图像对齐到右边
+
+  - middle(中间) 把图像对齐到中间
+
+  - top(顶端)	把图像对齐到顶部
+
+  - bottom(底部) 把图像对齐到底部
+
+- hspace属性设置水平方向的空白
+
+-  vspace属性设置垂直方向的空白
+
+-  vertical-align 设置元素的垂直对齐方式，适用于行级元素、行块级元素。
+   -  vertical-align: top | bottom | middle | baseline;
+
 
 transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。
 
@@ -1025,7 +1056,7 @@ IE8以及之前的版本不支持`<video>`标签
 `<table></table>`  
 
 表格标签：`<table> </table> 、<tr></tr>、<td></td>`  
-主要由表格标签`<table>`、行标签`\<tr>` (table row行)、单元格`<td>`标签构成。
+主要由表格标签`<table>`、行标签`<tr>` (table row行)、单元格`<td>`标签构成。
 
 `<table>`属性： border 边框大小（单位px）  
 			width 宽 （单位px 或者屏幕的百分比） height (单位px)  
@@ -1041,13 +1072,13 @@ IE8以及之前的版本不支持`<video>`标签
 		align 对齐方式 （内容相对单元格）
 	布局：\<td>里面可包含table
 	
-表格`\<table>`中的其他标签：
-	`\<caption>` 表格标题  （caption 说明文字）
-	`\<th>` 定义表头 （td改成th 加粗并且居中）
+表格`<table>`中的其他标签：
+	`<caption>` 表格标题  （caption 说明文字）
+	`<th>` 定义表头 （td改成th 加粗并且居中）
 
 ## 表单标签： 
 
-`\<form> \</form>`
+`<form> </form>`
 
 属性：
 	必须的属性：  
@@ -1070,7 +1101,7 @@ IE8以及之前的版本不支持`<video>`标签
 表单元素概述：
     表单元素介绍：大部分使用input标签，只是属性不同  
     属性介绍  
-	`\<input>`属性：  
+	`<input>`属性：  
         type  表单控件类型，  
             默认text， password checkbox radio submit reset file hidden image button   
         name 表单元素名称  
@@ -1091,13 +1122,13 @@ IE8以及之前的版本不支持`<video>`标签
 	<input type="类型" name=“名称” value=“初始值“ size="显示宽度" maxlength="输入的最大长度" checked="是否选中" >
 ```
 常用的表单控件标签：
-		单行文本输入框：`\<input type="text">`
-		密码输入框（*******）：`\<input type="password">`
-		表单提交按钮`\<input type="submit">`
+		单行文本输入框：`<input type="text">`
+		密码输入框（*******）：`<input type="password">`
+		表单提交按钮`<input type="submit">`
 		单选：`<input type="radio">`
 		多选：`<input type="checkbox">`复选框
-		下拉选框： `\<select>`
-		多行文本输入框： `\<textarea>`多行文本域
+		下拉选框： `<select>`
+		多行文本输入框： `<textarea>`多行文本域
 
 输入框： 
 
@@ -1108,8 +1139,8 @@ IE8以及之前的版本不支持`<video>`标签
 	<input type="text" name="username" id="username" size="100" value="这是初始值">
 ```
 密码框：
-	`\<input name="password" type="password" >`
-多行文本域： `\<textarea>` (text area) 
+	`<input name="password" type="password" >`
+多行文本域： `<textarea>` (text area) 
 	属性：cols 设置列数  rows 设置行数  name名称
 
 ```html
@@ -1721,9 +1752,9 @@ background:radial-gradient(red,pink,blue,black)
 
 ​    	标签排列规则：从左到右，自上而下。
 
-​		**块元素：**`标题(\<h1> - \<h6>) 段落(\<p>) 水平线(\<hr />) 列表(\<ul>、\<ol>、\<li>等) 表格(\<table>) 层（\<div>）表单(\<form>)`  
+​		**块元素：**`标题(<h1> - <h6>) 段落(<p>) 水平线(<hr />) 列表(<ul>、<ol>、<li>等) 表格(<table>) 层（<div>）表单(<form>)`  
 ​		
-​		**行元素：**`图片(\<img>) 范围（\<span>） 换行(\<br />)  超链接(\<a>) `   
+​		**行元素：**`图片(<img>) 范围（<span>） 换行(<br />)  超链接(<a>) `   
 ​		
 ​		块元素和行元素的区别  
 ​			1排列方式不同
@@ -1784,7 +1815,7 @@ background:radial-gradient(red,pink,blue,black)
 		}
 ```
 ​	2 clear:both清除浮动
-​		在父级`</div>`结束前加上`\<div class="clear"> \</div>`
+​		在父级`</div>`结束前加上`<div class="clear"> </div>`
 
 ```css
 	.clear {
