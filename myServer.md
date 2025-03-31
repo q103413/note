@@ -231,14 +231,6 @@ server {
 
 
 
-
-
 sudo apt install nodejs=12 npm
 
 
-
-
-
-github token: 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
-
-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
