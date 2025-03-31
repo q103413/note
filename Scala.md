@@ -1,4 +1,4 @@
-<img src="http://img.rmb520.com/test/mywechat.jpg" width="200px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="240px">
+<img src="http://img.kiss58.com/test/mywechat.jpg" width="200px"><img src="http://img.kiss58.com/test/mypublic.jpg" width="240px">
 
 # 一 Scala入门与基础
 
@@ -148,7 +148,7 @@ $ java HelloWorld
 
 ### Scala的跨平台
 
-![image-20250225011133649](http://img.rmb520.com/test/image-20250225011133649.png)
+![image-20250225011133649](http://img.kiss58.com/test/image-20250225011133649.png)
 
 ###  Scala程序的入口
 
@@ -323,7 +323,7 @@ res0: Register = Register@78479f2b
 
  Scala与Java的关键字
 
-![image-20250201235311045](http://img.rmb520.com/test/image-20250201235311045.png)
+![image-20250201235311045](http://img.kiss58.com/test/image-20250201235311045.png)
 
 Scala代码中注释
 
@@ -466,7 +466,7 @@ scala> name = 2
 
 ### Scala变量内存结构
 
-<img src="http://img.rmb520.com/test/image-20250225013907683.png" width="600px">
+<img src="http://img.kiss58.com/test/image-20250225013907683.png" width="600px">
 
 
 
@@ -689,7 +689,7 @@ Scala数据类型的分类
 
 Scala的基本类型与**Java**的基本类型对应的取值区间完全相同，使得Scala编译器可以在产生的字节码中将Scala的值类型转成Java的基本类型。
 
-<img src="http://img.rmb520.com/test/image-20250129181622273.png" width="500px">
+<img src="http://img.kiss58.com/test/image-20250129181622273.png" width="500px">
 
 
 
@@ -3233,7 +3233,7 @@ class InheritCat extends InheritAnimal {
 
 Scala继承的层级关系
 
-![image-20250315020810960](http://img.rmb520.com/test/image-20250315020810960.png)
+![image-20250315020810960](http://img.kiss58.com/test/image-20250315020810960.png)
 
 ### Scala的抽象类
 
@@ -3614,19 +3614,19 @@ object Person0602 {
 
 Scala的集合继承关系
 
-![92a9c8a443d35ace3cb252282b7b504](http://img.rmb520.com/test/92a9c8a443d35ace3cb252282b7b504.png)
+![92a9c8a443d35ace3cb252282b7b504](http://img.kiss58.com/test/92a9c8a443d35ace3cb252282b7b504.png)
 
 scala.collection
 
-![image-20250120014009577](http://img.rmb520.com/test/image-20250120014009577.png)
+![image-20250120014009577](http://img.kiss58.com/test/image-20250120014009577.png)
 
 scala.collection.mutable
 
-![image-20250120014032567](http://img.rmb520.com/test/image-20250120014032567.png)
+![image-20250120014032567](http://img.kiss58.com/test/image-20250120014032567.png)
 
 scala.collection.immutable
 
-![image-20250120014043340](http://img.rmb520.com/test/image-20250120014043340.png)
+![image-20250120014043340](http://img.kiss58.com/test/image-20250120014043340.png)
 
 Scala的集合的一致性
 
@@ -3829,7 +3829,7 @@ object RunTraserbale {
 
 Scala的Seq继承关系
 
-![image-20250120014546096](http://img.rmb520.com/test/image-20250120014546096.png)
+![image-20250120014546096](http://img.kiss58.com/test/image-20250120014546096.png)
 
 •Scala的Range
 
@@ -4017,7 +4017,7 @@ Scala的Vector
 
 Scala的Set继承关系
 
-![image-20250120014826911](http://img.rmb520.com/test/image-20250120014826911.png)
+![image-20250120014826911](http://img.kiss58.com/test/image-20250120014826911.png)
 
 - Scala的Set
   - 无序不重复
@@ -4109,7 +4109,7 @@ class Person0701(var name: String, var age: Int) extends Ordered[Person0701] {
 
 Scala的map继承关系
 
-![image-20250120014947462](http://img.rmb520.com/test/image-20250120014947462.png)
+![image-20250120014947462](http://img.kiss58.com/test/image-20250120014947462.png)
 
 - Scala的map
   - 键值对的集合
