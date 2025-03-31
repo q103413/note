@@ -1058,23 +1058,33 @@ IE8以及之前的版本不支持`<video>`标签
 表格标签：`<table> </table> 、<tr></tr>、<td></td>`  
 主要由表格标签`<table>`、行标签`<tr>` (table row行)、单元格`<td>`标签构成。
 
-`<table>`属性： border 边框大小（单位px）  
-			width 宽 （单位px 或者屏幕的百分比） height (单位px)  
-			bgcolor (background color简写) 背景颜色
-			background 背景图片
-			align 对齐方式（表格相对屏幕）
-			cellspacing (cell单元 spacing间距)  单元格间距
-			cellpadding (cell单元 padding填充、内衬)  单元格填充
+`<table>`属性： 
+
+- border 边框大小（单位px）  
+	border-top|border-left|border-right|border-bottom	分别设置上、左、右、下边框大小
+- width 宽 （单位px 或者屏幕的百分比） height (单位px)  
+- bgcolor (background color简写) 背景颜色
+- background 背景图片
+- align 对齐方式（表格相对屏幕）
+- cellspacing (cell单元 spacing间距)  单元格间距
+- cellpadding (cell单元 padding填充、内衬)  单元格填充
+- border-collapse    （separate|collapse)合并单元格边框
+- text-align	内容对齐方式（内容相对单元格）
+- valign	单元格内容垂直对齐方式（内容相对单元格）
+- rules      用于控制表格内部的边框显示方式，取值 none|groups|rows|cols|all，HTML5已废弃
+- frame     控制表格外边框的显示方式，取值 void|above|below|hsides|vsides|lhs|rhs|box|border，HTML5已废弃
 
 `<td>`属性： rowspan 跨行(row span)   colspan 跨列(column span)  
 		width 宽 （单位px） bgcolor (background color简写) 背景颜色  
         background 背景图片  
 		align 对齐方式 （内容相对单元格）
-	布局：\<td>里面可包含table
+	布局：`<td>`里面可包含table
 	
 表格`<table>`中的其他标签：
 	`<caption>` 表格标题  （caption 说明文字）
 	`<th>` 定义表头 （td改成th 加粗并且居中）
+
+
 
 ## 表单标签： 
 
@@ -1287,7 +1297,13 @@ IE8以及之前的版本不支持`<video>`标签
 	年龄：<input oninput="setCustomValidity('')" oninvalid="setCustomValidity('亲!你的年龄过大了,这边不建议你浏览本网站哦!')" type="number" min="1" max="70">
 ```
 
+对表单控件分组：
 
+`<fieldset>` 标签可以将表单内的相关元素分组。
+
+`<fieldset>` 标签会在相关表单元素周围绘制边框。
+
+ `<legend>` 元素为`<fieldset>`元素定义标题。
 
 # 六、CSS3提高
 

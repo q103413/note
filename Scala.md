@@ -2231,14 +2231,14 @@ Scala的单例对象场景
 
 #### Scala的伴生对象与伴生类
 
-- •同名
-- •同一个源码文件
+- 同名
+- 同一个源码文件
 
 Scala的伴生对象与伴生类解决什么问题
 
-- •生成静态成员
-- •伴生对象和类之间的相互访问
-- •构建单例对象
+- 生成静态成员
+- 伴生对象和类之间的相互访问
+- 构建单例对象
 
 
 
@@ -2278,9 +2278,9 @@ object Run1{
 
 #### Scala的对象创建
 
-- new
-- 伴生对象
-- apply
+- new：使用new关键字创建类的对象。
+- 伴生对象：使用object关键字创建一个单例对象。
+- apply：apply是一个方法，需要在伴生对象中实现这个方法。
 
 使用三种方式创建Person对象
 
@@ -2324,13 +2324,48 @@ object RunPerson{
 }
 ```
 
+#### Scala对象的所属类
 
+- getClass
+- isInstanceof
+
+```scala
+//使用反射机制判断Scala对象所属的类
+A.getClass==B.getClass
+//A表示对象，B表示类型。如果返回true，则表示A是B的子对象
+A.isInStanceof[B]
+```
 
 #### Scala的对象相等性判断
 
-- equal方法
-- ==与！=
-- eq与ne
+- equal方法：相当于Java中的equals方法。
+- ==与！=：相当于Java中的equals方法。
+- eq与ne：相当于Java中的引用（使用==判断引用）。
+
+**覆写equals方法**
+
+**Scala的自定义对象相等性**
+
+在重写equals方法时，需要满足以下几个条件：
+
+- 方法的名字不可以改变。
+- 参数列表一定要相同，参数类型是Any类型。
+- 重写方法时需要使用override关键字。
+
+重写equals方法的语法格式：
+
+```scala
+override def equals(other: Any): Boolean = {
+   true/false
+}
+```
+
+**覆写原则**
+
+- 反射性
+- 对称性
+- 过渡性
+- 非空性
 
 案例名称：判断Student对象相等
 
@@ -2379,6 +2414,8 @@ class Teacher2 extends Person2{
 # 四 Scala自适应类型和函数
 
 ## 1）Scala的自适应类型
+
+Scala可以自行进行类型推算
 
 ###  Scala的特殊类型
 
@@ -2465,7 +2502,7 @@ object RunOption {
 
 ### Scala的元组类型
 
-Scala字面量：Scala的特殊类型，它是不同类型值的集合。
+不同类型值的集合，即元组可以用于存放不同类型的元素。元组最多支持 22 个元素
 
 元组的表示
 
