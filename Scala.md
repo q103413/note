@@ -2417,9 +2417,9 @@ class Teacher2 extends Person2{
 
 Scala可以自行进行类型推算
 
-###  Scala的特殊类型
+####  Scala的特殊类型
 
-Nothing
+#### Nothing
 
 - ​	所有类型的子类
 
@@ -2458,7 +2458,7 @@ object RumNothing {
 }
 ```
 
-
+#### Option[T]
 
 - Option[T]
   - Some(T)
@@ -2500,7 +2500,7 @@ object RunOption {
 
 
 
-### Scala的元组类型
+#### Scala的元组类型
 
 不同类型值的集合，即元组可以用于存放不同类型的元素。元组最多支持 22 个元素
 
@@ -2561,11 +2561,11 @@ object RunTuple {
 
 ## 2）Scala的函数基础
 
-#### **Scala的函数的定义**
+### **Scala的函数的定义**
 
-![image-20250325004104606](C:\Users\fighting\AppData\Roaming\Typora\typora-user-images\image-20250325004104606.png)
+![image-20250401223304843](http://img.kiss58.com/test/image-20250401223304843.png)
 
-#### Scala的函数的规则
+### Scala的函数的规则
 
 - 只有一行可省略{}
 - 最后一条语句为函数返回值
@@ -2607,7 +2607,7 @@ object RunFunction {
 }
 ```
 
-#### Scala的函数的默认值
+### Scala的函数的默认值
 
 - 函数使用默认值可以不传递参数
 - 可以用参数名指定传递参数
@@ -2662,20 +2662,70 @@ class Connection{
 
 ```
 
-####  Scala的函数
+### 不带()的方法
+
+对于无参数的方法，调用时可以省略圆括号。
 
 - 创建不带()的方法
 
    def 方法名:[返回类型]={}
 
+```scala
+class Person(val name: String) {
+  def getName: String = name
+}
+
+val person = new Person("Alice")
+println(person.getName) // 使用圆括号
+println(person.getName()) // 也可以省略圆括号
+```
+
+
+
+### 变参函数
+
+在 Scala 里，函数变参允许你向函数传递不定数量的参数。这一特性在你不清楚会传入多少参数时特别有用。
+
 - 创建接受变参的方法
 
   - 参数类型*
 
-- •变参传值
+- 变参传值
+
+  ​	调用变参函数时，可以直接传入多个参数，也可以传入一个 `Seq` 集合，但需要使用 `:_*` 展开。
 
   - 参数类型对应值
   - _*
+
+```scala
+def printNames(names: String*): Unit = {
+  for (name <- names) {
+    println(name)
+  }
+}
+
+// 直接传入多个参数
+printNames("Alice", "Bob", "Charlie")
+
+// 传入一个 Seq 集合
+val nameList = Seq("David", "Eve", "Frank")
+printNames(nameList: _*)
+```
+
+变参和其他参数的组合
+
+- 变参必须是函数的最后一个参数。
+
+```scala
+//greet 函数有一个普通参数 prefix 和一个变参 names，调用时先传入普通参数，再传入多个变参。
+def greet(prefix: String, names: String*): Unit = {
+  for (name <- names) {
+    println(s"$prefix $name")
+  }
+}
+
+greet("Hello", "Alice", "Bob", "Charlie")
+```
 
 **定义一个Util类，包含一个printlnall方法，参数列表分别接受以下参数：**
 
@@ -2731,14 +2781,56 @@ object RunVarible{
 
 
 
-####  Scala的函数的链式风格
+###  Scala的函数的链式风格
+
+链式风格的核心在于每个函数调用都会返回一个对象，这个对象又可以继续调用其他函数，从而形成一个连续的调用链。
+
+- 链式风格通过让函数调用返回对象，使得多个函数调用可以串联起来，提高代码的可读性和简洁性。
+- Scala 内置的集合类和字符串类都支持链式调用，常用于集合操作和字符串处理。
+- 你可以在自定义类中实现链式调用，让每个方法返回当前对象的引用。
+
+```scala
+object ChainExample extends App {
+  val numbers = List(1, 2, 3, 4, 5)
+
+  val result = numbers
+    .filter(_ % 2 == 0) // 过滤出偶数
+    .map(_ * 2) // 将每个偶数乘以 2
+    .sum // 计算总和
+
+  println(result) 
+}
+```
+
+```scala
+object StringChainExample extends App {
+  val str = " Hello, World! "
+
+  val processedStr = str
+    .trim() // 去除字符串首尾的空格
+    .toUpperCase() // 将字符串转换为大写
+    .replace("WORLD", "SCALA") // 替换特定的字符串
+
+  println(processedStr) 
+}
+```
+
+
 
 - 链式风格 
   -  person.setName(“scala”).setCity(“beijing”) 
-- •链式风格语法
+- 链式风格语法
   - this.type
   - this
 
+  
+  
+  `this.type` 的作用
+  
+  `this.type` 是一个单例类型，表示当前对象的精确类型。使用 `this.type` 可以确保方法返回当前对象的引用，而不是其父类或接口的引用。这在链式调用中非常重要，因为它允许后续方法继续在同一个对象上调用。
+  
+  
+  
 - 定义一个Person类，包含name、age、city属性，使用链式风格为他们赋值。
 - 定义一个Student类继承Person，包含name、age、city和sex属性，使用链式风格为他们赋值。
 
@@ -2757,14 +2849,17 @@ class Person{
   var name=""
   var age=0
   var city="beijing"
+  
   def setName(name:String):this.type ={
     this.name=name
     this
   }
+  
   def setAge(age:Int):this.type ={
     this.age=age
     this
   }
+  
   def setCity(city:String):this.type ={
     this.city=city
     this
@@ -2772,12 +2867,15 @@ class Person{
 
   override def toString = s"Person($name, $age, $city)"
 }
+
 class Student extends Person{
   var sex=""
+  
   def setSex(sex:String):this.type ={
     this.sex=sex
     this
   }
+  
   override def toString = s"Student($name, $age, $city,$sex)"
 }
 ```
@@ -2786,7 +2884,9 @@ class Student extends Person{
 
 ## 3）Scala的函数进阶
 
-#### Scala的函数字面量
+### Scala的函数字面量
+
+函数字面量是一种匿名函数，它没有名称，但可以像普通函数一样被调用。函数字面量通常用于定义简单的操作，尤其是在需要将函数作为参数传递时。
 
 Scala的函数字面量语法
 
@@ -2798,6 +2898,17 @@ Scala的函数字面量作用
 
 - ​	参数
 
+```scala
+val addOne = (x: Int) => x + 1
+println(addOne(5)) // 输出：6
+
+val sayHello = () => "Hello, Scala!"
+println(sayHello()) // 输出：Hello, Scala!
+
+val multiply = (x: Int, y: Int) => x * y
+println(multiply(3, 4)) // 输出：12
+```
+
 
 Scala的函数字面的简化
 
@@ -2805,10 +2916,36 @@ Scala的函数字面的简化
 
 - ​	只有一个表达式，可省略括号
 
+```scala
+//占位符语法：当函数字面量的参数在函数体中只出现一次时，可以使用占位符 _ 来简化表达。示例如下：
+
+//在这个例子中，_ 是一个占位符，表示当前参数。
+val numbers = List(1, 2, 3, 4, 5)
+val doubled = numbers.map(_ * 2)
+println(doubled) // 输出：List(2, 4, 6, 8, 10)
+
+//在这个例子中，_ + _ 是 (x, y) => x + y 的简化形式，_ 依次代表函数的参数。
+val numbers = List(1, 2, 3, 4, 5)
+// 使用占位符语法
+//// 使用 reduce 方法计算元素总和
+val sum = numbers.reduce(_ + _)
+println(sum) //15
+
+//math.pow(_, 2).toInt 是一个方法引用，表示对每个元素调用 math.pow 方法。
+val numbers = List(1, 2, 3, 4, 5)
+val squared = numbers.map(math.pow(_, 2).toInt)
+println(squared) // 输出：List(1, 4, 9, 16, 25)
+```
 
 Scala的函数字面量的懒加载
 
+懒加载的核心是延迟执行函数字面量，直至真正需要其结果时才进行计算，这有助于提升性能，避免不必要的计算。
+
 ​	lazy
+
+```scala
+
+```
 
 定义一个字面量sum函数，返回两个数的和，并赋予一个变量。
 
@@ -2840,10 +2977,34 @@ object RunLiteralFuntion {
 }
 ```
 
-#### Scala的函数作为参数
+### Scala的函数作为参数
+
+当一个函数接收另一个函数作为参数时，这个接收函数参数的函数被称作高阶函数。高阶函数在函数式编程中非常关键，它能让代码更具灵活性和可复用性。
 
 - 简单函数作为参数
 - 除函数外的其他参数
+
+```scala
+// 定义一个高阶函数，接受一个整数和一个函数
+def operateOnNumber(num: Int, func: Int => Int): Int = {
+  func(num)
+}
+
+// 定义一个简单的函数，用于将输入的数乘以 2
+def multiplyByTwo(x: Int): Int = x * 2
+
+// 调用高阶函数
+val result = operateOnNumber(5, multiplyByTwo)
+println(result) 
+```
+
+```scala
+//除了传递已定义的函数，还可以使用函数字面量（匿名函数）作为参数：
+val numbers = List(1, 2, 3, 4, 5)
+// 使用 map 方法，传入一个函数字面量
+val squaredNumbers = numbers.map(x => x * x)
+println(squaredNumbers) 
+```
 
 •定义一个exeFunction函数，接受一个无参数的sayHello函数。
 
@@ -2869,12 +3030,15 @@ object RunWithParFuntion {
     val multi=(x:Int,y:Int)=>x*y
     exeAndPrint(multi,2,3)
   }
+  
   def exeFuctionWithOutPar(callback:()=>Unit): Unit ={
     callback()
   }
+  
   def exeAdd(callback:Int=>Int): Int ={
     callback(8)
   }
+  
   def exeAndPrint(callback:(Int,Int)=>Int,x:Int,y:Int): Unit ={
     val result=callback(x,y)
     println(s"callback=$result")
@@ -2894,7 +3058,7 @@ Closure in ruby 闭包的条件
 - 可以被任何拥有该值的对象按需执行
 - 可以引用上下文已经创建的变量
 
-•演示闭包。
+演示闭包。
 
 ```scala
 package scala04
@@ -2902,18 +3066,21 @@ package scala04
 object RunClosure {
   def main(args: Array[String]): Unit = {
     //
-    val isage1=(age:Int)=>age>18
+    val isage1=(age:Int) => age>18
     println(isage1(10),  isage1(20))
 
     var voteage=18
-    val isage2=(age:Int)=>age>voteage
+    val isage2=(age:Int) => age>voteage
     println(isage2(10),  isage2(20))
+    
     new Clouse().printResult(isage2,20)
+    
     voteage=21
     new Clouse().printResult(isage2,20)
 
   }
 }
+
 class Clouse{
   def printResult(f:Int=>Boolean,x:Int): Unit ={
     println(f(x))
@@ -2923,6 +3090,8 @@ class Clouse{
 ```
 
 ###  Scala函数的柯里化
+
+函数柯里化指的是将一个多参数函数转换为一系列单参数函数的过程。原本接收多个参数的函数，经过柯里化后，可以逐个接收参数，每次调用只接收一个参数，返回一个新的函数，这个新函数会记住之前传入的参数，直到所有参数都被传入，才会执行最终的计算。
 
 #### 柯里化的定义
 
@@ -2959,6 +3128,8 @@ object RunK {
 
 ###  Scala部分应用函数
 
+部分应用函数是指在调用一个多参数函数时，只传递部分参数，从而得到一个新的函数。
+
 部分应用函数的定义
 
 只传递部分参数
@@ -2972,6 +3143,21 @@ def 函数名（参数列表X，Y..）:type={
 部分应用函数作用
 
 ​	返回新的函数
+
+```scala
+//柯里化函数天然支持部分应用，因为柯里化函数本身就是逐步接收参数的。
+// 定义一个柯里化的乘法函数
+def multiply(x: Int)(y: Int): Int = x * y
+
+// 部分应用，得到一个新的函数
+val double = multiply(2)
+
+// 调用新函数
+val result = double(5)
+println(result) 
+```
+
+
 
 - 定义一个函数为HTML，添加前后缀(如`<div>和</div>`)
 - 定义一个接受三个参数的函数，实现三个数相乘，传递部分参数，打印结果
