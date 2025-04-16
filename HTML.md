@@ -791,31 +791,6 @@ div:not(#container) {
 }
 ```
 
-
-
-**CSS的特性：**1 继承性 2 层叠性和优先级  
-	 **继承性：**
-
-- 内层继承外层样式,但另行更改除外。  
-- ​			某些特殊情况不继承，比如边框border
-
- **层叠性：**
-
-1.  如果多个选择器定义的样式不发生冲突，则应用全部选择器定义的样式。
-2.  如果多个选择器定义的样式发生冲突，则按照选择器的优先级来处理。
-
- **优先级：**
-
-- ​	优先级的总原则：越特殊的样式，优先级越高。
-
-- ​	选择器的优先级：
-
-  ​	        ID选择器 > 类选择器 > 标签选择器(元素选择器)
-
-- ​	样式表的优先级：  
-
-  ​		行内样式表 >  内嵌(内部)样式表 > 外部样式表 		
-
 ## 3类基本属性
 
 ### 颜色与背景属性
@@ -1327,10 +1302,26 @@ IE8以及之前的版本不支持`<video>`标签
 				color:green;
 			}
 ```
-属性选择器（Attribute Selector）：
+子代选择器：选择器之间用大于号" > "连接。对子代的选择器生效
+	用于选择子元素，通常外层的标签为父标签，内层的标签为子标签。
 
+```css
+	#header > ul > li > a {
+    color: gold;
+  }
+```
+相邻兄弟选择器：选择器之间用加号" + "连接。对相邻兄弟的选择器生效
+	用于选择紧接在另一元素后的元素，且二者有相同父元素。
+	相邻兄弟选择器只能选择紧接在另一元素后的元素，如果要选择所有兄弟元素，请使用一般兄弟选择器。
+
+```css
+	#header ul li + li a {
+    color: gold;
+  }
+```
+
+属性选择器（Attribute Selector）：用于选取带有指定属性的元素。
 通过元素的属性选择 HTML 元素。
-
 如下代码，**input[type="text"]** 选择器将选择所有 **type** 属性为 **"text"** 的 `\<input>` 元素。
 
 ```css
@@ -1347,12 +1338,21 @@ input[type="text"] {
 | [attribute^=value] | a[src^="https"] | 选择每一个src属性的值以"https"开头的元素 |
 | [attribute$=value] | a[src$=".pdf"]  | 选择每一个src属性的值以".pdf"结尾的元素  |
 
-## （2）盒模型
+## 
 
-边距和填充：
+## （2）盒子模型
+
+1盒子模型原理 2标准文档流 3盒子浮动 4盒子定位  
+	一、盒子模型原理：
+		1盒子模型概述 
+			每个HTML元素都可以看作一个盒子。
+            包含内容content 填充padding 边框border 边距(边界) margin
+            填充 边框 边距包含top上、bottom下、left左、right右四部分
+
+### 边距和填充：
 
 - 边距（margin、外边距、外补丁）：围绕在元素边框的空白区域
--    填充(padding、内边距、补白、内补丁)：定义元素边框与元素内容之间的空白区域。
+- 填充(padding、内边距、补白、内补丁)：定义元素边框与元素内容之间的空白区域。
 
 ​    边距：
 ​	单独设置边距：
@@ -1368,22 +1368,26 @@ input[type="text"] {
 	margin-bottom:40px;
     margin-left:20px;
 ```
+
 ​	也可以通过复合属性设置边距：
 ​		仅设置一个值，则应用四个边距。
 
 ```
 	margin: 30px;	
 ```
+
 ​	设置两个值，则表示上下边距、左右边距。
 
 ```
 	margin:10px 20px;
 ```
+
 ​	设置三个值，则表示上边距、左右边距、下边距。
 
 ```
 	margin:10px 20px 30px;
 ```
+
 ​	设置四个值，则表示上边距、右边距、下边距、左边距。(顺时针)
 
 ```css
@@ -1411,266 +1415,29 @@ input[type="text"] {
 ```
 	padding: 30px;	
 ```
+
 ​	设置两个值，则表示上下填充、左右填充。
 
 ```css
 	padding:10px 20px;
 ```
+
 ​	设置三个值，则表示上填充、左右填充、下填充。
 
 ```
 	padding:10px 20px 30px;
 ```
+
 ​	设置四个值，则表示上填充、右填充、下填充、左填充。(顺时针)
 
 ```css
 	padding:10px 20px 30px 40px;
 ```
 
-边框属性：1 border属性 2 border-radius属性  
-	1 border属性  
-	单独设置边框样式：
-        border-style 设置边框样式：none无边框，solid实线, dashed 虚线,double
-		boder-width 设置边框宽度 
-		border-color 设置边框颜色
+​				
 
-```css
-	border-style:solid;
-	border-width:20px;
-	border-color:green;
-```
-​		也可以通过复合属性设置边框全部样式：
+### 	盒子的大小   
 
-```css
-		border:10px red dashed ;
-```
-
-​	2 border-radius属性，设置边框圆角
-​			border-radius:半径像素值。
-​            半径像素值越大，圆角效果越明显。
-​	border-radius:参数1，四个角
-
-```
-	border-radius:55px;
-```
-​	border-radius:参数1 参数2
-​        参数1对应 左上角 右下角
-​		参数2对应 左下角 右上角
-
-```css
-border-radius:20px 40px;
-```
-​	border-radius:参数1 参数2 参数3
-
-- ​        参数1对应 左上角
-- ​        参数2对应 左下角 右上角
-- ​        参数3对应 右下角
-
-```css
-border-radius:20px 40px 60px;
-```
-border-radius:参数1 参数2 参数3 参数4 (顺时针)
-
-- ​    参数1  左上角
-- ​    参数2  右上角
-- ​    参数3  右下角
-- ​    参数4  左下角
-
-```css
-	border-radius:20px 40px 60px 80px;
-```
-
-列表属性：1列表属性 2垂直菜单  
-	1列表属性：    
-        list-style-type 
-            设置列表项符号:
-            none无 disc实心圆 circle空心圆 square实心正方形
-		list-style-image 
-            设置图片作为列表项符号：
-            url(图片路径)
-		list-style-position 
-            设置项目符号在列表项的位置:
-            inside,outside（默认）
-
-```css
-ul {
-		/* list-style-type:circle; */
-		list-style-image: url(images/arrow.png);
-		list-style-position:inside;
-	}
-li {
-	border:red 4px solid;
-	/* margin-left:80px; */
-	/* list-style-type:none; */
-	/* list-style-image: url(images/aa.jpg); */
-	list-style-position:outside;
-}
-```
-通过复合属性设置列表项：
-    list-style:
-
-```css
-	list-style:circle inside url(images/arrow.png);
-```
-
-背景和阴影  
-	背景属性：1背景颜色 2背景图片 3背景图片的重复方式（平铺）  
-		1背景颜色   
-			background-color 设置背景颜色  
-				颜色:英文单词、 16进制、 rgb(red, green, blue)
-
-```css
-	background-color: lightgrey;
-```
-​	2背景图片
-​        如果同时有背景颜色，优先显示背景图片。
-​		background-image:url(图片地址)
-
-```css
-	background-color:rgb(255, 254, 66);
-	background-image:url(images/girl.jpg)
-```
-​	3背景图片的重复（平铺）方式    
-​        background-repeat:属性值，  
-
--   repeat（默认，水平垂直同时平铺） no-repeat 不平铺 
-- repeat-x 水平平铺
-- repeat-y 垂直平铺
-
-```css
-	/* background-color:blue; */
-	background-image:url(images/aa.jpg);
-	background-repeat:repeat-x;
-```
-多张背景图片：
-
-```css
-		background-image:url(images/aa.jpg),url(images/girl.jpg);
-		background-repeat:repeat-y, no-repeat;
-```
-
-背景图片的定位：1 background-position属性 2 CSS Sprites  
-1 background-position属性 ：  
-	background-position:关键字，百分比，像素值  
-		关键字：
-            水平方向：left center right;
-            垂直方向：top center bottom
-		百分比：
-            水平方向：
-                从左到右0%-100%，
-                0% 50% 100%对应左中右；
-            垂直方向：
-                从上到下0%-100%，
-                0% 50% 100%对应上中下；
-		像素值: 图片左顶点相对于上级元素的左顶点。 
-            正数时：水平向右，垂直向下，
-            负数时：水平向左，垂直向上
-
-```css
-	background-image:url(images/aa.jpg);
-	background-repeat: no-repeat;
-	/* background-position:center center; */
-	background-position:-50px -50px;
-	/* background-position:center center; */
-	/* background-position:50% 50%; */
-	/* background-position:500px 300px; */
-		background-position:-50px -50px;
-```
-设置多个背景图片属性
-
-```css
-	<style>
-		div {
-			border:2px solid red;
-			width:900px;
-			height:900px;
-			background-image:url(images/p1.png),url(images/p2.png),url(images/p3.png),url(images/p4.png);
-			background-repeat:no-repeat;
-			background-position:center center,right bottom,left center,200px -50px;
-		}
-	</style>
-```
-
-2 CSS Sprites (雪碧图，精灵图)
-
-```css
-#first {
-	background-position:0px 0px;
-}
-#second {
-	background-position:0px -26px;
-}
-#third{
-	background-position:0px -52px;
-}
-```
-背景渐变：1线性渐变  2径向渐变  
-	1线性渐变：  
-        background:linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）...)
-		参数1的角度是指渐变线与水平线之间的角度。
-
-```css
-	background:linear-gradient(45deg,red,pink,blue);
-	background:linear-gradient(to right,red,blue);
-	background:linear-gradient(to right bottom,red 40%,white,black)
-```
-//todo
-	透明度渐变  
-	rgb(red,green,blue)设置颜色, red green blue取值0-255或者百分比
-	rgba(red,green,blue,alpha(透明度) ),设置颜色并使用透明度,alpha取值0-1
-
-```css
-	background:linear-gradient(to right,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.6)),url(images/aa.jpg);
-```
-		重复线性渐变：
-	    background: repeating-linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）.。。)        
-```
-	background:repeating-linear-gradient(-45deg,red,blue 30px);
-```
-		2径向渐变：
-			background:radial-gradient(参数1（形状或者圆心位置），参数2（颜色），参数3（颜色）。。)
-```
-background:radial-gradient(red,pink,blue,black)
-```
-		重复径向渐变：
-```
-	background:repeating-radial-gradient(circle, red 10px,blue 50px);
-```
-
-阴影属性：1文字阴影 2盒子阴影  
-1文字阴影  
-	text-shadow:h-shadow v-shadow blur color;
-		h-shadow 阴影水平距离（必须） 
-        v-shadow阴影垂直距离（必须） 
-        blur阴影半径 
-        color阴影颜色
-
-```css
-	text-shadow:10px 10px 5px red;
-```
-2盒子阴影  
-	box-shadow:h-shadow v-shadow blur spread color;
-		h-shadow阴影水平距离（必须） 
-        v-shadow阴影垂直距离（必须） 
-        blur阴影半径/模糊半径
-        spread阴影大小 
-        color阴影颜色
-
-```css
-	box-shadow:10px 10px 20px 20px blue;
-```
-
-## 盒子模型：
-
-1盒子模型原理 2标准文档流 3盒子浮动 4盒子定位  
-	一、盒子模型原理：
-		1盒子模型概述 
-			每个HTML元素都可以看作一个盒子。
-            包含内容content 填充padding 边框border 边距(边界) margin
-            填充 边框 边距包含top上、bottom下、left左、right右四部分
-				
-
-​	2盒子的大小   
 ​		计算方法：  
 ​		盒子实际大小：边框+填充+内容（不算边距）  
 ​			盒子实际宽度：左边框+左填充+内容宽度+右填充+右边框（不算边距）
@@ -1746,6 +1513,8 @@ background:radial-gradient(red,pink,blue,black)
 	margin-left:-50px;
 ```
 
+## 
+
 ## （3）CSS3布局
 
 `<div>` 标签： （division简写 分开、分界）
@@ -1762,44 +1531,75 @@ background:radial-gradient(red,pink,blue,black)
 2. 多个span标签可以存在于同一行（从左到右的方式排列）
 3. 当与 CSS 一同使用时，`\<span>` 元素可用于为部分文本设置样式属性。
 
-### 二、标准文档流（普通流、标准流）：
+### 标准文档流
+
+（普通流、标准流）：
 
 ​    1概述：浏览器根据从左到右，自上而下的规则排列HTML元素
 
 ​    	标签排列规则：从左到右，自上而下。
 
-​		**块元素：**`标题(<h1> - <h6>) 段落(<p>) 水平线(<hr />) 列表(<ul>、<ol>、<li>等) 表格(<table>) 层（<div>）表单(<form>)`  
-​		
-​		**行元素：**`图片(<img>) 范围（<span>） 换行(<br />)  超链接(<a>) `   
-​		
-​		块元素和行元素的区别  
-​			1排列方式不同
-​            	块元素独占一行，自上而下排列。
-​				行元素从左到右，多个行元素可显示在同一行。
-​			2内嵌元素不同
-​				块元素可以包含块元素和行元素，
-​                但是行元素只能包含文本或者其他行元素。
-​			3属性设置不同
-​				块元素可以设置所有样式属性, 但是行元素不能设置width属性、height属性。
-​				行元素可以设置line-height，不可以设置上下边距，上下填充。（行元素margin、padding上下方向无效）
-​	
-​	2 diplay属性 
-​		display: none | block | inline;
-​        控制是否存在。 隐藏（消除）该元素，不占屏幕空间。若有其他元素，会上移到该区域。
+**块元素：**`标题(<h1> - <h6>) 段落(<p>) 水平线(<hr />) 列表(<ul>、<ol>、<li>等) 表格(<table>) 层（<div>）表单(<form>)`  
+		
+**行元素：**`图片(<img>) 范围（<span>） 换行(<br />)  超链接(<a>) `   
+		
+		块元素和行元素的区别  
+			1排列方式不同
+            	块元素独占一行，自上而下排列。
+				行元素从左到右，多个行元素可显示在同一行。
+			2内嵌元素不同
+				块元素可以包含块元素和行元素，
+                但是行元素只能包含文本或者其他行元素。
+			3属性设置不同
+				块元素可以设置所有样式属性, 但是行元素不能设置width属性、height属性。
+				行元素可以设置line-height，不可以设置上下边距，上下填充。（行元素margin、padding上下方向无效）
+	
+	2 diplay属性 
+		display: none | block | inline;
+        控制是否存在。 none 隐藏（消除）该元素，不占屏幕空间。若有其他元素，会上移到该区域。
+
+取值及用途
+
+**`none`**
+
+- **描述**：将元素隐藏，不显示。
+- **特点**：
+  - 元素不会占用空间，不会影响页面布局。
+
+**`block`**
+
+- **描述**：将元素显示为块级元素。
+- **特点**：
+  - 块级元素独占一行，宽度默认占满父元素的宽度。
+  - 可以设置宽度（`width`）和高度（`height`）。
+
+**`inline`**
+
+- **描述**：将元素显示为内联元素。
+- **特点**：
+  - 内联元素不会独占一行，多个内联元素可以在同一行显示。
+  - 不能设置宽度和高度。
+
+**`inline-block`**
+
+- **描述**：将元素显示为内联块级元素。
+- **特点**：
+  - 内联块级元素不会独占一行，多个内联块级元素可以在同一行显示。
+  - 可以设置宽度和高度。
 
 ```css
 #middle {
-			display: none;
-			display: block;
-		}
+    display: none;
+    display: block;
+}
 ```
 ​	3 visibility属性
 ​		visibility: hidden | visible; 
 ​			只是控制是否可见，实际上还是存在,占据屏幕空间。
 
 ```css
-		visibility: visible;
-		visibility: hidden;
+visibility: visible;
+visibility: hidden;
 ```
 
 3 盒子浮动：
@@ -1810,8 +1610,8 @@ background:radial-gradient(red,pink,blue,black)
 			none 默认，不浮动
 
 ```css
-	float: none;
-  float: left ;
+float: none;
+float: left ;
 ```
 
 清除浮动
@@ -1819,36 +1619,36 @@ background:radial-gradient(red,pink,blue,black)
 		背景不能显示
 		边框不能撑开
 		margin padding不能正确显示
-	
 
-	清除浮动影响的方法
-	1 对父级元素设置宽高
-
-```css
-	#max {
-			width: 800px;
-			height:300px;
-		}
-```
-​	2 clear:both清除浮动
-​		在父级`</div>`结束前加上`<div class="clear"> </div>`
-
-```css
-	.clear {
-		clear: both;
-	}
-```
-​	3 在父级div定义 overflow:hidden;
+**清除浮动影响的方法**
+1 对父级元素设置宽高
 
 ```css
 #max {
-		overflow:hidden;
-	}
+    width: 800px;
+    height:300px;
+}
+```
+2 clear:both清除浮动
+​		在父级`</div>`结束前加上`<div class="clear"> </div>`
+
+```css
+.clear {
+    clear: both;
+}
+```
+3 在父级div定义 overflow:hidden;
+
+```css
+#max {
+    overflow:hidden;
+}
 ```
 
-4盒子定位
-	1 静态定位
-        默认，按照标准文档流，HTML元素从左到右，自上而下排列。
+### 盒子定位
+
+​	1 静态定位
+​        默认，按照标准文档流，HTML元素从左到右，自上而下排列。
 
 ```css
 	position: static;
@@ -1905,7 +1705,14 @@ div居中：
 	line-height:50px;
 ```
 
+重置样式
+
+目的是消除不同浏览器默认样式之间的差异，从而确保网页在不同浏览器中具有一致的布局效果。
+
+将所有HTML元素的`margin`和`padding`属性设置为`0px`。
+
 清除浏览器白边
+
 ```css
 	* {
 		margin:0px;
@@ -1915,7 +1722,432 @@ div居中：
 
 
 
+## （4）CSS高级属性
+
+### cursor属性
+
+设置当鼠标指针位于元素上方时所显示的样式
+
+`cursor: value;`
+
+**常用值**
+
+| 值              | 描述                                                   |
+| :-------------- | :----------------------------------------------------- |
+| `auto`          | 默认值，浏览器根据元素的上下文自动选择光标样式。       |
+| `default`       | 普通光标（通常是箭头）。                               |
+| `pointer`       | 指针光标（通常是手形），表示可点击。                   |
+| `wait`          | 等待光标（通常是沙漏或旋转的圈），表示正在加载或等待。 |
+| `text`          | 文本选择光标（通常是竖线），表示可以编辑文本。         |
+| `move`          | 移动光标（通常是十字箭头），表示可以移动对象。         |
+| `not-allowed`   | 不允许光标（通常是斜杠圆圈），表示操作不被允许。       |
+| `help`          | 帮助光标（通常是问号或气泡），表示可以获取帮助。       |
+| `crosshair`     | 十字准线光标，通常用于绘图或选择区域。                 |
+| `vertical-text` | 垂直文本选择光标。                                     |
+| `alias`         | 表示正在创建别名或快捷方式。                           |
+| `copy`          | 表示可以复制内容。                                     |
+| `no-drop`       | 表示不能在此处放置拖动的内容。                         |
+| `grab`          | 表示可以抓取对象。                                     |
+| `grabbing`      | 表示正在抓取对象。                                     |
+| `e-resize`      | 表示可以水平向右调整大小。                             |
+| `w-resize`      | 表示可以水平向左调整大小。                             |
+| `n-resize`      | 表示可以垂直向上调整大小。                             |
+| `s-resize`      | 表示可以垂直向下调整大小。                             |
+| `nw-resize`     | 表示可以向左上角调整大小。                             |
+| `ne-resize`     | 表示可以向右上角调整大小。                             |
+| `sw-resize`     | 表示可以向左下角调整大小。                             |
+| `se-resize`     | 表示可以向右下角调整大小。                             |
+| `url`           | 自定义光标，可以指定一个光标图像的URL。                |
+
+### 
+
+### 列表属性
+
+​	1列表属性 2垂直菜单  
+
+**列表属性：**    
+
+**1. `list-style-type`**
+
+`list-style-type` 属性用于指定列表项标记的类型
+
+**常用值**
+
+- `none`：不显示列表项标记。
+- `disc`：使用实心圆点（默认值）。
+- `circle`：使用空心圆点。
+- `square`：使用实心方块。
+- `decimal`：使用数字（1, 2, 3, ...）。
+- `lower-roman`：使用小写罗马数字（i, ii, iii, ...）。
+- `upper-roman`：使用大写罗马数字（I, II, III, ...）。
+- `lower-alpha`：使用小写英文字母（a, b, c, ...）。
+- `upper-alpha`：使用大写英文字母（A, B, C, ...）。
+
+**2. `list-style-position`**
+
+`list-style-position` 属性用于指定列表项标记的位置。
+
+**常用值**
+
+- `inside`：列表项标记位于内容内部。
+- `outside`：列表项标记位于内容外部（默认值）。
+
+**3. `list-style-image`**
+
+`list-style-image` 属性用于指定自定义的列表项标记图像。
+
+```css
+ul {
+    /* list-style-type:circle; */
+    list-style-image: url(images/arrow.png);
+    list-style-position:inside;
+}
+li {
+	border:red 4px solid;
+	/* margin-left:80px; */
+	/* list-style-type:none; */
+	/* list-style-image: url(images/aa.jpg); */
+	list-style-position:outside;
+}
+```
+
+**4. `list-style`**
+
+`list-style` 是一个复合属性，可以同时设置 `list-style-type`、`list-style-position` 和 `list-style-image`。
+
+```css
+ul {
+  	list-style:circle inside url(images/arrow.png);
+}
+```
+
+​	
+
+### 边框属性
+
+​	1 border属性 2 border-radius属性  
+1 border属性  
+​	单独设置边框样式：
+​        border-style 设置边框样式：none无边框，solid实线, dashed 虚线,double
+​		boder-width 设置边框宽度 
+​		border-color 设置边框颜色
+
+```css
+	border-style:solid;
+	border-width:20px;
+	border-color:green;
+```
+
+​		也可以通过复合属性设置边框全部样式：
+
+```css
+		border:10px red dashed ;
+```
+
+2 border-radius属性，设置边框圆角
+
+​	语法：`border - radius: value;`
+
+​		value值越大，圆角效果越明显。
+
+- **长度值**：像 `10px`、`2em` 这种，明确指定圆角的半径大小。
+- **百分比**：例如 `50%`，通常用于创建圆形或椭圆形元素。
+
+​	border-radius:参数1，四个角
+
+```css
+border-radius:55px;
+```
+
+​	border-radius:参数1 参数2
+​        参数1对应 左上角 右下角
+​		参数2对应 左下角 右上角
+
+```css
+border-radius:20px 40px;
+```
+
+​	border-radius:参数1 参数2 参数3
+
+- ​        参数1对应 左上角
+- ​        参数2对应 左下角 右上角
+- ​        参数3对应 右下角
+
+```css
+border-radius:20px 40px 60px;
+```
+
+border-radius:参数1 参数2 参数3 参数4 (顺时针)
+
+- ​    参数1  左上角
+- ​    参数2  右上角
+- ​    参数3  右下角
+- ​    参数4  左下角
+
+```css
+	border-radius:20px 40px 60px 80px;
+```
+
+背景和阴影  
+
+### 背景属性
+
+​	1背景颜色 2背景图片 3背景图片的重复方式（平铺）  
+1背景颜色   
+​			background-color 设置背景颜色  
+​				颜色:英文单词、 16进制、 rgb(red, green, blue)
+
+```css
+	background-color: lightgrey;
+```
+
+2背景图片
+​        如果同时有背景颜色，优先显示背景图片。
+​		background-image:url(图片地址)
+
+```css
+	background-color:rgb(255, 254, 66);
+	background-image:url(images/girl.jpg)
+```
+
+3背景图片的重复（平铺）方式    
+​        background-repeat:属性值，  
+
+-   repeat（默认，水平垂直同时平铺） no-repeat 不平铺 
+-   repeat-x 水平平铺
+-   repeat-y 垂直平铺
+
+```css
+	/* background-color:blue; */
+	background-image:url(images/aa.jpg);
+	background-repeat:repeat-x;
+```
+
+多张背景图片：
+
+```css
+		background-image:url(images/aa.jpg),url(images/girl.jpg);
+		background-repeat:repeat-y, no-repeat;
+```
+
+背景图片的定位：1 background-position属性 2 CSS Sprites  
+1 background-position属性 ：  
+	background-position:关键字，百分比，像素值  
+		关键字：
+            水平方向：left center right;
+            垂直方向：top center bottom
+		百分比：
+            水平方向：
+                从左到右0%-100%，
+                0% 50% 100%对应左中右；
+            垂直方向：
+                从上到下0%-100%，
+                0% 50% 100%对应上中下；
+		像素值: 图片左顶点相对于上级元素的左顶点。 
+            正数时：水平向右，垂直向下，
+            负数时：水平向左，垂直向上
+
+```css
+	background-image:url(images/aa.jpg);
+	background-repeat: no-repeat;
+	/* background-position:center center; */
+	background-position:-50px -50px;
+	/* background-position:center center; */
+	/* background-position:50% 50%; */
+	/* background-position:500px 300px; */
+		background-position:-50px -50px;
+```
+
+设置多个背景图片属性
+
+```css
+	<style>
+		div {
+			border:2px solid red;
+			width:900px;
+			height:900px;
+			background-image:url(images/p1.png),url(images/p2.png),url(images/p3.png),url(images/p4.png);
+			background-repeat:no-repeat;
+			background-position:center center,right bottom,left center,200px -50px;
+		}
+	</style>
+```
+
+2 CSS Sprites (雪碧图，精灵图)
+
+```css
+#first {
+	background-position:0px 0px;
+}
+#second {
+	background-position:0px -26px;
+}
+#third{
+	background-position:0px -52px;
+}
+```
+
+### 背景渐变
+
+​	1线性渐变  2径向渐变  
+1线性渐变：  
+​        background:linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）...)
+​		参数1的角度是指渐变线与水平线之间的角度。
+
+```css
+	background:linear-gradient(45deg,red,pink,blue);
+	background:linear-gradient(to right,red,blue);
+	background:linear-gradient(to right bottom,red 40%,white,black)
+```
+
+//todo
+	透明度渐变  
+	rgb(red,green,blue)设置颜色, red green blue取值0-255或者百分比
+	rgba(red,green,blue,alpha(透明度) ),设置颜色并使用透明度,alpha取值0-1
+
+```css
+	background:linear-gradient(to right,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.6)),url(images/aa.jpg);
+```
+
+​	重复线性渐变：
+
+​	background: repeating-linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）.。。)        
+
+```css
+background:repeating-linear-gradient(-45deg,red,blue 30px);
+```
+
+2径向渐变：
+	background:radial-gradient(参数1（形状或者圆心位置），参数2（颜色），参数3（颜色）。。)
+
+```css
+background:radial-gradient(red,pink,blue,black)
+```
+
+​	重复径向渐变：
+
+```css
+background:repeating-radial-gradient(circle, red 10px,blue 50px);
+```
+
+## 
+
+### 阴影属性
+
+​	1文字阴影 2盒子阴影  
+1文字阴影  
+
+`text-shadow:h-shadow v-shadow blur color;`
+
+- h-shadow 阴影水平距离（必须） 
+- v-shadow阴影垂直距离（必须） 
+- blur阴影半径 
+- color阴影颜色
+
+```css
+text-shadow:10px 10px 5px red;
+```
+
+2盒子阴影  
+
+`box-shadow: [h-shadow v-shadow blur spread color inset ]+`
+
+- h-shadow阴影水平距离（必须） 
+- v-shadow阴影垂直距离（必须） 
+- blur阴影半径/模糊半径
+- spread阴影大小 
+- color阴影颜色
+- **`inset`**：向内投影。如果不指定 `inset`，则阴影默认向外投影。
+
+```css
+box-shadow:10px 10px 20px 20px blue;
+```
+
+### 过渡效果
+
+基本语法:
+
+```css
+transition: [property] [duration] [timing-function] [delay];
+```
+
+- **`property`**：指定需要过渡的CSS属性名称。可以是单个属性，也可以是多个属性（用逗号分隔），或者使用 `all` 表示所有属性。
+- **`duration`**：指定过渡效果的持续时间，单位通常是秒（`s`）或毫秒（`ms`）。
+- **`timing-function`**：指定过渡效果的时间曲线，常见的值有：
+  - `ease`（默认值，平滑的加速和减速）
+  - `linear`（匀速）
+  - `ease-in`（加速）
+  - `ease-out`（减速）
+  - `ease-in-out`（先加速后减速）
+  - `cubic-bezier(n,n,n,n)`（自定义贝塞尔曲线）
+- **`delay`**：指定过渡效果的延迟时间，单位通常是秒（`s`）或毫秒（`ms`）。默认值为 `0`。
+
+```css
+ /*当鼠标悬停在 .box 元素上时，元素的宽度、高度和透明度会同时开始过渡，过渡时间为 0.5 秒，延迟 0.2 秒，并且以匀速进行。*/.
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    opacity: 1;
+    /* 对宽度、高度和透明度属性应用过渡效果，持续时间为 0.5 秒，使用匀速过渡，延迟 0.2 秒 */
+    transition: width 0.5s linear 0.2s, height 0.5s linear 0.2s, opacity 0.5s linear 0.2s;
+}
+
+.box:hover {
+    width: 200px;
+    height: 200px;
+    opacity: 0.5;
+}
+```
+
+**CSS的特性：**1 继承性 2 层叠性和优先级  
+	 **继承性：**
+
+- 内层继承外层样式,但另行更改除外。  
+- 某些特殊情况不继承，比如边框border
+
+ **层叠性：**
+
+1.  如果多个选择器定义的样式不发生冲突，则应用全部选择器定义的样式。
+2.  如果多个选择器定义的样式发生冲突，则按照选择器的优先级来处理。
+
+## (5)样式的优先级
+
+**基本原则**：就近优先：style属性 > style标记符 > link标记符
+
+```css
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="test.css" />
+    <style>
+    	p {color: red;}
+    </style >
+</head>
+<body>
+	<p style="color:blue;">正文内容</p>
+</body>
+</html>
+test.css p{color:green;}
+```
+
+ **优先级：**
+
+- ​	优先级的总原则：越特殊的样式，优先级越高。
+
+- ​	选择器的优先级：
+
+  ​	        ID选择器 > 类选择器 > 标签选择器(元素选择器)
+
+- ​	样式表的优先级：  
+
+  ​		行内样式表 >  内嵌(内部)样式表 > 外部样式表 		
+
+## 
+
 # 第7章 Javascript与前端开发技术
+
+详见JavaScript文档
 
 # 第8章 网页设计基础
 
