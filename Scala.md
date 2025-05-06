@@ -3052,6 +3052,8 @@ object RunWithParFuntion {
 
 ###  Scala函数的闭包
 
+闭包：如果一个函数，访问到了它的外部（局部）变量的值，那么这个函数和他所处的环境，称为闭包。
+
 Closure in ruby 闭包的条件
 
 - 代码块当作值传递
@@ -3091,7 +3093,7 @@ class Clouse{
 
 ###  Scala函数的柯里化
 
-函数柯里化指的是将一个多参数函数转换为一系列单参数函数的过程。原本接收多个参数的函数，经过柯里化后，可以逐个接收参数，每次调用只接收一个参数，返回一个新的函数，这个新函数会记住之前传入的参数，直到所有参数都被传入，才会执行最终的计算。
+函数柯里化（Currying）指的是将一个多参数函数转换为一系列单参数函数的过程。
 
 #### 柯里化的定义
 
@@ -3101,7 +3103,7 @@ def 函数名（参数列表1）（参数列表2）...（参数列表n）:type={
 
 }
 
-#### 柯里化函数
+#### 柯里化的注意要点
 
 - 不能传递部分参数
 - 可以利用隐式参数传递部分值
@@ -3130,7 +3132,7 @@ object RunK {
 
 部分应用函数是指在调用一个多参数函数时，只传递部分参数，从而得到一个新的函数。
 
-部分应用函数的定义
+#### 部分应用函数的定义
 
 只传递部分参数
 
@@ -3140,21 +3142,36 @@ def 函数名（参数列表X，Y..）:type={
 
 }
 
-部分应用函数作用
+#### 部分应用函数作用
 
 ​	返回新的函数
 
 ```scala
-//柯里化函数天然支持部分应用，因为柯里化函数本身就是逐步接收参数的。
-// 定义一个柯里化的乘法函数
-def multiply(x: Int)(y: Int): Int = x * y
+class RunPartialFunction {
+  def warpHTMl(pref: String, context: String, suffix: String): String = {
+    pref + context + suffix
+  }
 
-// 部分应用，得到一个新的函数
-val double = multiply(2)
+  def mutlti(x: Int, y: Int, z: Int) = x * y * z
+}
 
-// 调用新函数
-val result = double(5)
-println(result) 
+object RunPartialFunction {
+  def main(args: Array[String]): Unit = {
+    val p = new RunPartialFunction()
+    val htmlwithp = p.warpHTMl("<p>", _: String, "</p>")
+    println("p= " + htmlwithp("i am p"))
+    val htmlwithdiv = p.warpHTMl("<div>", _: String, "</div>")
+    println("div= " + htmlwithdiv("i am div"))
+    //2.
+    val f1 = p.mutlti(_: Int, 2, _: Int)
+    println(f1(4, 5))
+    val f2 = p.mutlti(_: Int, 2, 3)
+    println(f2(5))
+    val f3 = p.mutlti(_: Int, _: Int, _: Int)
+    println(f3(5, 1, 2))
+    //a(x)(y) a(2)(3)=====>a(x) _
+  }
+}
 ```
 
 
@@ -3660,10 +3677,10 @@ class Dog extends Pet {
 
 •trait的加载顺序
 
-- •超类
-- •如果混入的trai有父类，会按照继承关系先调用父类
-- •如果多个父类，按照左到右
-- •本类构造器
+- 超类
+- 如果混入的trai有父类，会按照继承关系先调用父类
+- 如果多个父类，按照左到右
+- 本类构造器
 
 •定义一个多个父类和子类演示构造器执行顺序
 
@@ -3673,12 +3690,12 @@ class Dog extends Pet {
 
 •trait的抽象成员父类使用问题
 
-- •空指针异常
+- 空指针异常
 
 •解决
 
-- •提前定义
-- •懒加载
+- 提前定义
+- 懒加载
 
 定义一个Logger演示构造器执行顺序造成空指针问题
 
@@ -3734,10 +3751,10 @@ class Person051 extends FileLogger {
 
 定义类，分别实现成员属性和构造器的不同访问权限
 
-- •默认访问权限
-- •protected访问权限
-- •private访问权限
-- •private[this]访问权限
+- 默认访问权限
+- protected访问权限
+- private访问权限
+- private[this]访问权限
 
 ```scala
 package scala06
@@ -3796,11 +3813,84 @@ object Person0602 {
 - 导入成员隐藏类
   - Import {A=>_,_}
 
+•导入一个包的多个类
+
+•导入一个包的所有类
+
+•在一个类中，导入Java的list和Scala的list
+
+•在一个类中导入除了Random都所有类
+
+```scala
+import java.util.{Date, Calendar}
+
+import java.util._
+
+import java.util.{List => JavaList}
+//除了 java.util 包中的 Random 类，同时导入了该包中的其他所有类。
+import java.util.{Random => _, _}
+```
+
+
+
 ## 3 Scala的集合
 
 Scala的集合继承关系
 
 ![92a9c8a443d35ace3cb252282b7b504](http://img.kiss58.com/test/92a9c8a443d35ace3cb252282b7b504.png)
+
+
+
+Scala的可变集合和不可变集合  
+
+- Scala.collection.immutable
+- Scala.collection.mutable
+- Scala.collection
+
+课程示例
+
+可变集合与不可集合
+
+```scala
+object RunColletion {
+  def main(args: Array[String]): Unit = {
+    //1.immutable
+    val c1=Set(1)
+    val c2=c1.+(3)//c1 +3
+    println(s"c1=${c1},c2=${c2}")
+    var cr1=Set(9)
+    cr1=Set(5)
+    println(cr1)
+    var v1=Vector("v1")
+    //v1(0)="v2"
+    
+    //2.MUTABLE
+    val mutableset=scala.collection.mutable.Set(5)
+    mutableset.add(3)
+    println(s"mutableset=${mutableset}")
+    
+    //3.dog
+    val reslut=dig(1234576311)
+    println(reslut)
+  }
+  
+}
+
+```
+
+定义一个方法求一个整形的阿拉伯数字，并且放到一个集合中(不能有重复)
+
+```scala
+//n=12341,=set(1,2,3,4)
+def dig(n: Int): Set[Int] = {
+    // 处理负数情况，将负数转换为正数后递归调用函数
+    if (n < 0) dig(-n)
+    // 如果 n 是个位数，直接将其放入 Set 集合中返回
+    else if (n < 10) Set(n)
+    // 对于多位数，递归调用 dig 函数处理除最后一位外的数字，然后将最后一位数字添加到结果集合中
+    else dig(n / 10) + (n % 10)
+}
+```
 
 scala.collection
 
@@ -3865,6 +3955,7 @@ object RunIterator {
     while (it3.hasNext) {
       println(it3.next())
     }
+    
     //2.
     val it4 = Iterator(1 to 3: _*)
     //    for(i<-it4){
@@ -3875,21 +3966,25 @@ object RunIterator {
     ////    }
     it4.foreach(x => println(x))
     it4.foreach(x => println(x))
+    
     //3
     val it5 = Iterator(6 to 8: _*)
     val (it51, it52) = it5.duplicate
     it51.foreach(x => println(x))
     it52.foreach(x => println(x))
     it5.foreach(x => println(x))
+    
     //4.
     val it6 = Iterator(9 to 12: _*)
     val it61 = it6.take(2)
     it61.foreach(x => println("it61=" + x))
     it6.foreach(x => println("it6=" + x))
+    
     //7
     val it7 = Iterator(13 to 18: _*)
     val it71 = it7.slice(1, 10)
     it71.foreach(x => println("it71=" + x))
+    
     //8.zip and zipall
     val it8key1 = Iterator("k1", "k2")
     val it8v1 = Iterator("v1", "v2")
@@ -3981,37 +4076,122 @@ object RunTraserbale {
     // val view=  t5.view.map(_*2).force
     val view = t5.view.map(_ * 2).foreach(println(_))
     println(s"initmap=$initmap")
-    //println(s"view=$view")
-    //    val initmap1=   t5.map{
-    //      x=>
-    //        Thread.sleep(5000)
-    //        x*3
-    //    }
-    //    println(s"initmap1=$initmap1")
-    val v1 = t5.view.map {
-      x =>
-        Thread.sleep(5000)
-        x * 3
-    }
-    println(s"v1=$v1")
-    //t.map.map   t.view.mapmap
-    val t6 = Traversable(1, 2, 3, 4, 5, 6, 7)
-    val arr = t6.toArray
-    val view6 = arr.view.slice(2, 5) //.foreach(println(_))
-
-    view6(0) = 99
-    view6(1) = 88
-    // println(arr.foreach(println(_)))
-    arr(4) = 1001
-    println(view6.foreach(println(_)))
-
 
   }
 }
 
 ```
 
+- 简单操作还是太少了，不足以应对复杂的需求。
 
+集合高级计算函数：
+
+- 大数据的处理核心就是映射（map）和规约（reduce）。
+
+- 映射操作（广义上的map）：
+
+  - 过滤：自定义过滤条件，`filter(Elem => Boolean)`
+  - 转化/映射（狭义上的map）：自定义映射函数，`map(Elem => NewElem)`
+  - 扁平化（flatten）：将集合中集合元素拆开，去掉里层集合，放到外层中来。`flatten`
+  - 扁平化+映射：先映射，再扁平化，`flatMap(Elem => NewElem)`
+  - 分组（group）：指定分组规则，`groupBy(Elem => Key)`得到一个Map，key根据传入的函数运用于集合元素得到，value是对应元素的序列。
+
+- 规约操作（广义的reduce）：
+
+  - 简化/规约（狭义的reduce）：对所有数据做一个处理，规约得到一个结果（比如连加连乘操作）。`reduce((CurRes, NextElem) => NextRes)`，传入函数有两个参数，第一个参数是第一个元素（第一次运算）和上一轮结果（后面的计算），第二个是当前元素，得到本轮结果，最后一轮的结果就是最终结果。`reduce`调用`reduceLeft`从左往右，也可以`reduceRight`从右往左（实际上是递归调用，和一般意义上的从右往左有区别，看下面例子）。
+  - 折叠（fold）：`fold(InitialVal)((CurRes, Elem) => NextRes)`相对于`reduce`来说其实就是`fold`自己给初值，从第一个开始计算，`reduce`用第一个做初值，从第二个元素开始算。`fold`调用`foldLeft`，从右往左则用`foldRight`（翻转之后再`foldLeft`）。具体逻辑还得还源码。从右往左都有点绕和难以理解，如果要使用需要特别注意。
+
+- 以上：
+
+  ```scala
+  object HighLevelCalculations {
+      def main(args: Array[String]): Unit = {
+          val list = List(1, 10, 100, 3, 5, 111)
+          
+          // 1. map functions
+          // filter
+          val evenList = list.filter(_ % 2 == 0)
+          println(evenList)
+  
+          // map
+          println(list.map(_ * 2))
+          println(list.map(x => x * x))
+  
+          // flatten
+          val nestedList: List[List[Int]] = List(List(1, 2, 3), List(3, 4, 5), List(10, 100))
+          val flatList = nestedList(0) ::: nestedList(1) ::: nestedList(2)
+          println(flatList)
+  
+          val flatList2 = nestedList.flatten
+          println(flatList2) // equals to flatList
+  
+          // map and flatten
+          // example: change a string list into a word list
+          val strings: List[String] = List("hello world", "hello scala", "yes no")
+          val splitList: List[Array[String]] = strings.map(_.split(" ")) // divide string to words
+          val flattenList = splitList.flatten
+          println(flattenList)
+  
+          // merge two steps above into one
+          // first map then flatten
+          val flatMapList = strings.flatMap(_.split(" "))
+          println(flatMapList)
+  
+          // divide elements into groups
+          val groupMap = list.groupBy(_ % 2) // keys: 0 & 1
+          val groupMap2 = list.groupBy(data => if (data % 2 == 0) "even" else "odd") // keys : "even" & "odd"
+          println(groupMap)
+          println(groupMap2)
+  
+          val worldList = List("China", "America", "Alice", "Curry", "Bob", "Japan")
+          println(worldList.groupBy(_.charAt(0)))
+  
+          // 2. reduce functions
+          // narrowly reduce
+          println(List(1, 2, 3, 4).reduce(_ + _)) // 1+2+3+4 = 10
+          println(List(1, 2, 3, 4).reduceLeft(_ - _)) // 1-2-3-4 = -8
+          println(List(1, 2, 3, 4).reduceRight(_ - _)) // 1-(2-(3-4)) = -2, a little confusing
+  
+          // fold
+          println(List(1, 2, 3, 4).fold(0)(_ + _)) // 0+1+2+3+4 = 10
+          println(List(1, 2, 3, 4).fold(10)(_ + _)) // 10+1+2+3+4 = 20
+          println(List(1, 2, 3, 4).foldRight(10)(_ - _)) // 1-(2-(3-(4-10))) = 8, a little confusing
+      }
+  }
+  ```
+
+  - 经典案例：单词计数：分词，计数，取排名前三结果。
+
+  ```scala
+  // count words in string list, and get 3 highest frequency words
+  def wordCount(): Unit = {
+      val stringList: List[String] = List(
+          "hello",
+          "hello world",
+          "hello scala",
+          "hello spark from scala",
+          "hello flink from scala"
+      )
+  
+      // 1. split
+      val wordList: List[String] = stringList.flatMap(_.split(" "))
+      println(wordList)
+  
+      // 2. group same words
+      val groupMap: Map[String, List[String]] = wordList.groupBy(word => word)
+      println(groupMap)
+  
+      // 3. get length of the every word, to (word, length)
+      val countMap: Map[String, Int] = groupMap.map(kv => (kv._1, kv._2.length))
+  
+      // 4. convert map to list, sort and take first 3
+      val countList: List[(String, Int)] = countMap.toList
+          .sortWith(_._2 > _._2)
+          .take(3)
+  
+      println(countList) // result
+  }
+  ```
 
 Scala的Seq继承关系
 
@@ -4019,38 +4199,36 @@ Scala的Seq继承关系
 
 •Scala的Range
 
-- •填充数据结构
+- 填充数据结构
 
 •Scala的Stack
 
-- •LIFO
+- LIFO
 
 •Scala的queue
 
-- •FIFO
+- FIFO
 
 
 
 •Scala的Array
 
-- •New Array[T]（n）
-- •Array
-- •Rang填充
-- •其他集合转换
+- New Array[T]（n）
+- Array
+- Rang填充
+- 其他集合转换
 
 •Scala的ArrayBuffer
 
-- •ArrayBuffer
-- •New ArrayBuffer
+- ArrayBuffer
+- New ArrayBuffer
 
 •Scala的ArrayBuffer
 
-- •ofDim
-- •Array(Array1,Array2…Arrayn)
+- ofDim
+- Array(Array1,Array2…Arrayn)
 
 ```scala
-package scala07
-
 import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 object RunArray {
@@ -4217,7 +4395,7 @@ Scala的Set继承关系
 | 二元逻辑操作 | 两个集合的交集、并集和差集 |
 | 更新         | 更新集合的元素             |
 
-•Set集合操作
+Set集合操作
 
 ```scala
 package scala07
@@ -4325,7 +4503,7 @@ Scala的不可变map常用操作
 | 查询     | Get（key）,m(key) |
 | 遍历     | For/foreach       |
 
-•映射的增、删、改和查操作
+映射的增、删、改和查操作
 
 ```scala
 package scala07
@@ -4387,7 +4565,7 @@ object RunMap {
 
 ```
 
-•Scala的map其它常用操作
+Scala的map其它常用操作
 
 | **分类**      | **描述**       |
 | ------------- | -------------- |
@@ -4395,11 +4573,11 @@ object RunMap {
 | 键值排序/过滤 | Retain，filter |
 | 键值查找      | max            |
 
-•键值对操作
+键值对操作
 
-- •查找映射的最大键或值
-- •按键或值排序
-- •按键或值过滤
+- 查找映射的最大键或值
+- 按键或值排序
+- 按键或值过滤
 
 ```scala
 package scala07
@@ -4459,6 +4637,34 @@ object RunMapSFM {
 
 ## 4 Scala的模式匹配
 
+`match-case`中的模式匹配：
+
+- 用于替代传统C/C++/Java的`switch-case`结构，但补充了更多功能，拥有更强的能力。
+- 语法：（Java中现在也支持`=>`的写法了）
+
+```scala
+value match {
+    case caseVal1 => returnVal1
+    case caseVal2 => returnVal2
+    ...
+    case _ => defaultVal
+}
+```
+
+- 每一个case条件成立才返回，否则继续往下走。
+- `case`匹配中可以添加模式守卫，用条件判断来代替精确匹配。
+
+```scala
+def abs(num: Int): Int= {
+    num match {
+        case i if i >= 0 => i
+        case i if i < 0 => -i
+    }
+}
+```
+
+
+
 ### Scala的模式匹配语法
 
 ```scala
@@ -4473,25 +4679,23 @@ case2
 
 ### Scala的模式数据类型
 
-- •String
-- •类
-- •变量
-- •常量
-- •其他复杂类型
+- String
+- 类
+- 变量
+- 常量
+- 其他复杂类型
 
 ### Scala的模式匹配
 
-- •常量
-- •变量
-- •构造器
-- •序列
-- •元组
-- •类型
-- •变量绑定
+- 常量
+- 变量
+- 构造器
+- 序列
+- 元组
+- 类型
+- 变量绑定
 
 ```scala
-package scala08
-
 object RunModel {
   def main(args: Array[String]): Unit = {
     //1.
@@ -4569,65 +4773,9 @@ object RunModel {
     patterSeq(list1)
     patterSeq(list2)
 
-    //type
-    def patterType(x: Any) = x match {
-      case s: String => println("match string type")
-      case 88 => println("match 88")
-      case s: Int => println("match int type")
-      case s: Double => println("match Double type")
-      case a: A08 => println("match A08 type")
-      case _ => println("others type")
-    }
-
-    patterType(3)
-    patterType("scala")
-    patterType(2.0)
-    patterType(true)
-    patterType(88)
-    patterType(new B08())
-
-    //constrcutor
-    case class Dog08(var name: String, val age: Int)
-    class Dog07(var name: String, val age: Int) {
-
-      override def toString = s"Dog07($name, $age)"
-    }
-    object Dog07 {
-      def apply(name: String, age: Int): Dog07 = new Dog07(name, age)
-
-      def unapply(arg: Dog07): Option[(String, Int)] = if (arg != null) Some(arg.name, arg.age) else None
-    }
-
-    def patterConstrcutor(x: Any) = x match {
-      // case Dog08(name,age)=>println(s"name=$name,age=$age")
-      case Dog08(_, age) => println(s"dog08 age=$age")
-      //case Dog07(_,age)=>println(s"dog07 age=$age")
-      case d@Dog07(_, age) => println(s"dog07=$d")
-      case _ => println("others Object")
-    }
-
-    patterConstrcutor(Dog08("wangwang", 30))
-    patterConstrcutor(Dog07("wangwang07", 70))
-    //varible bind
-    val list_1 = List(List(1, 2, 3, 4), List(4, 6, 7, 8, 9, 10))
-
-    def patterBind(x: Any) = x match {
-      case e1@List(_, e2@List(5, _*)) => println(s"e1=$e1,e2=$e2")
-      case _ => println("others list")
-    }
-
-    patterBind(list_1)
-  }
-
-
 }
 
-class A08
-
-class B08 extends A08
 ```
-
-
 
 # 九 Scala隐式转换和Java交互
 
