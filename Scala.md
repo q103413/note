@@ -4035,8 +4035,6 @@ Scala的集合常见操作
 •Scala的Traversable常用操作
 
 ```scala
-package scala07
-
 import scala.collection.mutable.ArrayBuffer
 
 object RunTraserbale {
@@ -4079,7 +4077,6 @@ object RunTraserbale {
 
   }
 }
-
 ```
 
 - 简单操作还是太少了，不足以应对复杂的需求。
@@ -4321,8 +4318,6 @@ object RunArray {
 •Scala的List操作
 
 ```scala
-package scala07
-
 import scala.collection.mutable.ListBuffer
 
 object RunList {
@@ -4367,6 +4362,14 @@ object RunList {
 }
 ```
 
+案例名称：归并排序
+
+需求描述：利用List实现归并排序
+
+```
+
+```
+
 
 
 ## Scala的Vector
@@ -4374,6 +4377,8 @@ object RunList {
 Scala的Vector
 
 ​	不可变IndexSeq
+
+Scala的Seq选取
 
 # 八 Scala映射和模式匹配
 
@@ -4398,8 +4403,6 @@ Scala的Set继承关系
 Set集合操作
 
 ```scala
-package scala07
-
 import scala.collection.immutable.SortedSet
 import scala.collection.mutable
 
@@ -4570,7 +4573,7 @@ Scala的map其它常用操作
 | **分类**      | **描述**       |
 | ------------- | -------------- |
 | 键值存在      | contains       |
-| 键值排序/过滤 | Retain，filter |
+| 键值排序/过滤 | retain，filter |
 | 键值查找      | max            |
 
 键值对操作

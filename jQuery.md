@@ -1,6 +1,4 @@
-<img src="http://img.rmb520.com/test/mywechat.jpg" width="200px"><img src="http://img.rmb520.com/test/mypublic.jpg" width="240px">
-
-了解
+<img src="http://img.kiss58.com/test/微信图片_20250519024516.jpg" width="260px"><img src="http://img.kiss58.com/test/mypublic.jpg" width="240px">
 
 # 初识jQuery
 
@@ -54,7 +52,7 @@ $(document).ready() 是 jQuery 提供的一个函数，用于**在 DOM 加载完
 
 $(document).ready()方法可以在页面中的任何位置使用，通常放在脚本的开头或者结束部分。
 
-<img src="http://img.rmb520.com/test/image-20241215212234912.png" width="500px">
+<img src="http://img.kiss58.com/test/image-20241215212234912.png" width="500px">
 
 
 
