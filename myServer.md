@@ -234,3 +234,31 @@ server {
 sudo apt install nodejs=12 npm
 
 
+
+#### 授权域名：b.kiss58.com授 权 码：A6384A51D5有 效 期：永久授权
+
+b.kiss58.com
+
+b.kiss58.com/admin.php 
+
+账号admin
+
+密码123456
+
+
+
+
+
+http://c.kiss58.com/
+
+admin
+
+87^dW1J5B!QSiqkTA^
+
+
+
+http://c.kiss58.com/wp-admin/
+
+admin
+
+87^dW1J5B!QSiqkTA^
