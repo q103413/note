@@ -5387,3 +5387,46 @@ case class Person(name: String) extends Printable {
 | 自动生成 `copy`     | ✅                    | ❌（需手动实现）           |
 | 默认不可变          | ✅（参数为 `val`）    | ❌（参数默认私有）         |
 | 模式匹配支持        | ✅                    | ❌（需手动实现 `unapply`） |
+
+# 并发与异步
+
+1. ## Future 异步编程
+
+   ```scala
+   import scala.concurrent._
+   import ExecutionContext.Implicits.global
+   
+   val future: Future[Int] = Future {
+     Thread.sleep(1000)
+     42
+   }
+   
+   future.map(_ * 2).foreach(println)
+   ```
+
+   
+
+2. ## Actor 模型（Akka）
+
+   ```scala
+   import akka.actor._
+   
+   class HelloActor extends Actor {
+     def receive = {
+       case "hello" => sender() ! "world"
+     }
+   }
+   ```
+
+   
+
+# 高频面试题
+
+1. **Scala 与 Java 的区别**
+   - Scala 更函数式，支持不可变数据、高阶函数等。
+   - Scala 类型系统更强大（泛型、协变 / 逆变、隐式转换）。
+   - Scala 语法更简洁（案例类、模式匹配、特质）。
+2. **为什么使用 Option 而非 null**
+   - 避免空指针异常（NullPointerException），强制处理可能缺失的值。
+3. **模式匹配 vs switch 语句**
+   - 模式匹配更强大，支持类型匹配、集合解构、守卫条件等。
