@@ -1,0 +1,14 @@
+/* 添加一个全屏水印 */
+.book.font-family-0 .book-body::after {
+  content: "请勿复制或分发"; /* 水印文本内容 */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg); /* 居中并旋转 */
+  z-index: 9999;
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.1); /* 半透明颜色 */
+  pointer-events: none; /* 确保水印不影响点击 */
+  white-space: nowrap;
+}
