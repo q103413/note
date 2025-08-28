@@ -1,0 +1,292 @@
+常用的样式属性：
+	字体与文本属性
+	字体属性：
+			font-weight 字体粗细： bold 加粗
+			font-size 字体大小  
+			font-family 字体类型  
+			color 字体颜色，取值颜色的英文单词，或者十六进制符号#000000-#FFFFFF
+```
+		<style>
+			p {
+				font-weight:bold;
+				font-size:30px;
+				font-family:宋体;
+				color:red;
+			}
+		</style>
+```
+		font 设置字体的所有样式属性(注意顺序)
+```
+		p {
+			font:bold 50px 隶书;
+		}
+```
+		 
+	文本属性：
+			line-height 设置行高 
+			text-align 对齐方式：left right center
+			letter-spacing 字符间距 
+			text-decoration 设置文本修饰: underline(下划线)、none、line-through、overline
+```
+		<style>
+			.hot {
+				background-color:pink;
+				/* height:50px; */
+				line-height:50px;
+				text-align:center;
+				letter-spacing:5px;
+				text-decoration:line-through;
+			}
+		</style>
+```
+
+边距和填充：
+		边距(外边距、margin)：围绕在元素边框的空白区域
+		
+		单独设置边距：
+			margin-top  上边距
+			margin-left 左边距
+			margin-right 右边距
+			margin-bottom  下边距
+```
+	 margin-bottom:30px;
+	 margin-right:50px; 
+	 margin-top:20px;
+	 margin-left:50px; 
+```
+		通过复合属性设置边距：
+		仅设置一个值，则应用与四个边距：
+```
+	margin:20px;
+```
+		设置两个值，则表示上下，左右边距：
+```
+	margin:10px 20px;
+```
+		设置三个值，则表示上边距，左右边距，下边距
+```
+	margin:10px 20px 30px;
+```
+		设置四个值，则表示上边距，右边距，下边距，左边距(顺时针)
+```
+		margin:10px 20px 30px 40px;
+```
+
+		填充(内边距,补白，padding)：定义元素边框与元素内容之间的空白区域。
+			单独设置填充：
+				padding-top  	上填充
+				padding-left 	左填充
+				padding-right 	右填充
+				padding-bottom  下填充
+```
+	.big {
+			border: 2px solid #0000FF;
+			/* padding-top: 20px; */
+			/* padding-bottom:30px; */
+			/* padding-left:30px; */
+			padding-right:30px;
+		}
+```
+		通过复合属性设置填充：
+			仅设置一个值，则应用与四个填充：
+```
+		padding:20px;
+```
+			设置两个值，则表示上下填充，左右填充：
+```
+		padding:20px 40px;
+```
+			设置三个值，则表示上填充，左右填充，下填充
+```
+		paading:10px 20px 30px;
+```
+		设置四个值，则表示上填充，右填充，下填充，左填充(顺时针)
+```
+		padding:10px 20px 30px 40px;
+```
+
+	边框属性：1 border属性 2 border-radius属性
+		border属性:
+		单独设置：
+			border-style 设置边框样式，none无边框，solid实线, dashed 虚线,double
+			border-width 设置边框宽度
+			border-color 设置边框颜色
+```
+	div {
+		border-style:solid;
+		border-width:10px;
+		border-color:lightblue;
+	}
+```
+		复合属性设置全部样式：border:red  5px solid; 
+```
+div {
+		border:red  5px solid; 
+	}
+```
+	
+		border-radius属性:圆角边框，像素值越大，圆角越明显。
+		border-radius:参数1， 四个角
+```
+	border-radius:10px;
+```
+		border-radius:参数1 参数2
+				参数1 左上角 右下角
+				参数2 左下角 右上角
+```
+	border-radius:20px 30px;
+```
+		border-radius:参数1 参数2 参数3
+						参数1 左上角
+						参数2 左下角 右上角
+						参数3 右下角
+```
+	border-radius:20px 30px 40px;
+```
+		border-radius:参数1 参数2 参数3
+								参数1 左上角
+								参数2 左下角 右上角
+								参数3 右下角
+```
+	border-radius:20px 30px 40px;
+```
+		border-radius:参数1 参数2 参数3 参数4 (顺时针)
+								参数1 左上角
+								参数2  右上角
+								参数3 右下角
+								参数4 左下角
+```
+	border-radius:20px 30px 40px 50px;
+```	
+
+	列表属性：1列表属性 2垂直菜单
+		1列表属性
+			list-style-type 设置列表项符号:none无 disc实心圆 circle空心圆 square实心正方形
+			list-style-image 设置图片作为列表项符号：url(图片路径)
+			list-style-position 设置项目符号在列表项的位置:inside,outside（默认）
+```
+li {
+	border:red 4px solid;
+	/* margin-left:80px; */
+	/* list-style-type:none; */
+	/* list-style-image: url(images/aa.jpg); */
+	list-style-position:outside;
+}
+```	
+		通过复合属性设置列表属性：
+			list-style:
+```
+list-style:circle inside url(images/aa.jpg);
+```	
+		
+背景和阴影
+	背景属性：1背景颜色 2背景图片 3背景图片的重复方式
+		背景颜色：
+		background-color 设置背景颜色
+			颜色:英文单词、 16进制、 rgb(red, green, blue)
+```
+body {
+	background-color:red;
+}
+```	
+		背景图片:
+			如果同时有背景颜色，优先显示背景图片。
+			background-image:url(图片路径)
+```
+	background-color:rgb(255, 254, 66);
+	background-image:url(images/aa.jpg)
+```	
+		背景图片的重复（平铺）方式：
+			background-repeat:属性值，repeat（默认，水平垂直同时平铺） no-repeat不平铺 repeat-x水平平铺 repeat-y垂直平铺
+```
+		background-image:url(images/aa.jpg);
+		background-repeat:no-repeat;
+```
+		多张背景图片：
+```
+		background-image:url(images/aa.jpg),url(images/girl.jpg);
+		background-repeat:repeat-y, no-repeat;
+```
+
+	背景图片的定位：
+	1 background-position属性 ：
+		background-position:关键字 百分比 像素值
+		关键字：水平方向：left center right；垂直方向：top center bottom	
+		百分比：水平方向：从左到右0%-100%；垂直方向：从上到下0%-100%
+		像素值：
+			正数时：水平向右，垂直向下；
+			负数时：水平向左，垂直向上；
+```
+	background-image:url(images/aa.jpg);
+	background-repeat: no-repeat;
+	/* background-position:center center; */
+	background-position:-50px -50px;
+```
+设置多个背景图片属性
+```
+	<style>
+		div {
+			border:2px solid red;
+			width:900px;
+			height:900px;
+			background-image:url(images/p1.png),url(images/p2.png),url(images/p3.png),url(images/p4.png);
+			background-repeat:no-repeat;
+			background-position:center center,right bottom,left center,200px -50px;
+		}
+	</style>
+```
+
+	2 CSS Sprites(雪碧图，精灵图)
+```
+	#second {
+		background-position:0px -26px;
+	}
+	#third {
+		background-position:0px -52px;
+	}
+```
+	
+	背景的渐变：1线性渐变 2径向渐变
+	1线性渐变 
+		background:linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）.。。)
+			参数1的角度是指渐变线与水平线之间的角度。
+```
+	background:linear-gradient(45deg,red,pink,blue);
+	background:linear-gradient(to right,red,blue);
+	background:linear-gradient(to right bottom,red 40%,white,black)
+```
+	透明度渐变
+	rgb(red,green,blue)设置颜色, red green blue取值0-255或者百分比
+	rgba(red,green,blue,alpha(透明度) ),设置颜色并使用透明度,alpha取值0-1
+```
+	background:linear-gradient(to right,rgba(255, 255, 255, 0),rgba(255, 255, 255, 0.6)),url(images/aa.jpg);
+```
+	重复线性渐变 
+		background: repeating-linear-gradient(参数1（角度或者方向），参数2（颜色），参数3（颜色）.。。)
+```
+	background:repeating-linear-gradient(45deg,red,blue 30px);
+```
+	
+	 2径向渐变
+		background:radial-gradient(参数1（形状或者圆心位置），参数2（颜色），参数3（颜色）。。)
+```
+		background: radial-gradient(red,white ,black )
+```
+	 重复径向渐变：
+```
+	background: repeating-radial-gradient(ellipse,white 10px,black 40px)
+```
+	
+	阴影属性
+	1文字阴影
+		text-shadow:h-shadow v-shadow blur color;
+			h-shadow阴影水平距离（必须） b-shadow阴影垂直距离（必须） blur阴影半径 color阴影颜色
+```
+text-shadow:20px 20px 5px pink;
+```
+	2盒子阴影
+		box-shadow:h-shadow v-shadow blur spread color;
+			h-shadow阴影水平距离（必须） b-shadow阴影垂直距离（必须） blur阴影半径 spread阴影大小 color阴影颜色
+```
+box-shadow:20px 20px 20px 5px blue;
+```

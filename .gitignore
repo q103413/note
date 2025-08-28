@@ -1,0 +1,5 @@
+/LocalFile
+/LocalFile/
+.DS_Store  # macOS 的隐藏文件
+thumbs.db  # Windows 的缩略图缓存
+.vscode/   # VS Code 的项目配置目录
