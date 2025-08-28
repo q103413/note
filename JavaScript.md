@@ -10,18 +10,21 @@ JavaScript是一种**基于对象和事件驱动**的**客户端脚本语言**
 
 ​		功能强大，作用：表单动态校验、网页特效、前端开发（web+APP+小程序）、服务端开发(Node.js)、桌面程序(Electron)、App(Cordova)、控制硬件-物联网(Ruff)、游戏开发(cocos2d-js)、动画（animate.js）、数据库(MongoDb)。
 
-网页组成：
-​		HTML
-​		CSS
-​		JavaScript 
+**网页组成：**
+
+- ​		HTML
+- ​		CSS
+- ​		JavaScript 
 
 JS内嵌在网页中，通过浏览器内置的JS引擎解释并执行（主要运行在浏览器中）
 		
-浏览器分类：
+浏览器分类：  
 		浏览器内核（Rendering Engine）组成：
-			渲染引擎（排版引擎）：解析HTML与CSS，比如Chrome浏览器的Blink
-			JS引擎：是JavaScript的解释器。比如Chrome浏览器的V8引擎。
-			
+
+- ​			渲染引擎（排版引擎）：解析HTML与CSS，比如Chrome浏览器的Blink
+- ​			JS引擎：是JavaScript的解释器。比如Chrome浏览器的V8引擎。
+
+
 JS代码的执行特点：逐行执行
 		
 常用的JS框架： React.js  Angular.js  Vue.js(尤雨溪) 
@@ -33,27 +36,28 @@ JS的特点：
   	跨平台（不依赖操作系统，只需要浏览器的支持）
   	支持面向对象（C语言不支持面向对象，函数式编程）
   	简单性 ：
-    	弱类型：
+    	弱类型：  
       		var name;//弱类型
       		var string name;//强类型
 
-JS的组成：
-	ECMAScript：基本语法，是JS的核心。
-	DOM（Document Object Model）: 文档对象模型，操作网页元素。
-	BOM: 浏览器对象模型，操作浏览器窗口。
+**JS的组成：**
+
+- ​	ECMAScript：基本语法，是JS的核心。
+- ​	DOM（Document Object Model）: 文档对象模型，操作网页元素。
+- ​	BOM: 浏览器对象模型，操作浏览器窗口。
 
 ## 2 常用开发工具
 
 ​		VS code、 Hbuilder、 Sublime text、 DreamWeaver、 WebStorm等
 
-​		vs code下载安装：
-​		官网 https://code.visualstudio.com/
-​		安装插件：
+​		vs code下载安装：  
+​		官网 https://code.visualstudio.com/  
+​		安装插件：  
 ​			chinese, open in browser
 
 ## 3 JavaScript入门
 
-JS代码的3种书写位置
+JS代码的3种书写位置  
 	行内式：写HTML标签事件属性中（onclick oninput onmousemove）
 
 ```javascript
@@ -81,13 +85,16 @@ JS代码的3种书写位置
 ```
 
 语法规则：
-			js严格区分大小写
-			对空格、换行、缩进（tab）不敏感
-			每行结束的英文分号";"可以省略, 但是推荐加上
-		
+
+- ​			js严格区分大小写
+- ​			对空格、换行、缩进（tab）不敏感
+- ​			每行结束的英文分号";"可以省略, 但是推荐加上
+
+
 注释：
-			单行注释：//   	快捷键：ctrl+/
-			多行注释：/* */ 	快捷键：ctrl+shift+/
+
+- ​			单行注释：//   	快捷键：ctrl+/
+- ​			多行注释：/* */ 	快捷键：ctrl+shift+/
 
 ```javascript
 	// var a = 1;
@@ -98,9 +105,10 @@ JS代码的3种书写位置
 	alert(a) */
 ```
 输入输出语句：
-			alert('自定义信息')  //弹出警告框
-			console.log('自定义信息') //控制台输出信息
-			prompt('自定义信息') //弹出输入框
+
+- ​			alert('自定义信息')  //弹出警告框
+- ​			console.log('自定义信息') //控制台输出信息
+- ​			prompt('自定义信息') //弹出输入框
 
 ```javascript
 	alert('这是警告框');
