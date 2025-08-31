@@ -24,21 +24,27 @@ JS内嵌在网页中，通过浏览器内置的JS引擎解释并执行（主要�
 - ​			渲染引擎（排版引擎）：解析HTML与CSS，比如Chrome浏览器的Blink
 - ​			JS引擎：是JavaScript的解释器。比如Chrome浏览器的V8引擎。
 
-
 JS代码的执行特点：逐行执行
 		
 常用的JS框架： React.js  Angular.js  Vue.js(尤雨溪) 
 		
 JS的特点：
-  	解释性脚本语言
-    		不需要编译，比如JavaScript、 Python、 PHP 
-    		编译语言(JAVA、 C++、Go)
-  	跨平台（不依赖操作系统，只需要浏览器的支持）
-  	支持面向对象（C语言不支持面向对象，函数式编程）
-  	简单性 ：
-    	弱类型：  
-      		var name;//弱类型
-      		var string name;//强类型
+
+-   解释性脚本语言    
+
+  - 不需要编译，比如JavaScript、 Python、 PHP 
+  - 编译语言(JAVA、 C++、Go)  
+
+-   跨平台（不依赖操作系统，只需要浏览器的支持）  
+
+-   支持面向对象（C语言不支持面向对象，函数式编程）  
+
+-   简单性 ：  
+
+-   弱类型：  
+
+  var name;//弱类型  
+  var string name;//强类型
 
 **JS的组成：**
 
@@ -155,16 +161,17 @@ age = 18;
 4. ​			不能是关键字，保留字。
 
 ​				关键字比如 break if console  
-​					就是在js中已经被使用了的单词。js本身已经赋予其功能  
+​					在js中已经被使用了的单词。js本身已经赋予其功能  
 ​				保留字  
 ​					在未来js标准中可能被用来作为关键字的单词  
 
 5. ​			合理命名，“见其名知其意”  
 6. ​			三种命名法：
 
-​				小驼峰命名法   
-​				大驼峰命名法  
-​				下划线命名法  
+- ​				小驼峰命名法  
+- ​				大驼峰命名法 
+- ​				下划线命名法 
+
 ​				
 
 ​	1 小驼峰命名法
@@ -209,10 +216,8 @@ var my_school_address = '重庆涪陵';
 ​
 
 ​		基本数据类型（5种）：  
-​			Number 数值型、数字类型  
-​						整数和浮点数（小数）  
-​						NaN 非数值  
-​						isNaN 判断变量是否为非数字类型，结果为true非数字，false数字  
+​			1）Number 数值型、数字类型  
+​				包括整数和浮点数（小数）、NaN 非数值、isNaN 判断变量是否为非数字类型，结果为true非数字，false数字  
 
 ```javascript
 	//整数
@@ -233,7 +238,7 @@ var my_school_address = '重庆涪陵';
 	// isNaN 判断非数值，true非数字，false数字
 	console.log( isNaN("abcdefg") )
 ```
-​			String 字符类型  
+​			2）String 字符类型  
 ​				用单引号''或者双引号""来包裹  
 ​					单引号里面可以加双引号，但是不能加单引号（要转义）  
 ​					双引号里面可以加单引号，但是不能加双引号（要转义）  
@@ -268,11 +273,11 @@ var long = test.length;
 		var second = '10';
 		var name = first + second;
 ```
-​			Boolean 布尔类型 ：true 和false    
+​			3）Boolean 布尔类型 ：true 和false    
 
-​			null   空型    
+​			4）null   空型    
 
-​			undefined 未定义型
+​			5）undefined 未定义型
 
 ```javascript
 //null  空型	
@@ -289,7 +294,7 @@ if (a === null) {
 	alert(test)
 ```
 ​		复杂数据类型（引用数据类型）：Object(对象)  
-​		
+​
 ​		检测变量的数据类型: typeof 
 
 ```javascript
@@ -388,19 +393,20 @@ console.log(typeof result)
 
 ## 4 流程控制
 
-- 顺序结构：默认，逐行执行
+顺序结构：默认，逐行执行
 
-	分支结构：根据条件 控制执行  
-		单分支：单个条件表达式  
-			if(条件表达式){  
-				//代码段  
-			}
+分支结构：根据条件 控制执行  
+	单分支：单个条件表达式  
+		if(条件表达式){  
+			//代码段  
+		}
+
 ```javascript
 	if ( true ) {
 		alert('吃火锅')
 	}
 ```
-​	双分支：  
+双分支：  
 ​		if(条件表达式){  
 ​			//代码段1  
 ​		} else {  
@@ -415,7 +421,7 @@ console.log(typeof result)
 		alert('你是好人！')
 	}
 ```
-​	多分支：多个条件表达式  
+多分支：多个条件表达式  
 ​		switch能写的，一定能写。反之则不然。  
 ​		if(条件表达式1){  
 ​			//代码段1  
@@ -487,11 +493,12 @@ while循环：先判断条件再执行。for循环可以改成while循环
 
 ## 数组
 
-​	数组是值的**有序**集合
+- ​	数组是值的**有序**集合
 
-​	JavaScript是弱类型，在同一个数组中可以存放**多种类型**的元素
+- ​	JavaScript是弱类型，在同一个数组中可以存放**多种类型**的元素
 
-​	长度可**动态调整**
+- ​	长度可**动态调整**
+
 
 ​	**创建数组**：[] 或者 new Array()
 
@@ -601,14 +608,16 @@ arguments :接收所有的实参, arguments是一个对象
 ```
 
 函数表达式：
-		1 将声明的匿名函数赋值给一个变量，通过变量调用函数。
-		2 函数表达式必须写在调用前
-		语法：
-		var 变量名 = function(参数1，参数2。。。){
-			//代码
-			return 返回值;//终止并且返回
-		}
-		变量名() //调用
+
+1. ​		将声明的匿名函数赋值给一个变量，通过变量调用函数。
+2. ​		函数表达式必须写在调用前
+
+​		语法：  
+​		var 变量名 = function(参数1，参数2。。。){  
+​			//代码  
+​			return 返回值;//终止并且返回  
+​		}  
+​		变量名() //调用
 
 ```javascript
 	var sayHi = function(){
@@ -832,9 +841,9 @@ var obj = new 构造函数名();
 
 ### 字符串对象：
 
-​	1 String对象的创建:
-​		语法：
-​		new String(参数);
+​	1 String对象的创建:  
+​		语法：  
+​		new String(参数);  
 ​		或者  直接使用双引号（单引号）定义字符串
 
 ​	new String('字符串')
@@ -845,23 +854,23 @@ var str1= new String('hello world')
 var str2= 'hello world'
 ```
 
-2 String对象常用属性和方法:
+2 String对象常用属性和方法:  
 属性，返回数组长度： length
 	
-根据字符返回位置(索引)：通过字符查找索引
+根据字符返回位置(索引)：通过字符查找索引  
 	indexOf(searchValue, fromIndex): 找到value首次出现的位置，不存在则返回-1
 		searchValue要被查找的字符串值
 		fromIndex 开始查找的位置，默认0
 	lastIndexOf(value): 找到value最后出现的位置，不存在则返回-1
 
-根据位置（索引）返回字符：
+根据位置（索引）返回字符：  
 	str[索引]		通过索引查找字符
 	charAt(index) 根据位置(索引)查找字符
 	charCodeAt(index)	根据位置(索引)获取字符的ASCII码
 	char[index]	获取指定位置的字符
 
-其他方法：
-	str.concat(str2, [, ...strN])  			连接多个字符串
+其他方法：  
+	str.concat(str2, [, ...strN])  			连接多个字符串  
 	str.slice(beginIndex[, endIndex])		截取字符串
 	str.substring(indexStart[, indexEnd]) 	截取字符串，但是不接收负值
 	str.substr(start[, length])				截取字符串，接收长度
@@ -872,30 +881,30 @@ var str2= 'hello world'
 	str.trim() 删除字符串前后空白
 	str.trimStart() str.trimEnd()
 
-​	值类型和引用类型
-​		值类型：基本数据类型(5种)：Boolean（布尔型） String字符型 Number数字类型 Null空 Undefined未定义
+​	值类型和引用类型  
+​		值类型：基本数据类型(5种)：Boolean（布尔型） String字符型 Number数字类型 Null空 Undefined未定义  
 ​	
-​		引用类型：引用数据类型(复杂数据类型)：Object（对象）
+​		引用类型：引用数据类型(复杂数据类型)：Object（对象）  
 ​		
-​		值类型是赋值传值：不会改变原来的变量值，因为赋值是单独复制一份
+​		值类型是赋值传值：不会改变原来的变量值，因为赋值是单独复制一份  
 ​			赋值传值：将变量复制一份
 ​		引用类型是引用传值：会改变原来的变量值，因为赋值的是内存地址
-​			引用传值：传递的是变量地址
+​			引用传值：传递的是变量地址  
 ​	
-​	垃圾回收机制
+​	垃圾回收机制  
 ​		js垃圾回收机制自动释放：
 
 ### 正则表达式
 
-什么是正则表达式：（匹配字符串中的字符）
-	是一种描述字符串结构的语法规则
-	用于匹配字符串中字符组合的模式
+什么是正则表达式：（匹配字符串中的字符）  
+	是一种描述字符串结构的语法规则  
+	用于匹配字符串中字符组合的模式  
 	也是对象
-		RegExp对象是Regular Expression（正则表达式）的缩写
+		RegExp对象是Regular Expression（正则表达式）的缩写  
 		正则表达式是一个描述字符模式的对象，
 		组成的字符模式用来匹配各种表达式。
 
-**创建正则表达式**
+**创建正则表达式**  
 	字面量方式（普通方式）：
 		var reg = /表达式/附加参数
 	RegExp构造函数的方式
@@ -905,14 +914,14 @@ var str2= 'hello world'
 		​或者 
 		var reg = RegExp(/表达式/)
 
-正则表达式的操作方法
+正则表达式的操作方法  
 	compile()方法 
 	exec()方法，用于检索
 		返回一个结果数组，或者返回 null
 	test()方法，用于检测是否匹配
 		返回 true 或者 false
 
-正则表达式的模式
+正则表达式的模式  
 	简单模式：普通字符的组合
 
 ```javascript
@@ -1126,14 +1135,14 @@ box.style.fontSize = '20px'
 
 
 
-了解
-排他思想：排除掉其他的(包括自己),然后给自己设置实现的效果.
-	事件类型（触发了什么事件）,
-		点击事件onclick
-		获取文本框焦点onfocus, 失去文本框焦点onblur
-		鼠标指针经过事件onmouseover, 鼠标指针离开事件onmouseout
-		事件：
-			click 点击事件
+了解  
+排他思想：排除掉其他的(包括自己),然后给自己设置实现的效果.  
+	事件类型（触发了什么事件）,  
+		点击事件onclick  
+		获取文本框焦点onfocus, 失去文本框焦点onblur  
+		鼠标指针经过事件onmouseover, 鼠标指针离开事件onmouseout  
+		事件：  
+			click 点击事件  
 			focus 获取文本框焦点
 			blur	失去文本框焦点
 			mouseover	鼠标指针经过事件
@@ -1141,12 +1150,14 @@ box.style.fontSize = '20px'
 
 节点基础
 
-​	什么是节点
-​	节点层级（节点之间的关系）
-​		根节点
-​		父节点
-​		子节点
-​		兄弟节点
+​	什么是节点  
+​	节点层级（节点之间的关系）  
+
+- ​		根节点
+- ​		父节点
+- ​		子节点
+- ​		兄弟节点
+
 ​	
 
 掌握
