@@ -27,11 +27,11 @@ Nacos的架构图如下所示：
 
 
 
-![img](http://img.rmb520.com/test/v2-85e6a8886d411ba319ebcee2da3282b5_720w.webp)
+![img](http://img.an520.com/test/v2-85e6a8886d411ba319ebcee2da3282b5_720w.webp)
 
 
 
-![img](http://img.rmb520.com/test/v2-2c9542868592f3d42fe822d9d13538a2_720w.webp)
+![img](http://img.an520.com/test/v2-2c9542868592f3d42fe822d9d13538a2_720w.webp)
 
 
 

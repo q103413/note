@@ -1,4 +1,4 @@
-<img src="http://img.kiss58.com/test/mywechat.jpg" width="200px"><img src="http://img.kiss58.com/test/mypublic.jpg" width="240px">
+<img src="http://img.an520.com/test/mywechat.jpg" width="200px"><img src="http://img.an520.com/test/mypublic.jpg" width="240px">
 
 上网方式（客户端）：  
 

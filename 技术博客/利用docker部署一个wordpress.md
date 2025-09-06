@@ -6,7 +6,7 @@
 
 **官网：**https://wordpress.com/zh-cn/
 
-![image-20231013024142644](http://img.rmb520.com/test/image-20231013024142644.png)
+![image-20231013024142644](http://img.an520.com/test/image-20231013024142644.png)
 
 WordPress是一种基于php编程语言开发的CMS管理系统，WordPress有丰富的插件和模板，用户可以快速搭建一套功能十分强大的内容管理系统，使用WordPress可以做多种类型的网站，比如新闻发布网站、企业门户、个人技术博客等。
 
@@ -72,23 +72,23 @@ docker run -d -e WORDPRESS_DB_HOST=mysql:3306 --link mysql -p 8083:80 wordpress
 
 选择安装语言为简体中文；
 
-![image-20231013002407819](http://img.rmb520.com/test/image-20231013002407819.png)
+![image-20231013002407819](http://img.an520.com/test/image-20231013002407819.png)
 
 输入网站信息，比如网站标题、登录用户名、密码等。
 
-![image-20231013002445210](http://img.rmb520.com/test/image-20231013002445210.png)
+![image-20231013002445210](http://img.an520.com/test/image-20231013002445210.png)
 
 然后安装就成功了。
 
-![image-20231013002951878](http://img.rmb520.com/test/image-20231013002951878.png)
+![image-20231013002951878](http://img.an520.com/test/image-20231013002951878.png)
 
 登录系统；
 
-![image-20231013003521400](http://img.rmb520.com/test/image-20231013003521400.png)
+![image-20231013003521400](http://img.an520.com/test/image-20231013003521400.png)
 
 登录后的管理主界面；
 
-![image-20231013003426182](http://img.rmb520.com/test/image-20231013003426182.png)
+![image-20231013003426182](http://img.an520.com/test/image-20231013003426182.png)
 
 ### 4.异常问题解决
 
@@ -106,11 +106,11 @@ Error establishing a database connection
 
 3.修改数据库账号和密码 **修改下图红框中的内容为你的数据库账号和密码,注意不要去掉引号** 
 
-![image-20231013002000993](http://img.rmb520.com/test/image-20231013002000993.png)
+![image-20231013002000993](http://img.an520.com/test/image-20231013002000993.png)
 
 我们在创建基础容器之后，进入容器，进行编辑配置文件的时候，需要使用vim或者vi命令，但是会出现：
 
-![image-20231013001701826](http://img.rmb520.com/test/image-20231013001701826.png)
+![image-20231013001701826](http://img.an520.com/test/image-20231013001701826.png)
 
 这是因为vim没有安装。
 解决方案 使用如下命令安装：
@@ -120,7 +120,7 @@ apt-get update
 apt-get install vim
 ```
 
-![image-20231013003952868](http://img.rmb520.com/test/image-20231013003952868.png)
+![image-20231013003952868](http://img.an520.com/test/image-20231013003952868.png)
 
 
 
@@ -132,7 +132,7 @@ apt-get install vim
 
 #### 什么是WordPress?
 
-WordPress是一种使用PHP语言开发的网站平台。目前，WordPress是最多人和最容易使用的网站建立工具 (或内容管理系统，英文是CMS或Content Management System)。![image-20231013023558652](http://img.rmb520.com/test/image-20231013023558652.png)
+WordPress是一种使用PHP语言开发的网站平台。目前，WordPress是最多人和最容易使用的网站建立工具 (或内容管理系统，英文是CMS或Content Management System)。![image-20231013023558652](http://img.an520.com/test/image-20231013023558652.png)
 
 #### 还不太明白什么是WordPress？
 
@@ -148,43 +148,43 @@ WordPress是一种使用PHP语言开发的网站平台。目前，WordPress是�
 
 ### 实例1:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-1-1024x576-1697141072991-9.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-1-1024x576-1697141072991-9.png)
 
 ------
 
 ### 实例2:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-2-1024x576-1697141072991-11.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-2-1024x576-1697141072991-11.png)
 
 ------
 
 ### 实例3:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-3-1024x576-1697141072991-13.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-3-1024x576-1697141072991-13.png)
 
 ------
 
 ### 实例4:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-4-1024x576.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-4-1024x576.png)
 
 ------
 
 ### 实例5:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-5-1024x576.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-5-1024x576.png)
 
 ------
 
 ### 实例6:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-6-1024x576.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-6-1024x576.png)
 
 ------
 
 ### 实例7:
 
-![img](http://img.rmb520.com/test/StoreFront-Theme-子主题-7-1024x576-1697141072991-18.png)
+![img](http://img.an520.com/test/StoreFront-Theme-子主题-7-1024x576-1697141072991-18.png)
 
 
 

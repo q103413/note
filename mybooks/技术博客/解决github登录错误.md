@@ -2,7 +2,7 @@
 
 
 
-![thumb](http://img.rmb520.com/test/error.png)
+![thumb](http://img.an520.com/test/error.png)
 
 After enabling a two-factor authentication in my GitHub account, when I run the Git `git push` command it throws the following error message:
 
@@ -35,7 +35,7 @@ Creating a GitHub personal access token.
 - Click `Generate token`.
 - Copy the token to your clipboard. For security reasons, after you navigate off the page, you will not be able to see the token again.
 
-![How to fix: fatal: Authentication failed for https://github.com/](http://img.rmb520.com/test/1.png)
+![How to fix: fatal: Authentication failed for https://github.com/](http://img.an520.com/test/1.png)
 
 > **Note!** Treat your tokens like passwords and keep them secret (if you don’t want other people to use the API on your behalf). When working with the API, use tokens as environment variables instead of hardcoding them into your programs.
 
@@ -61,6 +61,6 @@ That’s it, you’re done. Now the problem that arose after enabling two-factor
 
 If you are having trouble solving this problem with the instructions above, but are being able to solve this problem with any another method please describe it in the comment section below. Thanks!
 
-I hope this article has helped you learn how to solve the problem that arose after enabling two-factor authentication in the GitHub account. If this article has helped you then please [leave a comment](https://www.mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html#comments) ![:smiley:](http://img.rmb520.com/test/1f603.png)
+I hope this article has helped you learn how to solve the problem that arose after enabling two-factor authentication in the GitHub account. If this article has helped you then please [leave a comment](https://www.mycyberuniverse.com/how-fix-fatal-authentication-failed-for-https-github-com.html#comments) ![:smiley:](http://img.an520.com/test/1f603.png)
 
 Thanks for reading!

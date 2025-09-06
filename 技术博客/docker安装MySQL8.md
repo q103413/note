@@ -24,7 +24,7 @@ PS：若出现下载太慢，亦或者连接超时。则参考博主《Docker国
 docker images
 ```
 
-![image-20250310011906734](http://img.rmb520.com/test/image-20250310011906734.png)
+![image-20250310011906734](http://img.an520.com/test/image-20250310011906734.png)
 
 这里拉取的是MySQL:latest版本，也可以使用docker pull mysql:5.7下载对应版本（以5.7为例）
 
@@ -52,7 +52,7 @@ docker run -d --name mysql8  -p 3306:3306  -e TZ=Asia/Shanghai  -e MYSQL_ROOT_PA
 docker ps
 ```
 
-![image-20250310012120951](http://img.rmb520.com/test/image-20250310012120951.png)
+![image-20250310012120951](http://img.an520.com/test/image-20250310012120951.png)
 
 3、进入容器内登录
 
@@ -83,7 +83,7 @@ FLUSH PRIVILEGES;
 
 ```
 
-![image-20250311224418430](http://img.rmb520.com/test/image-20250311224418430.png)
+![image-20250311224418430](http://img.an520.com/test/image-20250311224418430.png)
 
 退出mysql和docker容器
 
@@ -101,4 +101,4 @@ exit
 
 新建mysql连接
 
-![image-20250310012753578](http://img.rmb520.com/test/image-20250310012753578.png)
+![image-20250310012753578](http://img.an520.com/test/image-20250310012753578.png)

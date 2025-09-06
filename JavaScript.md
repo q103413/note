@@ -1,4 +1,4 @@
-<img src="http://img.kiss58.com/test/mywechat.jpg" width="200px"><img src="http://img.kiss58.com/test/mypublic.jpg" width="240px">
+<img src="http://img.an520.com/test/mywechat.jpg" width="200px"><img src="http://img.an520.com/test/mypublic.jpg" width="240px">
 
 # 一、初识JavaScript
 
@@ -1279,7 +1279,7 @@ DOM事件流
 e.target  触发事件的对象
 this		绑定事件的对象
 
-![image-20241215212526454](http://img.kiss58.com/test/image-20241215212526454.png)
+![image-20241215212526454](http://img.an520.com/test/image-20241215212526454.png)
 
 阻止事件冒泡：e.stopPropagation()
 

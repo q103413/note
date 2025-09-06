@@ -17,7 +17,7 @@
 
 网上找了张图，可以参考一下:
 
-![img](http://img.rmb520.com/test/v2-332923ff35e76f0bb132500b0aa76052_720w.webp)
+![img](http://img.an520.com/test/v2-332923ff35e76f0bb132500b0aa76052_720w.webp)
 
 
 

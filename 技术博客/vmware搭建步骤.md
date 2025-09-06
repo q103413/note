@@ -16,9 +16,9 @@
 
 VMnet8：用于虚拟 NAT 网络下的虚拟交换机
 
-![image-20231016020548273](http://img.rmb520.com/test/image-20231016020548273.png)
+![image-20231016020548273](http://img.an520.com/test/image-20231016020548273.png)
 
-![img](http://img.rmb520.com/test/713744-20190729232910301-1368050577.png)
+![img](http://img.an520.com/test/713744-20190729232910301-1368050577.png)
 
 
 
@@ -73,7 +73,7 @@ ln -s /hgfs/vmware/data /
 
 https://blog.csdn.net/weixin_43493256/article/details/89295886
 
-![image-20231025010348727](http://img.rmb520.com/test/image-20231025010348727.png)
+![image-20231025010348727](http://img.an520.com/test/image-20231025010348727.png)
 
 systemctl restart network
 

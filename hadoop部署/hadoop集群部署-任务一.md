@@ -62,35 +62,35 @@ graph TD
 
    - 打开 VMware 软件，选择 **“创建新的虚拟机”** 选项 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231455354.png" alt="image-20250819231455354" style="zoom:50%;" />
+     <img src="http://img.an520.com/test/image-20250819231455354.png" alt="image-20250819231455354" style="zoom:50%;" />
 
    - 在“新建虚拟机向导”中，选择 **“典型(推荐)”** 模式，然后单击 **“下一步”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231409169.png" alt="image-20250819231409169" style="zoom:50%;" />
+     <img src="http://img.an520.com/test/image-20250819231409169.png" alt="image-20250819231409169" style="zoom:50%;" />
 
    - 选择 **“稍后安装操作系统”**，然后单击 **“下一步”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231347604.png" alt="image-20250819231347604" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231347604.png" alt="image-20250819231347604" style="zoom:67%;" />
 
    - 选择客户机操作系统为 **“Linux”**，版本为 **“CentOS 7 64 位”**，然后单击 **“下一步”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231549533.png" alt="image-20250819231549533" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231549533.png" alt="image-20250819231549533" style="zoom:67%;" />
 
    - 将虚拟机命名为 `master`，并指定一个存放位置，例如 `E:\VMware\master` 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231641385.png" alt="image-20250819231641385" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231641385.png" alt="image-20250819231641385" style="zoom:67%;" />
 
    - 指定最大磁盘容量为 **20GB**，并选择 **“将虚拟磁盘拆分成多个文件”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231711963.png" alt="image-20250819231711963" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231711963.png" alt="image-20250819231711963" style="zoom:67%;" />
 
    - 在“准备创建虚拟机”界面，单击 **“自定义硬件”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231755317.png" alt="image-20250819231755317" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231755317.png" alt="image-20250819231755317" style="zoom:67%;" />
 
    - 在硬件设置中，选择 **“新CD/DVD”**，在右侧选择 **“使用 ISO 映像文件”**，然后浏览找到 `CentOS-7-x86_64-DVD-2003.iso` 镜像文件 。，然后单击 **“关闭”**  **“完成”** 。
 
-     <img src="http://img.kiss58.com/test/image-20250819231948409.png" alt="image-20250819231948409" style="zoom:67%;" />
+     <img src="http://img.an520.com/test/image-20250819231948409.png" alt="image-20250819231948409" style="zoom:67%;" />
 
    
 
@@ -98,41 +98,41 @@ graph TD
 
 1. 在 VMware 主界面，选择新建的 `master` 虚拟机，单击 **“开启此虚拟机”** 。
 
-  <img src="http://img.kiss58.com/test/image-20250819232444178.png" alt="image-20250819232444178" style="zoom: 50%;" />
+  <img src="http://img.an520.com/test/image-20250819232444178.png" alt="image-20250819232444178" style="zoom: 50%;" />
 
 2. 在安装界面中，选择 **“Install CentOS 7”** 。
 
-  <img src="http://img.kiss58.com/test/image-20250819232622492.png" alt="image-20250819232622492" style="zoom:67%;" />
+  <img src="http://img.an520.com/test/image-20250819232622492.png" alt="image-20250819232622492" style="zoom:67%;" />
 
 3. 语言选择「English（United States）」
 
-  <img src="http://img.kiss58.com/test/image-20250819232918810.png" alt="image-20250819232918810" style="zoom:67%;" />
+  <img src="http://img.an520.com/test/image-20250819232918810.png" alt="image-20250819232918810" style="zoom:67%;" />
 
 4. 进入安装页面后，进行以下配置:
 
   - 配置「DATE & TIME」为「Asia/Shanghai」。
 
-    <img src="http://img.kiss58.com/test/image-20250819235502646.png" alt="image-20250819235502646" style="zoom:67%;" />
+    <img src="http://img.an520.com/test/image-20250819235502646.png" alt="image-20250819235502646" style="zoom:67%;" />
 
-    <img src="http://img.kiss58.com/test/image-20250819233127210.png" alt="image-20250819233127210" style="zoom:67%;" />
+    <img src="http://img.an520.com/test/image-20250819233127210.png" alt="image-20250819233127210" style="zoom:67%;" />
 
   - 「INSTALLATION DESTINATION」保持默认自动分区，点击「Done」。
 
-    <img src="http://img.kiss58.com/test/image-20250819235602193.png" alt="image-20250819235602193" style="zoom:67%;" />
+    <img src="http://img.an520.com/test/image-20250819235602193.png" alt="image-20250819235602193" style="zoom:67%;" />
 
-    <img src="http://img.kiss58.com/test/image-20250819233235985.png" alt="image-20250819233235985" style="zoom: 67%;" />
+    <img src="http://img.an520.com/test/image-20250819233235985.png" alt="image-20250819233235985" style="zoom: 67%;" />
 
   - 「NETWORK & HOST NAME」设置主机名为`master`，点击 **“Begin Installation”** 开始安装。
 
-    <img src="http://img.kiss58.com/test/image-20250819233558852.png" style="zoom: 67%;" />
+    <img src="http://img.an520.com/test/image-20250819233558852.png" style="zoom: 67%;" />
 
   - **ROOT 密码**：设置密码（例如 `123456`），需要输入两次。
 
-    <img src="http://img.kiss58.com/test/image-20250820000634613.png" alt="image-20250820000634613" style="zoom: 50%;" /><img src="http://img.kiss58.com/test/image-20250820000706392.png" alt="image-20250820000706392" style="zoom: 50%;" />
+    <img src="http://img.an520.com/test/image-20250820000634613.png" alt="image-20250820000634613" style="zoom: 50%;" /><img src="http://img.an520.com/test/image-20250820000706392.png" alt="image-20250820000706392" style="zoom: 50%;" />
 
 5. 安装完成后单击 **“Reboot”** 重启.
 
-  <img src="http://img.kiss58.com/test/image-20250820000928441.png" alt="image-20250820000928441" style="zoom:50%;" /><img src="http://img.kiss58.com/test/image-20250820001246756.png" alt="image-20250820001246756" style="zoom:67%;" />
+  <img src="http://img.an520.com/test/image-20250820000928441.png" alt="image-20250820000928441" style="zoom:50%;" /><img src="http://img.an520.com/test/image-20250820001246756.png" alt="image-20250820001246756" style="zoom:67%;" />
 
 
 
@@ -140,7 +140,7 @@ graph TD
 
 1. 登录 master 节点（用户名`root`，密码`123456`）。
 
-  <img src="http://img.kiss58.com/test/image-20250820003031109.png" alt="image-20250820003031109" style="zoom:67%;" />
+  <img src="http://img.an520.com/test/image-20250820003031109.png" alt="image-20250820003031109" style="zoom:67%;" />
 
 2. 重启网卡服务
 
@@ -148,7 +148,7 @@ graph TD
   service network restart
   ```
 
-  ![image-20250820005325118](http://img.kiss58.com/test/image-20250820005325118.png)
+  ![image-20250820005325118](http://img.an520.com/test/image-20250820005325118.png)
 
 3. 修改网络配置文件：
 
@@ -172,7 +172,7 @@ graph TD
   DNS2=114.114.114.114   # 国内备用DNS
   ```
 
-  ![image-20250820004519930](http://img.kiss58.com/test/image-20250820004519930.png)
+  ![image-20250820004519930](http://img.an520.com/test/image-20250820004519930.png)
 
 6. 再次重启网络服务：
 
@@ -186,7 +186,7 @@ graph TD
   ip addr  # 确认显示192.168.128.130
   ```
 
-  ![image-20250820005036622](http://img.kiss58.com/test/image-20250820005036622.png)
+  ![image-20250820005036622](http://img.an520.com/test/image-20250820005036622.png)
 
 
 
@@ -198,16 +198,16 @@ graph TD
 
    - VMware → 点击「编辑」→「虚拟网络编辑器」，选择 VMnet8，子网 IP 设置为`192.168.128.0`。
 
-   <img src="http://img.kiss58.com/test/image-20250820011537875.png" alt="image-20250820011537875" style="zoom:67%;" /><img src="http://img.kiss58.com/test/image-20250820011716825.png" alt="image-20250820011716825" style="zoom:67%;" />
+   <img src="http://img.an520.com/test/image-20250820011537875.png" alt="image-20250820011537875" style="zoom:67%;" /><img src="http://img.an520.com/test/image-20250820011716825.png" alt="image-20250820011716825" style="zoom:67%;" />
 
 3. ### Xshell 连接 master虚拟机：
 
    - 打开 **Xshell** → 新建会话，名称为`master`，主机填写`192.168.128.130`。
    - 「用户身份验证」输入用户名`root`和密码`123456`，点击连接并接受密钥。
 
-   ![image-20250823032016704](http://img.kiss58.com/test/image-20250823032016704.png)
+   ![image-20250823032016704](http://img.an520.com/test/image-20250823032016704.png)
    
-   <img src="http://img.kiss58.com/test/image-20250820011907759.png" alt="image-20250820011907759" style="zoom: 50%;" />
+   <img src="http://img.an520.com/test/image-20250820011907759.png" alt="image-20250820011907759" style="zoom: 50%;" />
 
 
 
@@ -232,7 +232,7 @@ graph TD
    mv CentOS-x86_64-kernel.repo CentOS-x86_64-kernel.repo.bak
    ```
 
-   <img src="http://img.kiss58.com/test/image-20250820012331840.png" alt="image-20250820012331840" style="zoom: 67%;" /><img src="http://img.kiss58.com/test/image-20250821192945119.png" alt="image-20250821192945119" style="zoom: 80%;" />
+   <img src="http://img.an520.com/test/image-20250820012331840.png" alt="image-20250820012331840" style="zoom: 67%;" /><img src="http://img.an520.com/test/image-20250821192945119.png" alt="image-20250821192945119" style="zoom: 80%;" />
 
 3. 编辑本地源配置：
 
@@ -248,7 +248,7 @@ graph TD
    enabled=1
    ```
 
-   ![image-20250820012628818](http://img.kiss58.com/test/image-20250820012628818.png)
+   ![image-20250820012628818](http://img.an520.com/test/image-20250820012628818.png)
 
 4. 挂载 ISO 镜像：
 
@@ -256,7 +256,7 @@ graph TD
    mount /dev/sr0 /media  # 若失败，检查虚拟机CD/DVD是否勾选「已连接」
    ```
 
-   ![image-20250820012801443](http://img.kiss58.com/test/image-20250820012801443.png)
+   ![image-20250820012801443](http://img.an520.com/test/image-20250820012801443.png)
 
 5. 清理缓存并安装必要软件：
 
@@ -265,7 +265,7 @@ graph TD
    yum install -y vim zip openssh-server openssh-clients  # 安装常用工具
    ```
 
-   ![image-20250820013750993](http://img.kiss58.com/test/image-20250820013750993.png)
+   ![image-20250820013750993](http://img.an520.com/test/image-20250820013750993.png)
 
 ## 🛡️ 常见问题与解决方案
 
@@ -294,11 +294,11 @@ ping 192.168.128.2  # 测试网关连通性
 
 **症状**：
 
-![image-20250821200556646](http://img.kiss58.com/test/image-20250821200556646.png)
+![image-20250821200556646](http://img.an520.com/test/image-20250821200556646.png)
 
 **解决方案**：右键点击master→设置→确认虚拟机设置中 **CD/DVD 驱动器已勾选“已连接”**。
 
-<img src="http://img.kiss58.com/test/image-20250821200938372.png" alt="image-20250821200938372" style="zoom: 50%;" />
+<img src="http://img.an520.com/test/image-20250821200938372.png" alt="image-20250821200938372" style="zoom: 50%;" />
 
 ### 问题3：YUM安装软件失败
 

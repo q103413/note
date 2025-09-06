@@ -91,9 +91,9 @@ cd /opt
 
 按`Ctrl+Alt+F`组合键打开文件传输窗口，或者点击新建文件传输按钮，如下图
 
-![image-20250823011058639](http://img.kiss58.com/test/image-20250823011058639.png)
+![image-20250823011058639](http://img.an520.com/test/image-20250823011058639.png)
 
-![image-20250823011639188](http://img.kiss58.com/test/image-20250823011639188.png)
+![image-20250823011639188](http://img.an520.com/test/image-20250823011639188.png)
 
 #### 1.2 安装JDK
 
@@ -102,7 +102,7 @@ cd /opt
 rpm -ivh jdk-8u281-linux-x64.rpm
 ```
 
-![image-20250823011821227](http://img.kiss58.com/test/image-20250823011821227.png)
+![image-20250823011821227](http://img.an520.com/test/image-20250823011821227.png)
 
 #### 1.3 验证安装
 
@@ -113,7 +113,7 @@ java -version
 
 出现版本信息即表示安装成功。
 
-![image-20250823011846232](http://img.kiss58.com/test/image-20250823011846232.png)
+![image-20250823011846232](http://img.an520.com/test/image-20250823011846232.png)
 
 ## ⚙️ 第二部分：Hadoop集群配置
 
@@ -128,7 +128,7 @@ java -version
 cd /opt
 ```
 
-![image-20250823013019146](http://img.kiss58.com/test/image-20250823013019146.png)
+![image-20250823013019146](http://img.an520.com/test/image-20250823013019146.png)
 
 2.将 Hadoop 安装包解压至 /usr/local 目录（该目录为 Hadoop 默认推荐安装路径，便于后续配置与管理）：
 
@@ -143,7 +143,7 @@ tar -zxf hadoop-3.1.4.tar.gz -C /usr/local
 ls /usr/local/hadoop-3.1.4
 ```
 
-![image-20250823013805270](http://img.kiss58.com/test/image-20250823013805270.png)
+![image-20250823013805270](http://img.an520.com/test/image-20250823013805270.png)
 
 ### 2.2 核心配置文件修改
 
@@ -161,7 +161,7 @@ ls /usr/local/hadoop-3.1.4
 cd /usr/local/hadoop-3.1.4/etc/hadoop
 ```
 
-![image-20250823014205267](http://img.kiss58.com/test/image-20250823014205267.png)
+![image-20250823014205267](http://img.an520.com/test/image-20250823014205267.png)
 
 #### 🔹 core-site.xml（核心配置）
 
@@ -188,7 +188,7 @@ vim core-site.xml
 </configuration>
 ```
 
-![image-20250823015138308](http://img.kiss58.com/test/image-20250823015138308.png)
+![image-20250823015138308](http://img.an520.com/test/image-20250823015138308.png)
 
 **注意**：若 NameNode 所在节点名称不是 “master”，需将 “hdfs://master:8020” 中的 “master” 替换为实际节点名。
 
@@ -207,7 +207,7 @@ vim hadoop-env.sh
 export JAVA_HOME=/usr/java/jdk1.8.0_281-amd64
 ```
 
-![image-20250823015102896](http://img.kiss58.com/test/image-20250823015102896.png)
+![image-20250823015102896](http://img.an520.com/test/image-20250823015102896.png)
 
 #### 🔹 yarn-env.sh（YARN环境变量）
 
@@ -433,7 +433,7 @@ YARN_RESOURCEMANAGER_USER=root
 YARN_NODEMANAGER_USER=root
 ```
 
-![image-20250823022137571](http://img.kiss58.com/test/image-20250823022137571.png)
+![image-20250823022137571](http://img.an520.com/test/image-20250823022137571.png)
 
 ### 2.4 配置hosts文件
 
@@ -484,22 +484,22 @@ flowchart TD
 
 1. **选择克隆源**：选择 “虚拟机中的当前状态”（克隆当前 master 节点的系统状态，包含已安装的 JDK 和 Hadoop 配置），点击 “下一步”。
 
-   ![image-20250823024203417](http://img.kiss58.com/test/image-20250823024203417.png)
+   ![image-20250823024203417](http://img.an520.com/test/image-20250823024203417.png)
 
 2. **选择克隆类型**：选择 “创建完整克隆”（完整克隆的虚拟机完全独立，不依赖源虚拟机，适合集群节点；链接克隆依赖源虚拟机，不推荐），点击 “下一步”。
 
-![image-20250823024225432](http://img.kiss58.com/test/image-20250823024225432.png)
+![image-20250823024225432](http://img.an520.com/test/image-20250823024225432.png)
 
 1. 设置虚拟机名称与路径：
 
    - 虚拟机名称：输入 “slave1”（便于区分节点）。
    - 位置：选择安装路径（建议与 master 同目录，如 “E:\VMware\slave1”），点击 “完成”。
 
-   ![image-20250823024339794](http://img.kiss58.com/test/image-20250823024339794.png)
+   ![image-20250823024339794](http://img.an520.com/test/image-20250823024339794.png)
 
 2. 等待克隆完成（克隆时间根据虚拟机磁盘大小而定），点击 “关闭”，slave1 虚拟机克隆完成。
 
-<img src="http://img.kiss58.com/test/image-20250823024427347.png" alt="image-20250823024427347"  />
+<img src="http://img.an520.com/test/image-20250823024427347.png" alt="image-20250823024427347"  />
 
 ### 
 
@@ -516,20 +516,20 @@ flowchart TD
    - 保存退出后，重启网络服务：`systemctl restart network`。
    - 执行 “ip addr” 验证 IP 是否修改成功。
 
-![image-20250823025525334](http://img.kiss58.com/test/image-20250823025525334.png)
+![image-20250823025525334](http://img.an520.com/test/image-20250823025525334.png)
 
 3.**修改主机名**：
 
 - 执行命令修改主机名：`hostnamectl set-hostname slave1`。
 - 执行 “hostname” 验证主机名是否修改成功（若需立即生效，可重启虚拟机：`reboot`）。
 
-![image-20250823025418794](http://img.kiss58.com/test/image-20250823025418794.png)
+![image-20250823025418794](http://img.an520.com/test/image-20250823025418794.png)
 
 4.**验证节点连通性**：
 
 - 在 master 节点执行 “ping slave1” 命令，若能正常收到回复（出现 “64 bytes from slave1 (192.168.128.131): icmp_seq=1 ttl=64 time=0.xxx ms”），则 slave1 配置成功。
 
-![image-20250823025745342](http://img.kiss58.com/test/image-20250823025745342.png)
+![image-20250823025745342](http://img.an520.com/test/image-20250823025745342.png)
 
 5.重复上述步骤，克隆 master 生成 slave2 和 slave3，并分别修改 IP 地址（slave2：192.168.128.132，slave3：192.168.128.133）和主机名（slave2、slave3）。
 
@@ -581,7 +581,7 @@ ssh-keygen -t rsa
 # 连续按3次Enter键
 ```
 
-![image-20250823131135593](http://img.kiss58.com/test/image-20250823131135593.png)
+![image-20250823131135593](http://img.an520.com/test/image-20250823131135593.png)
 
 - 执行完成后，会在 /root/.ssh 目录下生成两个文件：
 
@@ -591,7 +591,7 @@ ssh-keygen -t rsa
 
 - 执行 `ls /root/.ssh` 命令验证密钥文件是否生成。
 
-![image-20250823030940443](http://img.kiss58.com/test/image-20250823030940443.png)
+![image-20250823030940443](http://img.an520.com/test/image-20250823030940443.png)
 
 ### 5.2 分发公钥
 
@@ -620,7 +620,7 @@ ssh slave2
 ssh slave3
 ```
 
-![image-20250823125610072](http://img.kiss58.com/test/image-20250823125610072.png)
+![image-20250823125610072](http://img.an520.com/test/image-20250823125610072.png)
 
 ## ⏰ 第六部分：时间同步配置
 
@@ -639,7 +639,7 @@ yum install -y ntp
 
 2.若安装过程中出现 “Complete!” 信息，说明 NTP 服务安装成功；若出现 “Could not retrieve mirrorlist...” 错误，需重新挂载本地 YUM 源（执行 `mount /dev/sr0 /media`）后再次安装。
 
-![image-20250823132540133](http://img.kiss58.com/test/image-20250823132540133.png)
+![image-20250823132540133](http://img.an520.com/test/image-20250823132540133.png)
 
 ### 6.2 配置NTP服务
 
@@ -657,7 +657,7 @@ server 127.127.1.0  # 使用本地时钟作为时间源（无外网时推荐）
 fudge 127.127.1.0 stratum 10  # 设置本地时钟层级（10表示本地时钟，层级越低精度越高）
 ```
 
-![image-20250823145757655](http://img.kiss58.com/test/image-20250823145757655.png)
+![image-20250823145757655](http://img.an520.com/test/image-20250823145757655.png)
 
 #### Slave节点配置
 
@@ -678,7 +678,7 @@ vim /etc/ntp.conf
 server master 
 ```
 
-![image-20250823150621964](http://img.kiss58.com/test/image-20250823150621964.png)
+![image-20250823150621964](http://img.an520.com/test/image-20250823150621964.png)
 
 3.保存退出后，同样执行命令关闭防火墙并禁止开机自启：
 
@@ -687,7 +687,7 @@ systemctl stop firewalld
 systemctl disable firewalld
 ```
 
-![image-20250823150702863](http://img.kiss58.com/test/image-20250823150702863.png)
+![image-20250823150702863](http://img.an520.com/test/image-20250823150702863.png)
 
 ### 6.3 启动服务
 
@@ -731,7 +731,7 @@ systemctl status ntpd
 ntpdate master
 ```
 
-![image-20250823153138785](http://img.kiss58.com/test/image-20250823153138785.png)
+![image-20250823153138785](http://img.an520.com/test/image-20250823153138785.png)
 
 2.执行以下命令启动 NTP 服务并设置开机自启：
 
@@ -742,7 +742,7 @@ systemctl enable ntpd
 
 3.执行`systemctl status ntpd` 查看服务状态，若显示 “active (running)”，则从节点 NTP 服务启动成功。
 
-![image-20250823153219870](http://img.kiss58.com/test/image-20250823153219870.png)
+![image-20250823153219870](http://img.an520.com/test/image-20250823153219870.png)
 
 备注：临时/一次性对时——先停掉守护进程，再执行 ntpdate
 
@@ -757,13 +757,13 @@ ntpdate master
 systemctl start ntpd     
 ```
 
-![image-20250823153722677](http://img.kiss58.com/test/image-20250823153722677.png)
+![image-20250823153722677](http://img.an520.com/test/image-20250823153722677.png)
 
 #### 3. 时间同步验证
 
 在任意从节点执行 “date” 命令，查看当前时间是否与 master 节点一致（执行 “ssh master date” 查看 master 节点时间），若时间一致，则时间同步配置完成。
 
-![image-20250823160602453](http://img.kiss58.com/test/image-20250823160602453.png)
+![image-20250823160602453](http://img.an520.com/test/image-20250823160602453.png)
 
 ## 🚀 第七部分：集群启动与管理
 
@@ -797,7 +797,7 @@ source /etc/profile
 
 4.执行`hadoop version`命令验证环境变量是否配置成功，若输出 Hadoop 版本信息（3.1.4），则配置成功。
 
-![image-20250823171429963](http://img.kiss58.com/test/image-20250823171429963.png)
+![image-20250823171429963](http://img.an520.com/test/image-20250823171429963.png)
 
 ### 7.2 格式化NameNode
 
@@ -814,7 +814,7 @@ hdfs namenode -format
 
 2.若执行结果中出现 “Storage directory /data/hadoop/hdfs/name has been successfully formatted” 提示，且无报错信息，则说明 NameNode 格式化成功。
 
-![image-20250823171752312](http://img.kiss58.com/test/image-20250823171752312.png)
+![image-20250823171752312](http://img.an520.com/test/image-20250823171752312.png)
 
 ### 7.3 启动集群
 
@@ -848,7 +848,7 @@ sbin/mr-jobhistory-daemon.sh start historyserver	# 启动JobHistory服务，日�
 12397 SecondaryNameNode
 ```
 
-![image-20250823173221418](http://img.kiss58.com/test/image-20250823173221418.png)
+![image-20250823173221418](http://img.an520.com/test/image-20250823173221418.png)
 
 #### 2. 从节点验证（以 slave1 为例）
 
@@ -909,7 +909,7 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 1. 打开本地浏览器，在地址栏输入 “http://master:9870”（9870 为 HDFS Web 默认端口），按回车键。
 2. 若能看到 HDFS 监控界面，说明 NameNode 服务正常；点击 “Utilities”→“Browse the file system”，可查看 HDFS 文件系统的目录结构（初始为空）。
 
-![image-20250823180426268](http://img.kiss58.com/test/image-20250823180426268.png)
+![image-20250823180426268](http://img.an520.com/test/image-20250823180426268.png)
 
 - **Overview**: 显示集群基本信息和版本
 - **Summary**: 显示集群状态和DataNode信息
@@ -920,7 +920,7 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 1. 在浏览器地址栏输入 “http://master:8088”（8088 为 YARN Web 默认端口），按回车键。
 2. 若能看到 YARN 监控界面，显示集群节点数（3 个 Active Nodes）、内存总容量等信息，说明 YARN 服务正常。
 
-![image-20250823180338755](http://img.kiss58.com/test/image-20250823180338755.png)
+![image-20250823180338755](http://img.an520.com/test/image-20250823180338755.png)
 
 - **Applications**: 查看运行中的应用
 - **Nodes**: 查看集群节点状态
@@ -931,7 +931,7 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 1. 在浏览器地址栏输入 “http://master:19888”（19888 为任务历史服务默认端口），按回车键。
 2. 若能看到任务历史监控界面（初始无任务记录），说明 JobHistory Server 服务正常。
 
-![image-20250823180527439](http://img.kiss58.com/test/image-20250823180527439.png)
+![image-20250823180527439](http://img.an520.com/test/image-20250823180527439.png)
 
 ## 🔄 第九部分：集群管理命令
 

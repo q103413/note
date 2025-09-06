@@ -10,7 +10,7 @@
 docker search  docker.1ms.run/php
 ```
 
-![image-20250310023922130](http://img.rmb520.com/test/image-20250310023922130.png)
+![image-20250310023922130](http://img.an520.com/test/image-20250310023922130.png)
 
 然后使用 `docker pull php:7.4-fpm` 获取PHP镜像，后面的数字可以指定PHP的版本，我安装的是PHP7.4，如果需要获取其他版本，可以通过[dockerhub](https://link.juejin.cn?target=https%3A%2F%2Fhub.docker.com%2F_%2Fphp%3Ftab%3Dtags)查询
 
@@ -21,7 +21,7 @@ docker pull docker.1ms.run/php:7.4-fpm
 
 可以通过 `docker images` 查看安装的镜像列表，或者通过 `docker images php` 查看php的信息。
 
-![image-20250310024203112](http://img.rmb520.com/test/image-20250310024203112.png)
+![image-20250310024203112](http://img.an520.com/test/image-20250310024203112.png)
 
 上图中的 `IMAGE ID` 是一个重要的信息，这个是全局唯一的，由于位数太多，我们可以通过使用前几位来代表PHP这个镜像。比如 “997d”，下面我们会使用到。
 
