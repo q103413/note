@@ -1,3 +1,5 @@
+<img src="http://img.an520.com/test/mywechat.jpg" width="200px"><img src="http://img.an520.com/test/mypublic.jpg" width="240px">
+
 # Hadoop集群的搭建及配置2-搭建Hadoop完全分布式集群
 
 ## 📋 项目概述
