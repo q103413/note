@@ -563,15 +563,15 @@ IPADDR=192.168.128.133
 hostnamectl set-hostname slave3
 ```
 
-## 🔐 第五部分：SSH免密登录配置
+## 🔐 第四部分：SSH免密登录配置
 
 （master 节点操作）
 
-### 5.0 SSH 免密码登录原理
+### 4.0 SSH 免密码登录原理
 
 SSH 免密码登录通过 “公钥 - 私钥” 认证机制实现：在 master 节点生成公钥和私钥，将公钥复制到各从节点，master 节点访问从节点时，从节点使用公钥验证 master 节点的私钥，验证通过即可免密码登录，无需每次输入密码，便于集群管理与脚本执行。
 
-### 5.1 生成SSH密钥对
+### 4.1 生成SSH密钥对
 
 - 在 master 节点执行以下命令生成 RSA 类型的密钥对（按 3 次 “Enter” 键，无需设置密码短语，测试环境推荐）：
 
@@ -593,7 +593,7 @@ ssh-keygen -t rsa
 
 ![image-20250823030940443](http://img.an520.com/test/image-20250823030940443.png)
 
-### 5.2 分发公钥
+### 4.2 分发公钥
 
 ```bash
 # 将公钥复制到各个从节点，依次输入yes, 123456(密码)
@@ -611,7 +611,7 @@ ssh-copy-id master
 ssh-copy-id -i /root/.ssh/id_rsa.pub slave1
 ```
 
-### 5.3 验证免密登录
+### 4.3 验证免密登录
 
 ```bash
 # 测试连接（应该无需输入密码）
@@ -622,13 +622,13 @@ ssh slave3
 
 ![image-20250823125610072](http://img.an520.com/test/image-20250823125610072.png)
 
-## ⏰ 第六部分：时间同步配置
+## ⏰ 第五部分：时间同步配置
 
-### 6.0 时间同步的重要性
+### 5.0 时间同步的重要性
 
 Hadoop 集群对节点时间一致性要求极高：NameNode 与 DataNode、ResourceManager 与 NodeManager 之间通过时间戳进行通信和数据同步，若各节点时间差异较大（超过 30 秒），可能导致集群启动失败、任务执行异常等问题，因此需配置 NTP（Network Time Protocol，网络时间协议）服务实现集群时间同步。
 
-### 6.1 安装NTP服务
+### 5.1 安装NTP服务
 
 1.在所有节点（master、slave1、slave2、slave3）执行以下命令安装 NTP 服务（若已配置本地 YUM 源或能联网，可直接安装）：
 
@@ -641,7 +641,7 @@ yum install -y ntp
 
 ![image-20250823132540133](http://img.an520.com/test/image-20250823132540133.png)
 
-### 6.2 配置NTP服务
+### 5.2 配置NTP服务
 
 #### Master节点配置
 
@@ -689,7 +689,7 @@ systemctl disable firewalld
 
 ![image-20250823150702863](http://img.an520.com/test/image-20250823150702863.png)
 
-### 6.3 启动服务
+### 5.3 启动服务
 
 ```bash
 # 关闭防火墙（所有节点）
@@ -765,9 +765,9 @@ systemctl start ntpd
 
 ![image-20250823160602453](http://img.an520.com/test/image-20250823160602453.png)
 
-## 🚀 第七部分：集群启动与管理
+## 🚀 第六部分：集群启动与管理
 
-### 7.1 环境变量配置
+### 6.1 环境变量配置
 
 （所有节点操作）为便于在任意目录执行 Hadoop 命令，需在所有节点配置 Hadoop 环境变量，步骤如下：
 
@@ -799,7 +799,7 @@ source /etc/profile
 
 ![image-20250823171429963](http://img.an520.com/test/image-20250823171429963.png)
 
-### 7.2 格式化NameNode
+### 6.2 格式化NameNode
 
 （仅 master 节点执行，且仅执行一次）
 
@@ -816,7 +816,7 @@ hdfs namenode -format
 
 ![image-20250823171752312](http://img.an520.com/test/image-20250823171752312.png)
 
-### 7.3 启动集群
+### 6.3 启动集群
 
 （master 节点执行）执行以下命令启动 Hadoop 集群（该命令会同时启动 HDFS 和 YARN 服务）：
 
@@ -833,7 +833,7 @@ sbin/mr-jobhistory-daemon.sh start historyserver	# 启动JobHistory服务，日�
 
 启动过程中，若 SSH 免密码登录配置正确，会自动登录各从节点启动对应服务，无需手动操作。
 
-### 7.4 验证集群状态
+### 6.4 验证集群状态
 
 **jps 命令**是 JDK 自带的工具，用于查看 Java 进程，可通过该命令验证各节点服务是否正常启动。
 
@@ -862,7 +862,7 @@ sbin/mr-jobhistory-daemon.sh start historyserver	# 启动JobHistory服务，日�
 
 slave2 和 slave3 节点进程与 slave1 一致，需分别验证。
 
-### 7.5 关闭集群
+### 6.5 关闭集群
 
 （master 节点执行）若需关闭集群，在 master 节点执行以下命令：
 
@@ -876,9 +876,9 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 
 关闭后，在各节点执行 “jps” 命令，若仅显示 “Jps” 进程，说明集群已成功关闭。
 
-## 📊 第八部分：集群监控
+## 📊 第七部分：集群监控
 
-### 8.1 Web监控界面
+### 7.1 Web监控界面
 
 | 服务       | 访问地址            | 默认端口 | 功能         |
 | ---------- | ------------------- | -------- | ------------ |
@@ -886,7 +886,7 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 | YARN       | http://master:8088  | 8088     | 资源管理监控 |
 | JobHistory | http://master:19888 | 19888    | 任务历史监控 |
 
-### 8.2 监控界面功能说明
+### 7.2 监控界面功能说明
 
 （本地计算机操作）Hadoop 提供 Web 界面用于监控集群状态，需先修改本地计算机的 hosts 文件（关联节点名与 IP），再通过浏览器访问。
 
@@ -933,7 +933,7 @@ sbin/mr-jobhistory-daemon.sh stop historyserver	# 关闭日志相关服务
 
 ![image-20250823180527439](http://img.an520.com/test/image-20250823180527439.png)
 
-## 🔄 第九部分：集群管理命令
+## 🔄 集群管理命令
 
 ### 启动集群
 ```bash
