@@ -10,9 +10,10 @@
 
 * [数据挖掘笔记](数据分析与挖掘/2案例实战.md)
 
-* [hadoop集群部署-任务一](hadoop部署/hadoop集群部署-任务一.md)
+* [hadoop集群部署-任务一](hadoop部署/项目1-1安装及配置虚拟机.md)
 
-* [hadoop集群部署-任务二](hadoop部署/hadoop集群部署-任务二.md)
+* [hadoop集群部署-任务二](hadoop部署/项目1-2搭建Hadoop完全分布式集群.md)
+* [hadoop-项目二](hadoop部署/项目2存储电影网站用户影评分析数据.md)
 
 * [数据分析与挖掘1概述](数据分析与挖掘/1概述.md)
 
