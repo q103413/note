@@ -1519,46 +1519,50 @@ localStorage常用方法
 
 # 五、JS网页特效
 
-了解
-	网页特效的概念
+了解  
+	网页特效的概念  
 	
-掌握
-偏移量offset
-	offsetLeft 	相对有定位的父元素左边框的偏移（如果没有，则相对body）
-	offsetTop 	相对有定位的父元素上方的偏移（如果没有，则相对body）
-	offsetWidth  自身的宽度（包含padding、border、内容）
-	offsetHeight	自身的高度（包含padding、border、内容）
-	offsetParent 	返回带有定位的父元素（如果没有，则返回body）
+掌握  
+
+## 偏移量offset
+
+​	offsetLeft 	相对有定位的父元素左边框的偏移（如果没有，则相对body）  
+​	offsetTop 	相对有定位的父元素上方的偏移（如果没有，则相对body）  
+​	offsetWidth  自身的宽度（包含padding、border、内容）  
+​	offsetHeight	自身的高度（包含padding、border、内容）  
+​	offsetParent 	返回带有定位的父元素（如果没有，则返回body）  
 
 元素偏移量offset
 	// 打印盒子的宽度和高度(包含边框、padding、内容)
-		offsetWidth //盒子宽度
-		offsetHeight //盒子高度
-	//相对有定位父元素左边框的偏移（如果没有定位，则返回Body）
-		offsetLeft
-	//相对有定位父元素上方的偏移（如果没有定位，则返回Body）
-		offsetTop
+		offsetWidth //盒子宽度  
+		offsetHeight //盒子高度  
+	//相对有定位父元素左边框的偏移（如果没有定位，则返回Body）  
+		offsetLeft  
+	//相对有定位父元素上方的偏移（如果没有定位，则返回Body）  
+		offsetTop  
 	
 
-offset和style的区别
+offset和style的区别    
 
-可视区client
-	clientLeft  	左边框大小
-	clientTop 	 	上边框大小
-	clientWidth 	自身内容的宽度/可视的宽度（包含padding，不包含border）
-	clientHeight 	自身内容的高度/可视的高度（包含padding，不包含border）
+## 可视区client
 
-滚动scroll
-	scrollLeft 被卷去的左侧距离，不带单位
-	scrollTop  被卷去的上方距离，不带单位
-	scrollWidth	自身的宽度(不包含border)，不带单位
-	scrollHeight 自身的高度(不包含border)，不带单位
+​	clientLeft  	左边框大小  
+​	clientTop 	 	上边框大小  
+​	clientWidth 	自身内容的宽度/可视的宽度（包含padding，不包含border）  
+​	clientHeight 	自身内容的高度/可视的高度（包含padding，不包含border）  
 
-## 六、ES6新特性
+## 滚动scroll  
+
+​	scrollLeft 被卷去的左侧距离，不带单位  
+​	scrollTop  被卷去的上方距离，不带单位  
+​	scrollWidth	自身的宽度(不包含border)，不带单位  
+​	scrollHeight 自身的高度(不包含border)，不带单位    
+
+# 六、ES6新特性
 
 ‌ES6（ECMAScript 6）是JavaScript语言的标准，于2015年6月正式发布，也被称为ECMAScript 2015（ES2015）。ES6引入了许多新的语法特性，旨在改进和扩展JavaScript的功能，使得JavaScript更加现代化、易读、易维护，更适合构建复杂的应用程序，特别是针对大规模的企业级开发‌‌
 
-**let**命令
+## **let**命令
 
 声明变量，用法类似于var，但是只在代码块内有效(**块级作用域**)
 
@@ -1571,7 +1575,7 @@ a // ReferenceError: a is not defined.
 b // 1
 ```
 
-**const**命令
+## **const**命令
 
 const用于声明一个**只读的常量**。一旦声明，常量的值就不能改变。
 
@@ -1581,7 +1585,7 @@ PI // 3.1415
 PI = 3; // 修改值报TypeError: Assignment to constant variable.的错误
 ```
 
-**字符串的扩展**
+## **字符串的扩展**
 
 模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
 
@@ -1591,7 +1595,7 @@ let age = 18
 let str = `${myName}年龄是${age}`  //雪儿年龄是18
 ```
 
-**对象的扩展**
+## **对象的扩展**
 
 •简写的属性初始化
 
@@ -1624,7 +1628,7 @@ const person = {
 person.sayHi();//"Hi"
 ```
 
-### 箭头函数
+## 箭头函数
 
 ES6的箭头函数提供了一种更加简洁的函数书写方式
 
@@ -1647,22 +1651,22 @@ var fn1 = (a, b) => {
 
 箭头函数相当于匿名函数，并且简化了函数定义。
 
-#### js面向对象
+## js面向对象
 
-了解什么是面向对象编程
-	面向对象的特征：	
-		封装性、多态性、继承性
+了解什么是面向对象编程  
+	面向对象的特征：	  
+		封装性、多态性、继承性  
 
-掌握类与对象的关系
-  类：抽象的事物
+掌握类与对象的关系  
+  类：抽象的事物    
 
-  对象：具体的事物
+  对象：具体的事物    
 
-掌握类的继承以及super关键字的使用
+掌握类的继承以及super关键字的使用  
 
-掌握使用class创建类的方法
+掌握使用class创建类的方法  
 
-类基本语法
+### 类基本语法
 
 类实质上就是一个函数，类自身指向的就是构造函数
 
@@ -1687,7 +1691,7 @@ var point = new Point(2, 3);
 console.log(point.toString()); // (2, 3)
 ```
 
-Class 的继承
+### Class 的继承
 
 可以用extends关键字实现继承。子类继承父类，继承了父类所有的属性和方法。
 
@@ -1715,7 +1719,7 @@ class Dog extends Animal {
 }
 ```
 
-Class 静态方法
+### Class 静态方法
 
 类（class）通过 static 关键字定义静态方法,
 
@@ -1734,7 +1738,7 @@ Foo.classMethod() // 'hello'
 var foo = new Foo();
 ```
 
-解构赋值
+## 解构赋值
 
 数组的解构赋值
 
@@ -1749,9 +1753,9 @@ let [a, b, c] = [1, 2, 3];
 const {name, age} = {name: 'John', age: 20};
 ```
 
-数组的扩展
+## 数组的扩展
 
-#### 新增的数组方法
+### 新增的数组方法
 
 Array.from：用于将两类对象转为真正的数组
 
@@ -1776,7 +1780,7 @@ Array.of(3) // [3]
 Array.of(3).length // 1
 ```
 
-#### 遍历
+## 遍历
 
 ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。
 
@@ -1812,7 +1816,7 @@ for(let [index,value] of arr.entries()){
    */
 ```
 
-#### Set数据结构
+## Set数据结构
 
 类似于数组，但是成员的值都是唯一的，没有重复的值。
 
@@ -1845,7 +1849,7 @@ items.size // 5
 | **entries()**       | 返回键值对的遍历器                   |
 | **forEach()**       | 使用回调函数遍历每个成员             |
 
-#### Map数据结构
+## Map数据结构
 
 Map是一种键值对的对象。相比较对象来说，它的键可以是各种类型的，如果需要在一个地方使用键值对的数据结构，Map比起Object会更合适。
 
@@ -1867,7 +1871,7 @@ map1.delete('b');
 console.log(map1.size); // 2
 ```
 
-**Map****结构****中常用方法**
+**Map** **结构** **中常用方法**
 
 | **方法**             | **描述**                                             |
 | -------------------- | ---------------------------------------------------- |
