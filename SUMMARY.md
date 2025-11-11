@@ -3,16 +3,18 @@
 # Summary
 
 * [介绍](README.md)
+
 * [网页设计笔记](HTML.md)
+
 * [JavaScript笔记](JavaScript.md)
 
 * [jQuery笔记](jQuery.md)
 
 * [Scala笔记](Scala.md)
 
-* [hadoop项目1-1安装及配置虚拟机](hadoop部署/项目1-1安装及配置虚拟机.md)
+* [hadoop项目1安装及配置虚拟机](hadoop部署/项目1-1安装及配置虚拟机.md)
 
-* [hadoop项目1-2搭建Hadoop完全分布式集群](hadoop部署/项目1-2搭建Hadoop完全分布式集群.md)
+* [hadoop项目1搭建Hadoop完全分布式集群](hadoop部署/项目1-2搭建Hadoop完全分布式集群.md)
 
 * [hadoop-项目2存储电影网站用户影评分析数据](hadoop部署/项目2存储电影网站用户影评分析数据.md)
 
@@ -25,7 +27,6 @@
     
 
 * [第一章：入门](chapter1/README.md)
-    
     * [安装指南](chapter1/installation.md)
     * [快速开始](chapter1/quickstart.md)
 * [第二章：进阶](chapter2/README.md)
