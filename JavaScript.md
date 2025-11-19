@@ -824,9 +824,9 @@ var obj = new 构造函数名();
 ​	
 ​	concat()	合并多个数组
 
-遍历数组元素   
+### 遍历数组   
 
-​	forEach，map，filter，reduce，some，every这6种遍历方法。  
+​	forEach，map，filter，reduce，some，every这6种遍历方法。    
 
 ​	forEach 遍历数组中的元素，对每个元素执行相应的操作。
 
@@ -1755,9 +1755,9 @@ const {name, age} = {name: 'John', age: 20};
 
 ## 数组的扩展
 
-### 新增的数组方法
+### 新增的数组方法：数组创建
 
-Array.from：用于将两类对象转为真正的数组
+Array.from：用于将两类对象转为真正的数组    
 
 ​	（将伪数组对象或可遍历对象转换为真数组）
 
@@ -1780,9 +1780,50 @@ Array.of(3) // [3]
 Array.of(3).length // 1
 ```
 
-## 遍历
+### 新增的数组方法：数据筛选
 
-ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。
+**find(回调函数)**方法：找出**第一个符合条件的成员**。   
+**findIndex(回调函数)**方法：用法和find()类似。返回符合条件成员的位置(从0开始)。若找不到返回-1  
+**filter(回调函数)**方法：返回符合条件的**全部成员**(作为新数组返回)  
+**some(回调函数)**方法：判断数组中是否有满足条件的元素。一旦找到就返回true，停止搜索。全部搜索完都没找到就返回false
+
+```javascript
+var nums=[2, 6, 22, 55]
+
+nums.find(function(v,index,arr) {
+    return v>9
+})
+
+nums.filter(function(v) {
+    return v>9
+})
+//回调函数参数：参数名可自定义
+//v：当前遍历元素的值
+//index：当前遍历元素的位置，此处未使用，可省略
+//arr：原数组，此处可省略
+//回调函数体：判断是否满足条件，根据判断结果返回true或false
+// 此处的回调函数通常可简写为箭头函数
+```
+
+### 新增的数组方法：数据填充
+
+fill()方法使用给定值,填充一个数组。用于空数组的初始化。    
+
+基本语法 `arr.fill(value, start?, end?)`
+
+```javascript
+// 快速创建长度为5、全为1的数组
+const arr2 = new Array(5).fill(1);
+console.log(arr2); // 输出 [1, 1, 1, 1, 1]
+
+const arr5 = [1, 2, 3, 4, 5];
+arr5.fill(7, 1, 4); // 填充索引1~3（不包含4）
+console.log(arr5); // 输出 [1, 7, 7, 7, 5]
+```
+
+### 新增的数组方法：数据遍历
+
+ES6 提供三个新的方法——entries()，keys()和values()——用于遍历数组。    
 
 它们都返回一个遍历器对象，可以用for...of循环进行遍历，唯一的区别是keys()是对键名的遍历、values()是对键值的遍历，entries()是对键值对的遍历。
 
@@ -1816,9 +1857,33 @@ for(let [index,value] of arr.entries()){
    */
 ```
 
+### includes
+
+includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。
+
+语法：includes(值, 搜索起始位置)。搜索起始位置默认为0，
+
+```javascript
+[1, 2, 3].includes(4)
+[1, 2, 3].includes(3, 2);  // true
+[1, 2, 3].includes(3, 3);  // false
+[1, 2, 3].includes(3, -1); // true
+```
+
+### flat
+
+flat()用于将嵌套的数组“拉平”，**下降一个维度**。该方法返回一个新数组，对原数据没有影响。
+
+```javascript
+[1, 2, [3, [4, 5]]].flat()
+// [1, 2, 3, [4, 5]]
+[1, 2, [3, [4, 5]]].flat().flat()
+//[1,2,3,4,5]
+```
+
 ## Set数据结构
 
-类似于数组，但是成员的值都是唯一的，没有重复的值。
+类似于数组，但是成员的值都是唯一的，没有重复的值。  
 
 通过new Set()可以创建Set，然后通过add方法能够向Set中添加数据项。。
 
