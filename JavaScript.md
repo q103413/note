@@ -986,39 +986,45 @@ var reg=/a+b?\w/;
 
 # 四、BOM与DOM
 
-了解:
-	API 
-		Application Programming Interface 应用程序接口, 简称 接口
-		实现某种功能，开发人员无须访问源码，无须理解内部实现机制，只需要知道使用即可。
-		例如：打卡摄像头，打开相册	（juhe.cn）
+了解:  
+	API   
+		Application Programming Interface 应用程序接口, 简称 接口  
+		实现某种功能，开发人员无须访问源码，无须理解内部实现机制，只需要知道使用即可。  
+		例如：打卡摄像头，打开相册	（juhe.cn）  
 
 ## DOM
 
-Web API
-	操作浏览器和网页的接口。
-	DOM（Document Object Model）: 文档对象模型，操作网页元素。
-	BOM: 浏览器对象模型，操作浏览器窗口。
-	比如：console对象、document对象、window对象
+Web API  
 
-DOM
-	操作网页的接口。操作网页的元素。
-	DOM（Document Object Model）: 文档对象模型，操作网页元素。
-	获取网页元素、获取属性、操作样式等。比如调整div大小，切换标签，做交互效果。
+​	操作浏览器和网页的接口。  
+​	DOM（Document Object Model）: 文档对象模型，操作网页元素。  
+​	BOM: 浏览器对象模型，操作浏览器窗口。  
+​	比如：console对象、document对象、window对象
 
-DOM树：将HTML文档看成树结构，称为文档树模型。
-	把文档映射成树结构，通过节点对象对其处理。
-	专有名词：
-		文档 (document)
-		元素 (element)
-		节点 (node): 网页中的所有内容，在DOM树中都是节点。（比如：元素节点、属性节点、文本节点、注释节点）
+DOM  
 
-事件:可以被js检测到的行为，是一种“触发-响应”机制。比如：页面加载，鼠标单击，悬浮，滑动等。
-	三要素：
-		事件源：触发事件的元素（谁触发了事件）
-		事件类型：比如click事件（触发了什么事件）
-			点击事件onclick
-			获取文本框焦点onfocus, 失去文本框焦点onblur
-			鼠标指针经过事件onmouseover, 鼠标指针离开事件onmouseout
+​	操作网页的接口。操作网页的元素。  
+​	DOM（Document Object Model）: 文档对象模型，操作网页元素。  
+​	获取网页元素、获取属性、操作样式等。比如调整div大小，切换标签，做交互效果。
+
+DOM树  
+
+将HTML文档看成树结构，称为文档树模型。  
+	把文档映射成树结构，通过节点对象对其处理。  
+	专有名词：  
+		文档 (document)  
+		元素 (element)  
+		节点 (node): 网页中的所有内容，在DOM树中都是节点。（比如：元素节点、属性节点、文本节点、注释节点）  
+
+**事件:**  
+
+可以被js检测到的行为，是一种“触发-响应”机制。比如：页面加载，鼠标单击，悬浮，滑动等。  
+	三要素：  
+		事件源：触发事件的元素（谁触发了事件）  
+		事件类型：比如click事件（触发了什么事件）  
+			点击事件onclick  
+			获取文本框焦点onfocus, 失去文本框焦点onblur  
+			鼠标指针经过事件onmouseover, 鼠标指针离开事件onmouseout  
 		事件处理程序：触发事件以后要执行的代码（触发事件以后要做什么）
 
 掌握
@@ -1166,25 +1172,30 @@ box.style.fontSize = '20px'
 
 ### 属性操作
 
-​	获取属性
-​		任意属性通用(推荐)：element.getAttribute('属性')
+#### 获取属性
+
+​	任意属性通用(推荐)：element.getAttribute('属性')
 ​		内置属性： element.属性，比如id、style等
 
-​	设置属性
-​		H5规定用 “data-属性名”的方式设置自定义属性名。
+#### 设置属性
+
+​	H5规定用 “data-属性名”的方式设置自定义属性名。
 ​		通用(推荐): element.setAttribute('属性名','属性值')
 ​			 element.dataset.属性名 = 属性值 （属性值会加上data-）
 ​		内置属性: element.属性名 = '属性值'
 
-移除属性
-	element.removeAttribute('属性名')
+#### 移除属性
 
-自定义属性：data-属性名
-	设置：
-		element.setAttribute('data-属性','值')
-		element.dataset.属性	= '值'
-	获取：
-		element.getAttribute('data-属性')
+​	element.removeAttribute('属性名')
+
+#### 自定义属性
+
+data-属性名  
+	设置：  
+		element.setAttribute('data-属性','值')  
+		element.dataset.属性	= '值'  
+	获取：  
+		element.getAttribute('data-属性')  
 		element.dataset.属性	= '值'
 
 ### DOM节点基础
@@ -1196,87 +1207,99 @@ box.style.fontSize = '20px'
 节点层级：节点之间的层级关系
 	根节点、父节点、子节点、兄弟节点
 	
-获取父节点
-	element.parentNode 
 
-获取子元素节点
-	推荐使用： element.children 
-		结果是伪数组，通过索引访问
+#### 获取父节点
 
-​	获取子元素的节点： element.children[索引]
-​		获取子元素的第一个节点：element.children[0]
-​		获取子元素的最后一个节点：element.children[element.length-1]
+​	element.parentNode 
+
+#### 获取子节点
+
+​	推荐使用： element.children   
+​		结果是伪数组，通过索引访问  
+
+​	获取子元素的节点： element.children[索引]  
+​		获取子元素的第一个节点：element.children[0]  
+​		获取子元素的最后一个节点：element.children[element.length-1]  
 ​	
-​		获取第一个子元素
-​			element.children[0]
+​		获取第一个子元素  
+​			element.children[0]  
 ​		
-​		获取最后一个子元素
+​		获取最后一个子元素  
 ​			element.children[element.children.length - 1]
 ​			
-​	获取兄弟节点
-​	
-​	获取兄弟元素
-​		下一个兄弟元素
-​		element.nextElementSibling
-​		//上一个兄弟元素
-​		element.previousElementSibling
 
-事件的绑定和事件对象的使用
+#### 获取兄弟节点
 
-常用的鼠标事件、键盘事件
+获取兄弟元素
+​		下一个兄弟元素  
+​		element.nextElementSibling  
+​		//上一个兄弟元素  
+​		element.previousElementSibling  
+
+事件的绑定和事件对象的使用  
+
+常用的鼠标事件、键盘事件  
 
 获取/编辑输入框内容
 	element.value
-获取/编辑元素内容
-	element.innerHTML 
 
-节点操作
+#### 获取/编辑元素内容
 
-创建节点（创建元素节点）
-	document.createElement('tagName')
+​	element.innerHTML 
+
+节点操作  
+
+#### 创建节点
+
+（创建元素节点）  
+	document.createElement('tagName')  
 	动态创建节点：
 		document.write()
 		element.innerHTML = ''
 		document.createElement('tagName')
 
-添加子节点
-	element.appendChild(child) 在最后一个子节点后面添加子节点
-	element.insertBefore(子节点, 指定节点)	在指定元素之前添加子元素节点	
-	
-删除节点
-	element.removeChild(child)  删除子节点
+#### 添加子节点
+
+​	element.appendChild(child) 在最后一个子节点后面添加子节点
+​	element.insertBefore(子节点, 指定节点)	在指定元素之前添加子元素节点	
+​	
+
+#### 删除节点
+
+​	element.removeChild(child)  删除子节点
    //删除node: node.parentNode.removeChild(node)
 
-复制节点
-	element.cloneNode(true/false)  
-	
+#### 复制节点
+
+​	element.cloneNode(true/false)  
+​	
 
 ### 事件进阶
 
-事件的绑定和事件对象的使用
-注册事件（绑定事件）
-	传统方式：on+事件类型，比如onclick、onmouseover等
-		特点：同一个元素同一个事件只能设置一个处理函数（如果有多个，后一个覆盖前一个）
-	事件监听：addEventListener ('事件类型',执行函数)
-		element.addEventListener(type,callback), type参数：事件类型，callback:处理函数
-		同一个元素，同一个事件可以监听多次
+事件的绑定和事件对象的使用  
+注册事件（绑定事件）  
+	传统方式：on+事件类型，比如onclick、onmouseover等  
+		特点：同一个元素同一个事件只能设置一个处理函数（如果有多个，后一个覆盖前一个）  
+	事件监听：addEventListener ('事件类型',执行函数)  
+		element.addEventListener(type,callback), type参数：事件类型，callback:处理函数  
+		同一个元素，同一个事件可以监听多次  
 
-删除事件
-	传统方式：on事件类型 = null
-	事件监听：element.removeEventListener(type,callback)
-	element.onclick = null
-	elemnt.removeEventListener ('事件类型',执行函数)
+删除事件  
+	传统方式：on事件类型 = null  
+	事件监听：element.removeEventListener(type,callback)  
+	element.onclick = null  
+	elemnt.removeEventListener ('事件类型',执行函数)  
 
-DOM事件流
-	事件捕获：从父到子（从外向内）
-	事件冒泡：从子到父（从内向外）
+DOM事件流  
+	事件捕获：从父到子（从外向内）  
+	事件冒泡：从子到父（从内向外）  
 
-事件对象
-	什么是事件对象：与触发事件相关的所有信息
-		参数event就是事件对象
-		element.事件 = function(event){}
+事件对象  
+	什么是事件对象：与触发事件相关的所有信息  
+		参数event就是事件对象  
+		element.事件 = function(event){}  
 
-e.target  触发事件的对象
+e.target  触发事件的对象  
 this		绑定事件的对象
 
 ![image-20241215212526454](http://img.an520.com/test/image-20241215212526454.png)
@@ -1475,47 +1498,59 @@ navigator对象
 
 ### history对象
 
-​	常用属性：length	返回历史列表中的网址数
-​	常用方法：
-​		back() 回退
-​		forward() 前进
-​		go()	加载history列表中的某个具体页面
+​	常用属性：length	返回历史列表中的网址数  
+​	常用方法：  
+​		back() 回退  
+​		forward() 前进  
+​		go()	加载history列表中的某个具体页面  
 
 ### webStorage
 
-webstorage 是 HTML5新增的存储数据的方案，比使用 cookie 更加直观。
+webstorage 是 HTML5新增的存储数据的方案，比使用 cookie 更加直观。  
 
-如果是会话存储，则使用sessionStorage，如果是本地存储(硬盘)，则使用localStorage。
+如果是会话存储，则使用sessionStorage，如果是本地存储(硬盘)，则使用localStorage。  
 
 #### sessionStorage
-用于临时保存同一窗口(或标签页)的数据（key/value），
-在关闭窗口或标签页之后将会删除这些数据。
+用于**临时保存**同一窗口(或标签页)的数据**（key/value）**，在关闭窗口或标签页之后将会删除这些数据。      
 
-sessionStorage的特点：
-	只在本地存储：只会在本地生效，并在关闭标签页后清除数据。
-	存储方式：seesionStorage的存储方式采用key、value的方式。value的值必须为字符串类型。
-	存储上限限制：大多数浏览器把上限限制在5MB以下。
+sessionStorage的特点：  
+	**只在本地存储**：只会在本地生效，并在关闭标签页后清除数据。  
+	**存储方式**：seesionStorage的存储方式采用**key、value**的方式。**value的值必须为字符串类型**。  
+	**存储上限**限制：大多数浏览器把上限限制在5MB以下。  
 
-sessionStorage常用方法
-	sessionStorage.setItem('key','value')	保存或设置数据到sessionStorage
-	sessionStorage.getItem('key')	获取某个sessionStorage
-	sessionStorage.removeItem('key')	从sessionStorage删除某个保存的数据
-	sessionStorage.clear()	从sessionStorage删除所有保存的数据
+sessionStorage常用方法  
+	sessionStorage.setItem('key','value')	保存或设置数据到sessionStorage  
+	sessionStorage.getItem('key')	获取某个sessionStorage  
+	sessionStorage.removeItem('key')	从sessionStorage删除某个保存的数据  
+	sessionStorage.clear()	从sessionStorage删除所有保存的数据  
 
 #### localStorage
 
-​	本地存储，解决了cookie存储空间不足的问题，
-​	一般浏览器支持的是5M大小。
-localStorage的特点：
-​	localStorage和sessionStorage一样都是存储在客户端、且同源的 
-​	只能存储字符串类型的对象；
-​	localStorage生命周期是永久。即使你是将浏览器关闭了，数据也不会消失。除非用户主动清除localStorage信息。
+​	本地存储，解决了cookie存储空间不足的问题，一般浏览器支持的是5M大小。  
+localStorage的特点：  
+​	localStorage和sessionStorage一样**都是存储在客户端、且同源的**   
+​	**只能存储字符串类型**的对象；  
+​	**localStorage生命周期是永久。即使你是将浏览器关闭了，数据也不会消失**。除非用户主动清除localStorage信息。  
 
-localStorage常用方法
-	localStorage.setItem('key','value')	保存或设置数据到localStorage
-	sessionStorage.getItem('key')	获取某个localStorage
-	localStorage.removeItem('key')	从localStorage删除某个保存的数据
+localStorage常用方法  
+	localStorage.setItem('key','value')	保存或设置数据到localStorage  
+	sessionStorage.getItem('key')	获取某个localStorage  
+	localStorage.removeItem('key')	从localStorage删除某个保存的数据  
 	localStorage.clear()	从localStorage删除所有保存的数据
+
+### localStorage、sessionStorage、Cookie 全方位对比
+
+三者均是浏览器端的**客户端存储方案**，核心用于保存少量键值对数据，但在存储容量、生命周期、作用域、与服务器交互等核心特性上差异显著，下面通过表格和关键说明清晰对比，帮你快速选型：
+
+| **特性**         | **localStorage**                               | **sessionStorage**                        | **Cookie**                                                   |
+| ---------------- | ---------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------ |
+| **存储容量**     | 较大（通常 **5MB - 10MB**）                    | 较大（通常 **5MB - 10MB**）               | 极小（通常 **4KB**）                                         |
+| **持久性**       | **永久**（永不过期）                           | **会话级**（关闭浏览器窗口/标签页即清除） | 可设置**过期时间**（若未设置，则会话结束清除）               |
+| **共享范围**     | 同源的所有窗口/标签页**共享**                  | **仅限创建它的当前窗口/标签页**           | 同源的所有窗口/标签页**共享**                                |
+| **与服务器通信** | **不会**自动发送到服务器                       | **不会**自动发送到服务器                  | **每次** HTTP 请求都会**自动携带**                           |
+| **作用目的**     | 永久保存用户数据（如主题、离线数据、上次状态） | 临时保存会话数据（如购物车、表单进度）    | 用于身份验证和状态跟踪（如 Session ID）                      |
+| **访问方式**     | 仅通过 **JavaScript** API 访问                 | 仅通过 **JavaScript** API 访问            | 默认可通过 **JavaScript**（除非设置 `HttpOnly`）和 **服务器** 访问 |
+| **操作方式**     | `localStorage.setItem()`                       | `sessionStorage.setItem()`                | 需通过 `document.cookie` 或**服务器端响应头**操作            |
 
 # 五、JS网页特效
 
