@@ -1137,9 +1137,7 @@ box.style.fontSize = '20px'
 ```
 
 ​	2 操作className属性
-​		元素.className = 
-
-
+​		`元素.className =` 
 
 了解  
 排他思想：排除掉其他的(包括自己),然后给自己设置实现的效果.  
@@ -1164,9 +1162,7 @@ box.style.fontSize = '20px'
 - ​		子节点
 - ​		兄弟节点
 
-​	
-
-掌握
+掌握  
 
 元素的属性和dom节点操作
 
@@ -1186,93 +1182,100 @@ box.style.fontSize = '20px'
 
 #### 移除属性
 
-​	element.removeAttribute('属性名')
+​	`element.removeAttribute('属性名')`
 
 #### 自定义属性
 
 data-属性名  
-	设置：  
-		element.setAttribute('data-属性','值')  
-		element.dataset.属性	= '值'  
-	获取：  
-		element.getAttribute('data-属性')  
-		element.dataset.属性	= '值'
+	设置： 
+
+```javascript
+element.setAttribute('data-属性','值')  
+element.dataset.属性	= '值'  
+```
+
+​	获取：  
+
+```javascript
+element.getAttribute('data-属性')  
+element.dataset.属性	= '值'
+```
 
 ### DOM节点基础
 
 ​	什么是节点：
 ​		常见的节点类型：元素节点，属性节点，文本节点，注释节点等
-​		
 
 节点层级：节点之间的层级关系
 	根节点、父节点、子节点、兄弟节点
-	
 
 #### 获取父节点
 
-​	element.parentNode 
+​	`element.parentNode` 
 
 #### 获取子节点
 
-​	推荐使用： element.children   
+​	推荐使用： `element.children` 
 ​		结果是伪数组，通过索引访问  
 
 ​	获取子元素的节点： element.children[索引]  
 ​		获取子元素的第一个节点：element.children[0]  
-​		获取子元素的最后一个节点：element.children[element.length-1]  
-​	
+​		获取子元素的最后一个节点：`element.children[element.length-1]` 
 ​		获取第一个子元素  
-​			element.children[0]  
-​		
+​			`element.children[0]` 
 ​		获取最后一个子元素  
-​			element.children[element.children.length - 1]
-​			
+​			`element.children[element.children.length - 1]`
 
 #### 获取兄弟节点
 
-获取兄弟元素
-​		下一个兄弟元素  
-​		element.nextElementSibling  
-​		//上一个兄弟元素  
-​		element.previousElementSibling  
+获取兄弟元素   
+	下一个兄弟元素 
+`element.nextElementSibling` 
+	上一个兄弟元素 
+`element.previousElementSibling`  
 
-事件的绑定和事件对象的使用  
+事件的绑定和事件对象的使用    
 
-常用的鼠标事件、键盘事件  
+常用的鼠标事件、键盘事件    
 
 获取/编辑输入框内容
-	element.value
+	`element.value`
 
 #### 获取/编辑元素内容
 
-​	element.innerHTML 
+​	`element.innerHTML` 
 
 节点操作  
 
 #### 创建节点
 
 （创建元素节点）  
-	document.createElement('tagName')  
-	动态创建节点：
-		document.write()
-		element.innerHTML = ''
-		document.createElement('tagName')
+	`document.createElement('tagName')` 
+动态创建节点：
+
+```javascript
+document.write()
+element.innerHTML = ''
+document.createElement('tagName')
+```
 
 #### 添加子节点
 
-​	element.appendChild(child) 在最后一个子节点后面添加子节点
-​	element.insertBefore(子节点, 指定节点)	在指定元素之前添加子元素节点	
-​	
+```javascript
+element.appendChild(child)   	//在最后一个子节点后面添加子节点  
+element.insertBefore(子节点, 指定节点)		//在指定元素之前添加子元素节点	
+```
 
 #### 删除节点
 
-​	element.removeChild(child)  删除子节点
-   //删除node: node.parentNode.removeChild(node)
+```javascript
+element.removeChild(child)  //删除子节点
+//删除node: node.parentNode.removeChild(node)
+```
 
 #### 复制节点
 
-​	element.cloneNode(true/false)  
-​	
+​	`element.cloneNode(true/false)`  
 
 ### 事件进阶
 
@@ -1311,16 +1314,20 @@ this		绑定事件的对象
 事件委托：把事件绑定在父节点，不给每个子节点单独设置
 	不给子元素注册事件，给父元素注册事件。
 
+```javascript
+element.value //获取文本框的内容
 
-element.value 获取文本框的内容
-
-element.innerHTML 获取元素的内容
+element.innerHTML //获取元素的内容
+```
 
 常用的**鼠标事件**
-	onclick	点击事件
-	onfocus	获取焦点	onblur 失去焦点
-	onmouseover 鼠标经过  onmouseout鼠标离开
-	onmousemove  鼠标指针移动
+
+```javascript
+onclick	//点击事件
+onfocus	获取焦点	onblur 失去焦点
+onmouseover 鼠标经过  onmouseout鼠标离开
+onmousemove  //鼠标指针移动
+```
 
 鼠标事件对象：跟鼠标事件相关的所有信息
 
@@ -1450,15 +1457,20 @@ window.open('http://www.imooc.com','_blank','width=300,height=200,menubar=no,too
 	confirm()：弹出确认框。
 	prompt()：弹出提示输入框。
 
-
 两组定时器的使用
 	设置定时器
-		setTimeout(函数,毫秒)	在指定的毫秒后调用函数，只执行一次
-		setInterval(函数,毫秒)	在指定的周期调用函数，可以执行无数次
+
+```javascript
+setTimeout(函数,毫秒)	//在指定的毫秒后调用函数，只执行一次
+setInterval(函数,毫秒)	//在指定的周期调用函数，可以执行无数次
+```
 
 清除定时器
-	clearTimeout(定时器ID)
-	clearInterval(定时器ID)
+
+```javascript
+clearTimeout(定时器ID)
+clearInterval(定时器ID)
+```
 
 JavaScript执行机制
 	单线程：JS的特点、同一时间只能做一件事。
@@ -1519,10 +1531,13 @@ sessionStorage的特点：
 	**存储上限**限制：大多数浏览器把上限限制在5MB以下。  
 
 sessionStorage常用方法  
-	sessionStorage.setItem('key','value')	保存或设置数据到sessionStorage  
-	sessionStorage.getItem('key')	获取某个sessionStorage  
-	sessionStorage.removeItem('key')	从sessionStorage删除某个保存的数据  
-	sessionStorage.clear()	从sessionStorage删除所有保存的数据  
+
+```javascript
+sessionStorage.setItem('key','value')	保存或设置数据到sessionStorage  
+sessionStorage.getItem('key')	获取某个sessionStorage  
+sessionStorage.removeItem('key')	从sessionStorage删除某个保存的数据  
+sessionStorage.clear()	从sessionStorage删除所有保存的数据  
+```
 
 #### localStorage
 
@@ -1533,12 +1548,15 @@ localStorage的特点：
 ​	**localStorage生命周期是永久。即使你是将浏览器关闭了，数据也不会消失**。除非用户主动清除localStorage信息。  
 
 localStorage常用方法  
-	localStorage.setItem('key','value')	保存或设置数据到localStorage  
-	sessionStorage.getItem('key')	获取某个localStorage  
-	localStorage.removeItem('key')	从localStorage删除某个保存的数据  
-	localStorage.clear()	从localStorage删除所有保存的数据
 
-### localStorage、sessionStorage、Cookie 全方位对比
+```javascript
+localStorage.setItem('key','value')	保存或设置数据到localStorage  
+sessionStorage.getItem('key')	获取某个localStorage  
+localStorage.removeItem('key')	从localStorage删除某个保存的数据  
+localStorage.clear()	从localStorage删除所有保存的数据
+```
+
+### localStorage、sessionStorage、Cookie 对比
 
 三者均是浏览器端的**客户端存储方案**，核心用于保存少量键值对数据，但在存储容量、生命周期、作用域、与服务器交互等核心特性上差异显著，下面通过表格和关键说明清晰对比，帮你快速选型：
 
