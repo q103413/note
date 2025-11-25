@@ -427,10 +427,16 @@ $(this).is(":contains('Peter')");
 ## 遍历元素（节点）
 
   遍历元素:each
-    	`$('选择器').each(function(index,domElement){})`
+
+```
+$('选择器').each(function(index,domElement){})
+```
 
   **遍历对象或者数组： $.each**
-    	$.each(Object, function(index,element){})
+
+```
+$.each(Object, function(index,element){})
+```
 
 遍历元素：基本语法 $(selector).each(function(index, domEle) {});
 
