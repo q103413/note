@@ -397,21 +397,32 @@ console.log(typeof result)
 
 分支结构：根据条件 控制执行  
 	单分支：单个条件表达式  
-		if(条件表达式){  
-			//代码段  
-		}
+语法
 
 ```javascript
-	if ( true ) {
-		alert('吃火锅')
-	}
+if(条件表达式){  
+    //代码段  
+}
 ```
-双分支：  
-​		if(条件表达式){  
-​			//代码段1  
-​		} else {  
-​			//代码段2  
-​		}  
+
+实例
+
+```javascript
+if ( true ) {
+    alert('吃火锅')
+}
+```
+双分支语法：  
+
+```javascript
+if(条件表达式){  
+    //代码段1  
+} else {  
+    //代码段2  
+}  
+```
+
+实例
 
 ```javascript
 	var a = prompt("你喜欢我吗？yes or no ?")
@@ -422,37 +433,43 @@ console.log(typeof result)
 	}
 ```
 多分支：多个条件表达式  
-​		switch能写的，一定能写。反之则不然。  
-​		if(条件表达式1){  
-​			//代码段1  
-​		} else if(条件表达式2) {  
-​			//代码段2  
-​		}else if(条件表达式3) {  
-​			//代码段3  
-​		}else{  
-​			//代码段x  
-​		}  
-​	
-​	switch语句：也是多分支，功能与if..else if类似。  
+
+```javascript
+// switch能写的，一定能写。反之则不然。  
+if(条件表达式1){  
+    //代码段1  
+} else if(条件表达式2) {  
+    //代码段2  
+}else if(条件表达式3) {  
+    //代码段3  
+}else{  
+    //代码段x  
+}
+```
+
+
+switch语句：也是多分支，功能与if..else if类似。  
 ​			只有一个表达式。**break不能少**。  
 
-​		switch(表达式) {  
-​			case '值1':  
-​				//代码段1  
-​				break;  
-​			case '值2':  
-​				//代码段2  
-​				break;  
-​			default:  
-​				//代码段n  
-​		}
+```javascript
+switch(表达式) {  
+    case '值1':  
+        //代码段1  
+        break;  
+    case '值2':  
+        //代码段2  
+        break;  
+    default:  
+        //代码段n  
+}
+```
 
 - 循环结构：重复执行
 	for循环：适合循环次数已知。
-```
-	for(初始化变量; 条件表达式（循环条件）; 操作表达式（每次循环后的操作） ){
-		//循环体
-	}
+```javascript
+for(初始化变量; 条件表达式（循环条件）; 操作表达式（每次循环后的操作） ){
+    //循环体
+}
 ```
 ​	断点调试：    
 
@@ -461,10 +478,10 @@ console.log(typeof result)
 ​	循环结构：重复执行  
 ​		for循环：适合循环次数已知。
 
-```
-	for(初始化变量; 条件表达式（循环条件）; 操作表达式（每次循环后的操作） ){
-		//循环体
-	}
+```javascript
+for(初始化变量; 条件表达式（循环条件）; 操作表达式（每次循环后的操作） ){
+    //循环体
+}
 ```
 
 断点调试
@@ -472,7 +489,7 @@ console.log(typeof result)
 while循环：先判断条件再执行。for循环可以改成while循环
 	适合循环次数未知。可以和for循环互相改
 
-```
+```javascript
 	while(条件表达式){
 		//循环体
 	}
@@ -565,21 +582,31 @@ getSum(100,200)
 
 函数参数：
 	形参：函数声明时的参数
-		function 函数名(参数1，参数2。。。){
-			//代码
-		}
-	实参：函数调用时的参数
-		函数名(参数1,参数2...)
 
-函数参数的数量：		
-	形参个数小于实参：undefined
+```javascript
+function 函数名(参数1，参数2。。。){
+    //代码
+}
+```
+
+​	实参：函数调用时的参数
+
+```javascript
+函数名(参数1,参数2...)
+```
+
+函数参数的数量：		  
+	形参个数小于实参：undefined  
 	形参个数大于实参：忽略多余的参数
 		
-返回值：推荐必须加上返回值，**终止并且返回**
-	function 函数名(参数1，参数2。。。){
-		//代码
-		return 返回值;//终止并且返回
-	}
+返回值：推荐必须加上返回值，**终止并且返回 ** 
+
+```javascript
+function 函数名(参数1，参数2。。。){
+    //代码
+    return 返回值;//终止并且返回
+}
+```
 
 ​	如果一个函数没有指定返回值，它默认返回`undefined`
 
@@ -587,24 +614,21 @@ return 可以提前终止函数：
 
 arguments :接收所有的实参, arguments是一个对象
 
-
-函数进阶：			
-
 函数进阶：
 	匿名函数：没有函数名称
 
+```javascript
+function(参数1,参数2...){
+    //代码
+    return 结果;
+}
 ```
-	function(参数1,参数2...){
-		//代码
-		return 结果;
-	}
-```
-```
-		//调用匿名函数
-		(function(参数1，参数2。。。){
-			//代码
-			return 返回值;//终止并且返回
-		})()
+```javascript
+//调用匿名函数
+(function(参数1，参数2。。。){
+    //代码
+    return 返回值;//终止并且返回
+})()
 ```
 
 函数表达式：
@@ -613,17 +637,22 @@ arguments :接收所有的实参, arguments是一个对象
 2. ​		函数表达式必须写在调用前
 
 ​		语法：  
-​		var 变量名 = function(参数1，参数2。。。){  
-​			//代码  
-​			return 返回值;//终止并且返回  
-​		}  
-​		变量名() //调用
 
 ```javascript
-	var sayHi = function(){
-		console.log('hello world')
-	}
-	sayHi()
+var 变量名 = function(参数1，参数2。。。){  
+    //代码  
+    return 返回值;//终止并且返回  
+}  
+变量名() //调用
+```
+
+实例：
+
+```javascript
+var sayHi = function(){
+    console.log('hello world')
+}
+sayHi()
 ```
 
 回调函数： 将函数作为参数传递给另外一个函数
@@ -691,8 +720,10 @@ arguments :接收所有的实参, arguments是一个对象
 	var car = new Object();
 ```
 
-3 用**构造函数(模板)**创建对象：
+3 用 **构造函数(模板)** 创建对象：  
 构造函数名一般首字母大写
+
+```
 //编写构造函数
 function 构造函数名(){
 	this.属性名 = 属性;
@@ -703,8 +734,9 @@ function 构造函数名(){
 
 //使用构造函数创建对象
 var obj = new 构造函数名();
+```
 
-静态成员：不需要创建实例对象就能使用。
+静态成员：不需要创建实例对象就能使用。  
 	静态属性和静态方法
 
 遍历对象的属性和方法： for...in
@@ -718,31 +750,32 @@ var obj = new 构造函数名();
 	} 
 ```
 
-什么是JSON
-	JSON：JavaScript Object Notation,即JavaScript对象标记
-	JSON 独立于语言，适用多种语言
-	JSON是一种便于阅读和书写的数据交换格式
+- 什么是JSON  
+  	JSON：JavaScript Object Notation,即JavaScript对象标记  
+  	JSON 独立于语言，适用多种语言  
+  	JSON是一种便于阅读和书写的数据交换格式  
+- ​	主要作用： JSON 是用于存储和传输数据的格式  
 
-​	主要作用： JSON 是用于存储和传输数据的格式
-
-	JSON对象格式：{"key":"value","key":"value",....} 
-	键和值使用冒号分隔，key必须使用双引号，value如果没有使用双引号表示变量
+- ​	JSON对象格式：{"key":"value","key":"value",....}   
+  ​	键和值使用冒号分隔，key必须使用双引号，value如果没有使用双引号表示变量
 
 ## 内置对象
 
-​	---不用编写，直接使用的对象
-​	通过查阅文档熟悉内置对象: mdn
+​	---不用编写，直接使用的对象  
+​	通过查阅文档熟悉内置对象: mdn  
 ​		官方文档：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript
 
 ### Math对象：
 
-​	数学相关的运算, 不需要实例化,不是构造函数
-​		Math.round(x)    四舍五入
-​		Math.floor(x)      向下取整
-​		Math.ceil(x)	向上取整
-​		Math.abs(x)	绝对值
+​	数学相关的运算, 不需要实例化,不是构造函数 
 
-​	Math.random()  获取大于等于0.0 小于1.0的随机数
+| **语法**             | **作用**                                                   | **示例**                                             |
+| -------------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| `Math.round(number)` | 将数字 **四舍五入** 到最接近的整数。                       | `Math.round(4.5)` → 5; <br />`Math.round(4.4)` → 4   |
+| `Math.floor(number)` | 对数字进行**向下取整**（返回小于或等于该数字的最大整数）。 | `Math.floor(4.9)` → 4; <br />`Math.floor(-4.1)` → -5 |
+| `Math.ceil(number)`  | 对数字进行**向上取整**（返回大于或等于该数字的最小整数）。 | `Math.ceil(4.1)` → 5; <br />`Math.ceil(-4.9)` → -4   |
+| `Math.abs(number)`   | 返回数字的**绝对值**。                                     | `Math.abs(-5)` → 5                                   |
+| `Math.random()`      | 返回一个**伪随机浮点数**。                                 | 返回值范围：[0.0, 1.0) （大于等于 0.0，小于 1.0）    |
 
 ```javascript
 	//大于等于min,小于max的随机值
@@ -769,12 +802,11 @@ var obj = new 构造函数名();
 需要实例化 new Date()  
 	日期对象Date的使用  
 		首先使用new Date()实例化  
-	日期对象Date的常用方法:
-			获取日期
-			设置日期
-			
+	日期对象Date的常用方法:  
+			获取日期  
+			设置日期  
 
-时间戳： 当前时间，单位毫秒，  默认从1970-01-01 00:00:00到当前时间的毫秒数
+**时间戳**： 当前时间，单位毫秒，  默认从1970-01-01 00:00:00到当前时间的毫秒数  
 
 1秒= 1000毫秒
 
@@ -787,7 +819,7 @@ var obj = new 构造函数名();
 
 ### 数组对象:
 
-​	数组类型检测：instanceof Array或者 Array.isArray()
+数组类型检测：instanceof Array或者 Array.isArray()
 
 ```javascript
 	//第一种方法
@@ -842,11 +874,9 @@ var obj = new 构造函数名();
 ### 字符串对象：
 
 ​	1 String对象的创建:  
-​		语法：  
-​		new String(参数);  
-​		或者  直接使用双引号（单引号）定义字符串
+​		语法：  new String(参数);  或者  直接使用双引号（单引号）定义字符串    
 
-​	new String('字符串')
+​		new String('字符串')
 
 ```javascript
 var str1= new String('hello world')
@@ -857,35 +887,41 @@ var str2= 'hello world'
 2 String对象常用属性和方法:  
 属性，返回数组长度： length
 	
-根据字符返回位置(索引)：通过字符查找索引  
-	indexOf(searchValue, fromIndex): 找到value首次出现的位置，不存在则返回-1
-		searchValue要被查找的字符串值
-		fromIndex 开始查找的位置，默认0
-	lastIndexOf(value): 找到value最后出现的位置，不存在则返回-1
+根据字符返回位置(索引)：通过字符查找索引 
+
+| **语法**                          | **作用**                                                     | **返回值**                                  |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| `str.indexOf(value, [start])`     | 从字符串的**开头**向后查找 `searchValue` **首次出现**的位置（索引）。 | 找到则返回**起始索引**，否则返回 **`-1`**。 |
+| `str.lastIndexOf(value, [start])` | 从字符串的**末尾**向前查找 `searchValue` **最后出现**的位置（索引）。 | 找到则返回**起始索引**，否则返回 **`-1`**。 |
 
 根据位置（索引）返回字符：  
-	str[索引]		通过索引查找字符
-	charAt(index) 根据位置(索引)查找字符
-	charCodeAt(index)	根据位置(索引)获取字符的ASCII码
-	char[index]	获取指定位置的字符
+
+| **语法**                | **作用**                                                     | **返回值**         |
+| ----------------------- | ------------------------------------------------------------ | ------------------ |
+| `str[index]`            | 通过方括号索引访问指定位置的字符。                           | 字符串（长度为 1） |
+| `str.charAt(index)`     | 根据指定位置（索引）查找字符。                               | 字符串（长度为 1） |
+| `str.charCodeAt(index)` | 根据指定位置（索引）获取字符的 **Unicode 编码值**（0-65535 之间）。 | 数字               |
+| `char[index]`           | *(您可能误写或指代了其他上下文)*                             | N/A                |
 
 其他方法：  
-	str.concat(str2, [, ...strN])  			连接多个字符串  
-	str.slice(beginIndex[, endIndex])		截取字符串
-	str.substring(indexStart[, indexEnd]) 	截取字符串，但是不接收负值
-	str.substr(start[, length])				截取字符串，接收长度
-	str.toLowerCase() 						转小写
-	str.toUpperCase()  						转大写
-	str.split([separator[, limit]])			将字符串分割成数组
-	str.replace(substr, newSubStr)			替换（修改）字符串中的字符
-	str.trim() 删除字符串前后空白
-	str.trimStart() str.trimEnd()
+
+| **方法名**                        | **作用**                                            |
+| --------------------------------- | --------------------------------------------------- |
+| `str.concat(str2, ...strN)`       | **连接**多个字符串，返回新字符串。                  |
+| `str.toLowerCase()`               | 将整个字符串**转小写**，返回新字符串。              |
+| `str.toUpperCase()`               | 将整个字符串**转大写**，返回新字符串。              |
+| `str.split([separator[, limit]])` | 将字符串按指定分隔符 **分割成数组**。               |
+| `str.replace(substr, newSubStr)`  | **替换**字符串中的字符。                            |
+| `str.trim()`                      | 删除字符串**前后**的空白字符（空格、Tab、换行符）。 |
+| `str.trimStart()`                 | 删除字符串**开头**的空白字符。                      |
+| `str.trimEnd()`                   | 删除字符串**末尾**的空白字符。                      |
 
 ​	值类型和引用类型  
-​		值类型：基本数据类型(5种)：Boolean（布尔型） String字符型 Number数字类型 Null空 Undefined未定义  
-​	
-​		引用类型：引用数据类型(复杂数据类型)：Object（对象）  
-​		
+
+- ​		值类型：基本数据类型(5种)：Boolean（布尔型） String字符型 Number数字类型 Null空 Undefined未定义  
+- ​		引用类型：引用数据类型(复杂数据类型)：Object（对象）  
+
+
 ​		值类型是赋值传值：不会改变原来的变量值，因为赋值是单独复制一份  
 ​			赋值传值：将变量复制一份
 ​		引用类型是引用传值：会改变原来的变量值，因为赋值的是内存地址
@@ -1041,22 +1077,22 @@ console.log(cai)
 	因为相同的标签可以有多个，结果是集合，称为伪数组，可以用数组索引来访问元素。
 
 ```javascript
-	var li = document.getElementsByTagName('li')
-	//通过数组索引访问伪数组li
-	console.log(li[0])
-	console.log(li[2])
-	//修改css样式
-	li[0].style.color = 'red'
+var li = document.getElementsByTagName('li')
+//通过数组索引访问伪数组li
+console.log(li[0])
+console.log(li[2])
+//修改css样式
+li[0].style.color = 'red'
 ```
 根据name获取元素： document.getElementsByName('name名')
 	因为相同的name可以有多个，结果是集合，称为伪数组，可以用数组索引。
 
 ```javascript
-	var fruit = document.getElementsByName('fruit')
-	console.log(fruit)
-	console.log(fruit[0])
-	//将第一个元素的checked属性设置为true
-	fruit[0].checked = 'true'
+var fruit = document.getElementsByName('fruit')
+console.log(fruit)
+console.log(fruit[0])
+//将第一个元素的checked属性设置为true
+fruit[0].checked = 'true'
 ```
 
 HTML5新增的获取方式:
@@ -1065,7 +1101,7 @@ HTML5新增的获取方式:
 		因为相同的class可以有多个，结果是集合，称为伪数组，可以用数组索引。
 
 ```javascript
-	var one = document.getElementsByClassName('one')
+var one = document.getElementsByClassName('one')
 ```
 ​	document.querySelector('css选择器')
 ​		返回指定css选择器的第一个元素
@@ -1075,20 +1111,20 @@ HTML5新增的获取方式:
 ​		结果是伪数组，通过数组索引来访问元素。
 
 ```javascript
-	 document.querySelector('#box')
-	 document.querySelector('li')
-	 document.querySelector('.ci')
-	document.querySelectorAll('.fa')
+document.querySelector('#box')
+document.querySelector('li')
+document.querySelector('.ci')
+document.querySelectorAll('.fa')
 ```
 
 document对象的属性
 
-```java
-	document.title
-	document.body
-	document.documentElement
-	document.forms
-	document.images
+```javascript
+document.title
+document.body
+document.documentElement
+document.forms
+document.images
 ```
 
 
@@ -1097,23 +1133,27 @@ document对象的属性
 
 #### 1 操作元素的内容
 
-​	获取、修改元素内容  
+​	获取、修改**元素内容**  
 ​	获取内容  
-​		element.innerHTML 		保留标签、空格、换行
-​		element.innerText 		去掉标签、空格、换行
-​		element.textContent 	去掉标签，保留空格、换行	
+
+- ​		element.innerHTML 		保留标签、空格、换行
+- ​		element.innerText 		去掉标签、空格、换行
+- ​		element.textContent 	去掉标签，保留空格、换行	
+
 ​	修改内容  
-​		element.innerHTML 	= '内容'
-​		element.innerText 	= '内容'
-​		element.textContent = '内容'
+
+- ​		element.innerHTML 	= '内容'
+- ​		element.innerText 	= '内容'
+- ​		element.textContent = '内容'
+
 ​	
 
 #### 2 操作元素的属性
 
-获取、修改元素的属性  
-	获取元素的属性
-		element.属性名
-	修改元素的属性
+获取、修改**元素的属性**  
+	获取元素的属性  
+		element.属性名  
+	修改元素的属性  
 		element.属性名 = '属性值'
 
 ```javascript
@@ -1124,7 +1164,7 @@ document对象的属性
 
 #### 3 操作元素的样式(CSS、style)
 
-​	1 操作style属性
+​	1 操作style属性  
 ​		元素.style.样式名
 
 ```javascript
@@ -1203,11 +1243,15 @@ element.dataset.属性	= '值'
 
 ### DOM节点基础
 
-​	什么是节点：
+什么是节点：  
 ​		常见的节点类型：元素节点，属性节点，文本节点，注释节点等
 
-节点层级：节点之间的层级关系
+![image-20251126005225468](http://img.an520.com/test/image-20251126005225468.png)
+
+节点层级：节点之间的层级关系  
 	根节点、父节点、子节点、兄弟节点
+
+![image-20251126005302197](http://img.an520.com/test/image-20251126005302197.png)
 
 #### 获取父节点
 
@@ -1404,12 +1448,20 @@ selectedIndex 属性设置或返回下拉列表中被选定的选项的索引（
 
 ### window对象
 
-window的常见属性
-	innerheight	返回窗口的文档显示区的高度
-	innerwidth	返回窗口的文档显示区的宽度
-	opener	返回打开当前窗口的父窗口对象，是一个window对象
-	parent	返回父窗口对象，是一个window对象
-	self	返回当前窗口对象，是一个window对象
+window对象表示浏览器中打开的窗口，提供关于窗口状态的信息
+
+常见属性
+
+| 属性                                    | 描述                                                         |
+| --------------------------------------- | ------------------------------------------------------------ |
+| closed                                  | 返回窗口是否已被关闭                                         |
+| innerheight                             | 返回窗口的文档显示区的高度                                   |
+| innerwidth                              | 返回窗口的文档显示区的宽度                                   |
+| name                                    | 设置或返回窗口的名称                                         |
+| screenLeft、screenTop、screenX、screenY | 只读整数。声明窗口左上角在屏幕上的x坐标和y坐标               |
+| **opener**                              | 返回打开当前窗口的父窗口对象，是一个window对象，适用于open方法 |
+| parent                                  | 返回父窗口对象，是一个window对象，适用于框架                 |
+| **self**                                | 返回当前窗口对象，是一个window对象                           |
 
 掌握
 window对象的常见事件
@@ -1419,11 +1471,12 @@ window对象的常见事件
 调整窗口大小事件:resize
 	window.onresize 调整窗口大小时触发
 
-window的常用方法
-打开新窗口 window.open()
-	window.open(URL,[name],[features],[replace])
-		参数说明：
-		URL：打开指定页面的URL地址，若没有指定，则打开一个新的空白窗口。
+常用方法
+
+打开新窗口 window.open()  
+	window.open(URL,[name],[features],[replace])  
+		参数说明：  
+		URL：打开指定页面的URL地址，若没有指定，则打开一个新的空白窗口。  
 		name：窗口名称。指定target属性或窗口的名称。
 			_blank	URL加载到一个新的窗口，也是默认值
 			_parent	URL加载到父框架
@@ -1443,21 +1496,20 @@ window的常用方法
 			scrollbars：是否显示滚动条，yes\no。
 			要启用该特性，将其设置为 yes|1 ，反之为 no|0。
 		replace：设置为true，表示替换浏览历史中的当前条目，设置false（默认值），表示在浏览历史中创建新的条目
-			
-...
+
+```javascript
 //打开http://www.imooc.com网站，大小为300px * 200px，无菜单，无工具栏，无状态栏，有滚动条窗口：
-
 window.open('http://www.imooc.com','_blank','width=300,height=200,menubar=no,toolbar=no, status=no,scrollbars=yes')
-...
+```
 
-关闭窗口 window.close()
+关闭窗口 window.close()  
 
-模态对话框
-	alert()：弹出警告框。
-	confirm()：弹出确认框。
-	prompt()：弹出提示输入框。
+模态对话框  
+	alert()：弹出警告框。  
+	confirm()：弹出确认框。  
+	prompt()：弹出提示输入框。  
 
-两组定时器的使用
+两组定时器的使用  
 	设置定时器
 
 ```javascript
@@ -1476,11 +1528,13 @@ JavaScript执行机制
 	单线程：JS的特点、同一时间只能做一件事。
 	
 同步和异步：
-	同步：前一个任务结束后再执行后一个任务。
-	异步：做一件事的同时，可以做其他事情。
-		同步做饭： 烧水煮饭，等水开了，再去切菜、炒菜
-		异步做饭： 烧水煮饭的同时去切菜炒菜。	
-		比如click、setTimeout、setInterval等
+
+- ​	同步：前一个任务结束后再执行后一个任务。
+- ​	异步：做一件事的同时，可以做其他事情。
+
+​		同步做饭： 烧水煮饭，等水开了，再去切菜、炒菜  
+​		异步做饭： 烧水煮饭的同时去切菜炒菜。	  
+​		比如click、setTimeout、setInterval等  
 了解：进程、线程、协程、纤程、同步和异步 
 
 ### Location对象
@@ -1488,24 +1542,24 @@ JavaScript执行机制
 ​	URL的组成：
 ​		http://10.24.0.2:80
 ​		https://www.baidu.com:443
-​		https://www.bilibili.com/v/douga/?spm_id_from=333.1007.0.0	
-​	常用属性：
-​		search  返回查询部分（？之后的）
-​		host 返回主机加端口
+​		https://www.bilibili.com/v/douga/?spm_id_from=333.1007.0.0	  
+​	常用属性：  
+​		search  返回查询部分（？之后的）  
+​		host 返回主机加端口  
 ​		hostname 返回URL的主机名
 ​		href 	返回完整的URL
 ​		pathname	返回URL的路径名
 ​		port	返回一个URL服务器使用的端口号
 ​		hash	返回一个URL的锚部分
-​		protocol	返回一个URL协议
+​		protocol	返回一个URL协议  
 
-常用的方法：
-		assign() 	载入一个新的文档
+常用的方法：  
+		assign() 	载入一个新的文档  
 		reload()	重新加载当前文档(刷新)
-		replace()	用新的文档替换当前文档
+		replace()	用新的文档替换当前文档  
 
-navigator对象
-	常用属性：appCodeName appName appVersion platform
+navigator对象  
+	常用属性：appCodeName appName appVersion platform  
 	常用方法：javaEnabled()
 
 ### history对象
@@ -1525,12 +1579,12 @@ webstorage 是 HTML5新增的存储数据的方案，比使用 cookie 更加直�
 #### sessionStorage
 用于**临时保存**同一窗口(或标签页)的数据**（key/value）**，在关闭窗口或标签页之后将会删除这些数据。      
 
-sessionStorage的特点：  
+特点：  
 	**只在本地存储**：只会在本地生效，并在关闭标签页后清除数据。  
 	**存储方式**：seesionStorage的存储方式采用**key、value**的方式。**value的值必须为字符串类型**。  
 	**存储上限**限制：大多数浏览器把上限限制在5MB以下。  
 
-sessionStorage常用方法  
+常用方法  
 
 ```javascript
 sessionStorage.setItem('key','value')	保存或设置数据到sessionStorage  
@@ -1542,12 +1596,12 @@ sessionStorage.clear()	从sessionStorage删除所有保存的数据
 #### localStorage
 
 ​	本地存储，解决了cookie存储空间不足的问题，一般浏览器支持的是5M大小。  
-localStorage的特点：  
+特点：  
 ​	localStorage和sessionStorage一样**都是存储在客户端、且同源的**   
 ​	**只能存储字符串类型**的对象；  
 ​	**localStorage生命周期是永久。即使你是将浏览器关闭了，数据也不会消失**。除非用户主动清除localStorage信息。  
 
-localStorage常用方法  
+常用方法  
 
 ```javascript
 localStorage.setItem('key','value')	保存或设置数据到localStorage  
@@ -1597,19 +1651,23 @@ localStorage.clear()	从localStorage删除所有保存的数据
 
 offset和style的区别    
 
-## 可视区client
+## 可视区client属性
 
-​	clientLeft  	左边框大小  
-​	clientTop 	 	上边框大小  
-​	clientWidth 	自身内容的宽度/可视的宽度（包含padding，不包含border）  
-​	clientHeight 	自身内容的高度/可视的高度（包含padding，不包含border）  
+| **属性名**         | **作用**                            | **包含部分**                                | **不包含部分**                             |
+| ------------------ | ----------------------------------- | ------------------------------------------- | ------------------------------------------ |
+| **`clientLeft`**   | **左边框（`border-left`）的宽度**。 | 左边框                                      | Padding, Margin, 内容                      |
+| **`clientTop`**    | **上边框（`border-top`）的高度**。  | 上边框                                      | Padding, Margin, 内容                      |
+| **`clientWidth`**  | **自身内容的**可*视*宽度。          | **内容区宽度** + **左右内边距 (`padding`)** | 边框 (`border`), 外边距 (`margin`), 滚动条 |
+| **`clientHeight`** | **自身内容的**可*视*高度。          | **内容区高度** + **上下内边距 (`padding`)** | 边框 (`border`), 外边距 (`margin`), 滚动条 |
 
-## 滚动scroll  
+## 滚动scroll  属性
 
-​	scrollLeft 被卷去的左侧距离，不带单位  
-​	scrollTop  被卷去的上方距离，不带单位  
-​	scrollWidth	自身的宽度(不包含border)，不带单位  
-​	scrollHeight 自身的高度(不包含border)，不带单位    
+| **属性名**         | **作用**                                       | **包含部分**                                                 | **不包含部分**                     |
+| ------------------ | ---------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- |
+| **`scrollWidth`**  | 元素的**总内容宽度**（即使内容不可见）。       | **所有内容**的宽度（包括被卷去的部分） + **左右内边距 (`padding`)** | 边框 (`border`), 外边距 (`margin`) |
+| **`scrollHeight`** | 元素的**总内容高度**（即使内容不可见）。       | **所有内容**的高度（包括被卷去的部分） + **上下内边距 (`padding`)** | 边框 (`border`), 外边距 (`margin`) |
+| **`scrollLeft`**   | 元素内容**被卷去的左侧距离**（水平滚动距离）。 | 滚动条的偏移量                                               | N/A                                |
+| **`scrollTop`**    | 元素内容**被卷去的上方距离**（垂直滚动距离）。 | 滚动条的偏移量                                               | N/A                                |
 
 # 六、ES6新特性
 
