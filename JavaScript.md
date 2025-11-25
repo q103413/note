@@ -1375,7 +1375,7 @@ onmousemove  //鼠标指针移动
 
 鼠标事件对象：跟鼠标事件相关的所有信息  
 
-常用的**键盘事件 ** 
+常用的  **键盘事件 **
 
 - ​	keypress	按键按下触发(不识别功能键) 
 - ​	keydown  按键按下触发 
@@ -1390,14 +1390,14 @@ document.addEventListener('keydown', function(event) {
 })
 ```
 keyCode（keypress）  
-	区分大写状态（65\~90）和小写状态（97\~122）  
+		区分大写状态（65\~90）和小写状态（97\~122）  
 keyCode（keydown）  
-	字母键都以大写状态显示键值（65\~90）  
+		字母键都以大写状态显示键值（65\~90）  
 keyCode（keyup）  
-	字母键都以大写状态显示键值（65\~90）	  
+		字母键都以大写状态显示键值（65\~90）	  
 
 键盘事件对象：跟键盘事件相关的所有信息  
-	keyBoardEvent  
+		keyBoardEvent  
 
 onchange 当对象或选中区的内容改变时触发。  
 
@@ -1507,9 +1507,10 @@ window.open('http://www.imooc.com','_blank','width=300,height=200,menubar=no,too
 关闭窗口 window.close()  
 
 模态对话框  
-	alert()：弹出警告框。  
-	confirm()：弹出确认框。  
-	prompt()：弹出提示输入框。  
+
+- ​	alert()：弹出警告框。 
+- ​	confirm()：弹出确认框。 
+- ​	prompt()：弹出提示输入框。  
 
 两组定时器的使用  
 	设置定时器
