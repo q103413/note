@@ -1351,11 +1351,11 @@ this		绑定事件的对象
 
 ![image-20241215212526454](http://img.an520.com/test/image-20241215212526454.png)
 
-阻止事件冒泡：e.stopPropagation()
+阻止事件冒泡：e.stopPropagation()  
 
-阻止默认行为：e.preventDefault()
+阻止默认行为：e.preventDefault()  
 
-事件委托：把事件绑定在父节点，不给每个子节点单独设置
+事件委托：把事件绑定在父节点，不给每个子节点单独设置  
 	不给子元素注册事件，给父元素注册事件。
 
 ```javascript
@@ -1373,12 +1373,12 @@ onmouseover 鼠标经过  onmouseout鼠标离开
 onmousemove  //鼠标指针移动
 ```
 
-鼠标事件对象：跟鼠标事件相关的所有信息
+鼠标事件对象：跟鼠标事件相关的所有信息  
 
-常用的**键盘事件**
-	keypress	按键按下触发(不识别功能键)
-	keydown  按键按下触发
-	keyup	 按键松开触发
+常用的**键盘事件 ** 
+	keypress	按键按下触发(不识别功能键)  
+	keydown  按键按下触发  
+	keyup	 按键松开触发  
 （执行顺序 keydown -> keypress -> keyup）
 
 ```javascript
@@ -1387,20 +1387,20 @@ onmousemove  //鼠标指针移动
 		console.log(event.keyCode)
 	})
 ```
-keyCode（keypress）
-	区分大写状态（65~90）和小写状态（97~122）
-keyCode（keydown）
-	字母键都以大写状态显示键值（65~90）
-keyCode（keyup）
-	字母键都以大写状态显示键值（65~90）	
+keyCode（keypress）  
+	区分大写状态（65~90）和小写状态（97~122）  
+keyCode（keydown）  
+	字母键都以大写状态显示键值（65~90）  
+keyCode（keyup）  
+	字母键都以大写状态显示键值（65~90）	  
 
-键盘事件对象：跟键盘事件相关的所有信息
-	keyBoardEvent
+键盘事件对象：跟键盘事件相关的所有信息  
+	keyBoardEvent  
 
-onchange 当对象或选中区的内容改变时触发。
+onchange 当对象或选中区的内容改变时触发。  
 
-selectedIndex 属性设置或返回下拉列表中被选定的选项的索引（下标）。
-索引从 0 开始。
+selectedIndex 属性设置或返回下拉列表中被选定的选项的索引（下标）。  
+索引从 0 开始。  
 
 **常用事件**
 
@@ -1441,14 +1441,14 @@ selectedIndex 属性设置或返回下拉列表中被选定的选项的索引（
 
 ## BOM
 
-​	Brower Object Model 浏览器对象模型
-​	与浏览器进行交互的对象
-​	核心对象（顶级对象）是window
+​	Brower Object Model 浏览器对象模型  
+​	与浏览器进行交互的对象  
+​	核心对象（顶级对象）是window  
 ​		document、location、navigator、history对象等
 
 ### window对象
 
-window对象表示浏览器中打开的窗口，提供关于窗口状态的信息
+window对象表示浏览器中打开的窗口，提供关于窗口状态的信息  
 
 常见属性
 
