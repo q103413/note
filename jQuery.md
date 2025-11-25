@@ -35,7 +35,7 @@ jQuery能做什么：jQuery能做的JavaScript都能做，但使用jQuery能大�
 ​      方式2:通过CDN引入jQuery(不用下载，在线引入)
 
 ```
-<script src="js/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 ```
 
 ​    区别
@@ -163,7 +163,7 @@ $("ul li:nth-child(2)") //选择列表中的每个第2个元素
 $("ul li:nth-child(2n+1)") //选择列表中的每个第3、5、7...个元素：
 ```
 
-​	表单`<form>选择器
+​	表单(\<form>)选择器
 
 :input	匹配所有input、textarea、select和button 元素
 
@@ -266,7 +266,7 @@ jQuery操作元素样式
 
 ## 修改样式：
 
-​    设置单个样式:css('样式名','样式值')
+​    设置单个样式: css('样式名','样式值')
 
 ```javascript
 $('#elementId').css('color', 'red'); //元素.style.样式名
@@ -414,7 +414,9 @@ $(this).is(":contains('Peter')");
 
   text()      获取不带标签内容   (元素.innerText）
 
-​	  text(content)  获取不带标签文本内容  (元素.innerText=content）
+```
+  text(content)  获取不带标签文本内容  (元素.innerText=content）
+```
 
   val()  获取表单元素的value值    （.value）
 
@@ -425,7 +427,7 @@ $(this).is(":contains('Peter')");
 ## 遍历元素（节点）
 
   遍历元素:each
-    	$('选择器').each(function(index,domElement){})
+    	`$('选择器').each(function(index,domElement){})`
 
   **遍历对象或者数组： $.each**
     	$.each(Object, function(index,element){})
