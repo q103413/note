@@ -10,6 +10,8 @@
 
 * [jQuery笔记](jQuery.md)
 
+* [微信小程序开发教程](小程序开发/微信小程序开发教程.md)
+
 * [Scala笔记](Scala.md)
 
 * [hadoop项目1安装及配置虚拟机](Hadoop大数据/项目1-1安装及配置虚拟机.md)
