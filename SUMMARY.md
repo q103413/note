@@ -30,6 +30,6 @@
 
 * [Linux常用命令](运维/Linux常用命令.md)
 
-* [Go 语言结构体(Struct)](go语言/Go 语言结构体(Struct).md)
+* [Go 语言结构体(Struct)](go语言/结构体(Struct).md)
 
     
