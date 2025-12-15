@@ -6,7 +6,7 @@
 | **求职意向**  | Go+vue全栈工程师                                   |
 | **联系方式**  | ![tg](http://img.an520.com/test/tg.svg) @flygodata |
 | **年龄/籍贯** | 34岁 / 深圳                                        |
-| **技术博客**  | https://zhangwei.gitbook.io/note                   |
+| **技术博客**  | https://zhangwei.gitbook.io                        |
 
 ------
 
